@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Klub mladých diabetiků</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=alpino@700,500,400,300,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Klub mladých diabetiků</div>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <ul class="nav-links">
+                <li><a href="o-nas.html">O nás</a></li>
+                <li><a href="diatabor-2026.html" style="color: var(--col-yellow-pale);">Diatábor 2026</a></li>
+                <li><a href="fotogalerie.html">Fotogalerie</a></li>
+                <li><a href="sponzori.html">Sponzoři</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <h1>Léto plné zážitků</h1>
+            <p>Zveme vás na nezapomenutelný letní tábor pro děti s diabetem. Zábava, edukace a nová přátelství v přírodě.</p>
+            <a href="diatabor-2026.html" class="btn btn-primary">Přihlásit se na Diatábor 2026</a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <div class="grid-cards">
+            <div class="card">
+                <span class="card-icon">👋</span>
+                <h3>O nás</h3>
+                <p>Jsme komunita, která pomáhá mladým diabetikům žít naplno. Zjistěte více o naší historii a poslání.</p>
+                <a href="o-nas.html" class="btn btn-secondary">Více o klubu</a>
+            </div>
+
+            <div class="card" style="border-color: var(--col-orange);">
+                <span class="card-icon">⛺</span>
+                <h3>Diatábor 2026</h3>
+                <p>Termíny, přihlášky a informace <br>k nadcházejícímu ročníku tábora.</p>
+                <a href="diatabor-2026.html" class="btn btn-primary">Informace k táboru</a>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">📸</span>
+                <h3>Fotogalerie</h3>
+                <p>Podívejte se, jak jsme si užili minulé ročníky. Spousta úsměvů a skvělých momentů.</p>
+               
+                <a href="fotogalerie.html" class="btn btn-secondary">Prohlédnout fotky</a>
+            </div>
+        </div>
+
+       <section class="section-highlight">
+            <div class="container">
+                <h2 style="color: var(--col-teal-dark);">Chcete nás podpořit?</h2>
+                <p style="max-width: 800px; margin: 20px auto;">Bez našich skvělých sponzorů by to nešlo. Podívejte se, kdo nám pomáhá, nebo se staňte jedním z nich. 
+                    <br><br>
+                    Pokud byste rádi podpořili naše tábory, můžete tak učinit <strong>finančním darem</strong> (na základě darovací smlouvy) nebo <strong>hmotným příspěvkem</strong> (např. sladkosti na hypoglykémie či odměny pro děti).
+                    <br><br>
+                    V případě zájmu nás prosím kontaktujte. <strong>Děkujeme!</strong>
+                </p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+                    <a href="sponzori.html" class="btn btn-secondary">Naši sponzoři</a>
+                    <a href="kontakt.html#formular" class="btn btn-primary">✉️ Napište nám</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+   <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Klub mladých diabetiků</h4>
+                    <p>Pomáháme dětem s diabetem žít naplno.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Rychlé odkazy</h4>
+                    <a href="o-nas.html">O nás</a>
+                    <a href="diatabor-2026.html">Diatábor 2026</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontaktní informace</h4>
+                    <p>✉️ klubmladychdiabetiku@gmail.com</p>
+                </div>
+            </div>
+            <div class="copyright">© 2025 Klub mladých diabetiků, z.s.</div>
+        </div>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

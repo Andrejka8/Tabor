@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Fotogalerie | Klub mladých diabetiků</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=alpino@700,500,400,300,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Klub mladých diabetiků</a>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <ul class="nav-links">
+                <li><a href="o-nas.html">O nás</a></li>
+                <li><a href="diatabor-2026.html" style="color: var(--col-yellow-pale);">Diatábor 2026</a></li>
+                <li><a href="fotogalerie.html" class="active">Fotogalerie</a></li>
+                <li><a href="sponzori.html">Sponzoři</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Fotogalerie</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="gallery-grid">
+            <img src="images/2025.jpg" alt="Tábor 2025" class="gallery-img">
+            <img src="images/2024.jpg" alt="Tábor 2024" class="gallery-img">
+            <img src="images/2023.jpg" alt="Tábor 2023" class="gallery-img">
+            <img src="images/2022.jpg" alt="Tábor 2022" class="gallery-img">
+            <img src="images/2021.jpg" alt="Tábor 2021" class="gallery-img">
+            <img src="images/2020.jpg" alt="Tábor 2020" class="gallery-img">
+        </div>
+    </main>
+
+   <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Klub mladých diabetiků</h4>
+                    <p>Pomáháme dětem s diabetem žít naplno.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Rychlé odkazy</h4>
+                    <a href="o-nas.html">O nás</a>
+                    <a href="diatabor-2026.html">Diatábor 2026</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontaktní informace</h4>
+                    <p>✉️ klubmladychdiabetiku@gmail.com</p>
+                </div>
+            </div>
+            <div class="copyright">© 2025 Klub mladých diabetiků, z.s.</div>
+        </div>
+    </footer>
+    
+    <script>function toggleMenu(){document.querySelector('.nav-links').classList.toggle('active');}</script>
+</body>
+</html>

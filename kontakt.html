@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Kontakt| Klub mladých diabetiků</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=alpino@700,500,400,300,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Klub mladých diabetiků</a>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <ul class="nav-links">
+                <li><a href="o-nas.html">O nás</a></li>
+                <li><a href="diatabor-2026.html" style="color: var(--col-yellow-pale);">Diatábor 2026</a></li>
+                <li><a href="fotogalerie.html">Fotogalerie</a></li>
+                <li><a href="sponzori.html">Sponzoři</a></li>
+                <li><a href="kontakt.html" class="active">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Kontakt</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="contact-wrapper">
+            <div class="contact-info-box">
+                <h2>Klub mladých diabetiků, z. s.</h2>
+                <br>
+                <div class="info-item">
+                    <div class="icon">📍</div>
+                    <div><strong>Sídlo spolku:</strong><br>Ratibořská 1444/55<br>747 05 Opava 5</div>
+                </div>
+                <div class="info-item">
+                    <div class="icon">📞</div>
+                    <div><strong>Telefon:</strong><br><a href="tel:+420604804779" class="phone-link">+420 604 804 779</a></div>
+                </div>
+                <div class="info-item">
+                    <div class="icon">✉️</div>
+                    <div>
+                        <strong>E-mail:</strong><br>
+                        
+                        <span 
+                            onclick="copyEmail()" 
+                            style="color: var(--col-teal-dark); cursor: pointer; text-decoration: underline;" 
+                            title="Klikněte pro zkopírování"
+                        >
+                            klubmladychdiabetiku@gmail.com
+                        </span>
+
+                        <span id="copy-msg" style="display:none; color: var(--col-orange); font-size: 0.8rem; margin-left: 10px; font-weight: bold;">
+                            ✓ Zkopírováno
+                        </span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="icon">🏦</div>
+                    <div><strong>Bankovní číslo účtu:</strong><br>1022335156/5500</div>
+                </div>
+                <div class="info-item">
+                    <div class="icon">📝</div>
+                    <div><strong>IČO:</strong><br> 01780972</div>
+                </div>
+                <div class="info-item">
+                    <a href="https://www.instagram.com/tabory_kmd/" target="_blank" class="icon" aria-label="Instagram">
+                        <svg class="contact-ig-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.163 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <div><strong>Instagram:</strong><br>
+                        <a href="https://www.instagram.com/tabory_kmd/" target="_blank" style="color: var(--col-teal-dark);">@tabory_kmd</a>
+                    </div>
+                </div>
+            </div>
+
+           <div class="contact-form-box" id="formular">
+                
+                <div id="form-content">
+                    <div class="form-header">
+                        <h3>✉️ Napište nám</h3>
+                        <p>Máte dotaz k táboru? Ozvěte se.</p>
+                    </div>
+
+                    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+
+                        <input type="hidden" name="access_key" value="dffccc75-8d20-487a-b428-ed9c8987b12a">
+
+                        <input type="hidden" name="from_name" value="KMD Web">
+
+                        <input type="hidden" name="subject" value="Nová zpráva z KMD webu">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <div class="form-group">
+                            <label for="name">Jméno a příjmení</label>
+                            <input type="text" id="name" name="Jméno" placeholder="Např. Jana Nováková" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Váš E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="vas@email.cz" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Zpráva</label>
+                            <textarea id="message" name="Zpráva" rows="5" placeholder="Na co se chcete zeptat?" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit" id="submitBtn">Odeslat zprávu</button>
+                    </form>
+                </div>
+
+                <div id="success-message" class="success-box" style="display: none;">
+                    <div class="success-icon">✅</div>
+                    
+                    <h3>Zpráva odeslána!</h3>
+                    <button onclick="location.reload()" class="btn-submit" style="margin-top: 20px; background-color: var(--white); color: var(--col-teal-dark);">Poslat další</button>
+                </div>
+
+            </div>
+        </div>
+
+        <section class="section-highlight">
+            <div class="container">
+                <h2 style="color: var(--col-teal-dark);">Chcete nás podpořit?</h2>
+                <p style="max-width: 800px; margin: 20px auto;">Bez našich skvělých sponzorů by to nešlo. Podívejte se, kdo nám pomáhá, nebo se staňte jedním z nich. <br><br>Pokud byste rádi podpořili naše tábory, můžete tak učinit <strong>finančním darem</strong> (na základě darovací smlouvy) nebo <strong>hmotným příspěvkem</strong> (např. sladkosti na hypoglykémie či odměny pro děti).
+                    <br><br>
+                    V případě zájmu nás prosím kontaktujte. <strong>Děkujeme!</strong></p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+                    <a href="sponzori.html" class="btn btn-secondary">Naši sponzoři</a>
+                    <a href="#formular" class="btn btn-primary" onclick="highlightForm()">✉️ Napište nám</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+   <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Klub mladých diabetiků</h4>
+                    <p>Pomáháme dětem s diabetem žít naplno.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Rychlé odkazy</h4>
+                    <a href="o-nas.html">O nás</a>
+                    <a href="diatabor-2026.html">Diatábor 2026</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontaktní informace</h4>
+                    <p>✉️ klubmladychdiabetiku@gmail.com</p>
+                </div>
+            </div>
+            <div class="copyright">© 2025 Klub mladých diabetiků, z.s.</div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu(){
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        // --- Copy Email to Clipboard ---
+        function copyEmail() {
+            const email = "klubmladychdiabetiku@gmail.com";
+            
+            // Use the clipboard API
+            navigator.clipboard.writeText(email).then(() => {
+                // 1. Show "Copied" message
+                const msg = document.getElementById("copy-msg");
+                msg.style.display = "inline";
+
+                // 2. Hide it after 2 seconds
+                setTimeout(() => {
+                    msg.style.display = "none";
+                }, 2000);
+            }).catch(err => {
+                console.error('Chyba při kopírování: ', err);
+            });
+        }
+
+        // --- Highlight Form Effect ---
+        // 'shouldScroll' determines if we move the screen or just flash
+        function highlightForm(shouldScroll = true) {
+            const formBox = document.getElementById('formular');
+            if (formBox) {
+                
+                // Only scroll if clicked manually (not on page load)
+                if (shouldScroll) {
+                    formBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+
+                // Restart Animation
+                formBox.classList.remove('highlight-pulse');
+                void formBox.offsetWidth; // Trigger reflow
+                formBox.classList.add('highlight-pulse');
+            }
+        }
+
+        // --- Check URL on Page Load ---
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.location.hash === '#formular') {
+                // Browser already jumped to #formular. 
+                // We just trigger the animation (false = no scroll).
+                setTimeout(() => highlightForm(false), 300);
+            }
+        });
+
+        // --- Web3Forms AJAX Handling ---
+        const form = document.getElementById('contactForm');
+        const formContent = document.getElementById('form-content');
+        const successMsg = document.getElementById('success-message');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = "Odesílám...";
+            submitBtn.style.opacity = "0.7";
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    formContent.style.display = 'none';
+                    successMsg.style.display = 'flex';
+                } else {
+                    console.log(response);
+                    alert(json.message); 
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.style.opacity = "1";
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                alert("Něco se pokazilo. Zkuste to prosím znovu.");
+                submitBtn.innerText = originalBtnText;
+                submitBtn.style.opacity = "1";
+            });
+        });
+    </script>
+</body>
+</html>
