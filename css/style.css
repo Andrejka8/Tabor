@@ -280,7 +280,6 @@ header.hero {
 
 .card-icon {
     font-size: 2.5rem;
-    color: var(--col-green-leaf);
     margin-bottom: 15px;
     display: block;
 }
@@ -460,7 +459,7 @@ header.hero {
     border-radius: 20px;
     font-family: 'Alpino', sans-serif;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     z-index: 5;
     min-height: 42px; 
@@ -541,7 +540,7 @@ header.hero {
     text-align: center;
     transition: transform 0.3s ease;
     border: 1px solid rgba(0,0,0,0.02);
-    border-bottom: 5px solid var(--col-mint);
+    border-bottom: 5px solid var(--col-teal-med);
 }
 
 .info-box:hover {
@@ -624,27 +623,99 @@ header.hero {
 /* =========================================
    10. PAGE: FOTOGALERIE
    ========================================= */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 40px;
+.gallery-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    max-width: 850px;
+    margin: 0 auto 80px auto;
 }
 
-.gallery-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 15px;
+.big-card {
+    display: block;
+    background-color: var(--white);
+    border-radius: 20px;
+    overflow: hidden; 
+    text-decoration: none;
     box-shadow: var(--shadow);
-    transition: transform 0.3s;
-    background-color: var(--col-mint-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+    transform: translateZ(0); 
 }
 
-.gallery-img:hover {
-    transform: scale(1.03);
+.big-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(15, 125, 100, 0.15);
 }
 
+/* Big Image Area */
+.big-card-image {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.big-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.big-card:hover .big-card-image img {
+    transform: scale(1.02); /* Minimal zoom */
+}
+
+/* Centered Footer Bar */
+.big-card-footer {
+    padding: 18px 25px; /* Balanced padding */
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center;
+    background: var(--white);
+    border-top: 1px solid rgba(0,0,0,0.04);
+}
+
+/* Text Layout */
+.footer-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers text lines relative to each other */
+    text-align: center;  /* Ensures text is centered */
+    gap: 4px;
+}
+
+.year-label {
+    font-size: 1.6rem;
+    color: var(--col-teal-dark);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Alpino', sans-serif;
+}
+
+.footer-text h3 {
+    margin: 0;
+    font-size: 1.7rem;
+    color: var(--col-blue-dark);
+    font-family: 'Alpino', sans-serif;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .big-card-image {
+        height: 240px;
+    }
+
+    .big-card-footer {
+        padding: 15px;
+    }
+
+    .footer-text h3 {
+        font-size: 1.3rem;
+    }
+}
 /* =========================================
    11. PAGE: SPONZOŘI
    ========================================= */
@@ -1072,6 +1143,12 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.footer-col p {
+    line-height: 2;         /* Bigger space between lines (was approx 1.6) */
+    margin-bottom: 20px;    /* Space below the text block */
+    max-width: 330px;       /* Keeps the text block from getting too wide */
 }
 
 .footer-col h4 {
