@@ -627,8 +627,8 @@ header.hero {
     display: flex;
     flex-direction: column;
     gap: 50px;
-    max-width: 850px;
-    margin: 0 auto 80px auto;
+    max-width: 1000px;
+    margin: 0 auto 100px auto;
 }
 
 .big-card {
@@ -639,8 +639,6 @@ header.hero {
     text-decoration: none;
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(0,0,0,0.05);
-    transform: translateZ(0); 
 }
 
 .big-card:hover {
@@ -651,7 +649,7 @@ header.hero {
 /* Big Image Area */
 .big-card-image {
     width: 100%;
-    height: 400px;
+    height: 550px;
     position: relative;
     overflow: hidden;
 }
@@ -660,11 +658,6 @@ header.hero {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
-}
-
-.big-card:hover .big-card-image img {
-    transform: scale(1.02); /* Minimal zoom */
 }
 
 /* Centered Footer Bar */
