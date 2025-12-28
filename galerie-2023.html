@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotogalerie 2023 | Klub mladých diabetiků</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=alpino@700,500,400,300,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Klub mladých diabetiků</a>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <ul class="nav-links">
+                <li><a href="o-nas.html">O nás</a></li>
+                <li><a href="diatabor-2026.html" style="color: var(--col-yellow-pale);">Diatábor 2026</a></li>
+                <li><a href="fotogalerie.html" class="active">Fotogalerie</a></li>
+                <li><a href="sponzori.html">Sponzoři</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Tábor 2023: Cesta kolem světa</h1>
+            <a href="fotogalerie.html" class="back-link">← Zpět na seznam</a>
+            <div> <a href="images/2023.zip" class="download-all-btn" download>
+                    💾 Stáhnout celé album (.zip)
+                    </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <div class="photo-grid-standard" id="gallery-container"></div>
+           
+         <div class="bottom-action-bar">
+            <a href="images/2023.zip" class="download-all-btn bottom-btn" download>
+                💾 Stáhnout celé album (.zip)
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Klub mladých diabetiků</h4>
+                    <p>Pomáháme dětem s diabetem žít naplno.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Rychlé odkazy</h4>
+                    <a href="fotogalerie.html">Zpět do galerie</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontaktní informace</h4>
+                    <p>✉️ klubmladychdiabetiku@gmail.com</p>
+                </div>
+            </div>
+            <div class="copyright">© 2025 Klub mladých diabetiků, z.s.</div>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        
+        <a id="lb-download" href="" download class="lb-download-btn" title="Stáhnout fotku">
+            Stáhnout
+        </a>
+
+        <button class="lb-arrow lb-prev" onclick="changeSlide(-1)">❮</button>
+        <button class="lb-arrow lb-next" onclick="changeSlide(1)">❯</button>
+
+        <img id="lightbox-img" src="">
+        <div class="lb-counter" id="lb-counter"></div>
+    </div>
+    
+    <script>
+        /* =========================================
+        1. GLOBAL VARIABLES (Defined first to prevent errors)
+        ========================================= */
+        let currentIndex = 0;
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const counter = document.getElementById('lb-counter');
+        const downloadBtn = document.getElementById('lb-download');
+        
+        // Settings for Auto-Generation
+        const totalPhotos = 158; 
+        const folderPath = 'images/2023/'; 
+        const extension = '.jpg'; 
+        
+        // We will store the list of image links here
+        let bigImageLinks = [];
+
+        function toggleMenu(){
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        /* =========================================
+        2. LIGHTBOX FUNCTIONS
+        ========================================= */
+        function openLightbox(index) {
+            // Ensure index is a number
+            currentIndex = parseInt(index);
+            
+            // Safety check: prevent errors if index is weird
+            if (isNaN(currentIndex)) currentIndex = 0;
+
+            showImage();
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto'; 
+        }
+
+        function changeSlide(direction) {
+            currentIndex += direction;
+            
+            // Loop logic (Infinite scroll)
+            if (currentIndex >= bigImageLinks.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = bigImageLinks.length - 1;
+            
+            showImage();
+        }
+
+        function showImage() {
+            if (bigImageLinks.length > 0) {
+                const path = bigImageLinks[currentIndex];
+                
+                // 1. Update the image
+                lightboxImg.src = path;
+                
+                // 2. Update the counter
+                counter.innerText = (currentIndex + 1) + " / " + bigImageLinks.length;
+
+                // 3. NEW: Update the download link
+                if (downloadBtn) {
+                    downloadBtn.href = path;
+                }
+            }
+        }
+
+        // Event Listeners for Lightbox
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === 'ArrowLeft') changeSlide(-1);
+                if (e.key === 'ArrowRight') changeSlide(1);
+                if (e.key === 'Escape') closeLightbox();
+            }
+        });
+
+        /* =========================================
+        3. AUTO-GENERATE GALLERY
+        ========================================= */
+        document.addEventListener("DOMContentLoaded", function() {
+            const container = document.getElementById('gallery-container');
+
+            // Only run if the container exists
+            if (container) {
+                for (let i = 1; i <= totalPhotos; i++) {
+                    // Define paths
+                    // Note: Change 'thumbs/' to '' if you didn't create a thumbs folder
+                    const thumbSrc = `${folderPath}thumbs/foto (${i})${extension}`;
+                    const bigSrc   = `${folderPath}foto (${i})${extension}`;
+                    
+                    // Add to our global list
+                    bigImageLinks.push(bigSrc);
+
+                    // Create DIV
+                    const div = document.createElement('div');
+                    div.className = 'photo-item';
+
+                    // Create IMG
+                    const img = document.createElement('img');
+                    img.src = thumbSrc; 
+                    img.loading = 'lazy';
+                    img.alt = `Foto ${i}`;
+                    
+                    // Store index (0 to 119)
+                    const imageIndex = i - 1;
+
+                    // On click, call the function we defined above
+                    img.onclick = function() { 
+                        openLightbox(imageIndex); 
+                    };
+
+                    // Fallback: If thumbnail is missing, try loading the big image directly
+                    img.onerror = function() {
+                        console.warn("Thumbnail missing, trying big image for:", this.src);
+                        this.src = bigSrc; 
+                    };
+
+                    div.appendChild(img);
+                    container.appendChild(div);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
