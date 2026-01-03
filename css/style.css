@@ -29,6 +29,9 @@
 /* =========================================
    2. RESET & GLOBAL STYLES
    ========================================= */
+   html {
+    overflow-y: scroll; 
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -217,7 +220,7 @@ header.hero {
 .page-header {
     background: linear-gradient(135deg, var(--col-teal-dark), var(--col-blue-dark));
     color: var(--white);
-    padding: 50px 0;
+    padding: 35px 0;
     text-align: center;
     margin-bottom: 40px;
 }
@@ -1263,6 +1266,235 @@ footer {
 
     /* Lightbox */
     .lb-arrow { font-size: 30px; padding: 10px; }
+    .lb-prev { left: 5px; }
+    .lb-next { right: 5px; }
+}
+
+/* =========================================
+   16. SUBPAGE: PHOTO GRID (MASONRY)
+   ========================================= */
+
+.back-link {
+    color: var(--col-yellow-pale);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    display: inline-block;
+    letter-spacing: 1px;
+    transition: transform 0.2s;
+}
+
+.back-link:hover {
+    transform: translateX(-5px);
+}
+
+/* The Grid Container */
+.photo-grid-standard {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px; /* Space between photos */
+    margin-bottom: 50px;
+}
+
+/* The Photo Item */
+.photo-item {
+    position: relative;
+    aspect-ratio: 1 / 1; 
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background-color: #ddd; /* Loading placeholder color */
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This crops the image to fill the square perfectly */
+    cursor: pointer;
+    display: block;
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    flex-direction: column;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+    border: 1px solid #333;
+}
+
+.lb-counter {
+    color: #888;
+    margin-top: 15px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 50px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: 0.3s;
+    line-height: 1;
+}
+
+.close-btn:hover { color: var(--col-orange); }
+
+.lb-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    color: white;
+    font-size: 30px;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.lb-arrow:hover {
+    color: var(--col-orange);
+}
+
+.lb-prev { left: 20px; }
+.lb-next { right: 20px; }
+
+.lb-download-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px; /* Top left corner */
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 2005; /* Above everything */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lb-download-btn:hover {
+    background-color: var(--col-orange);
+    border-color: var(--col-orange);
+    color: white;
+    transform: translateY(2px);
+}
+.header-top-row {
+    display: flex;
+    justify-content: space-between; /* Pushes items to edges */
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping on small phones */
+    gap: 15px;
+}
+
+/* The Download All Button */
+.download-all-btn {
+    display: inline-flex; /* Important: Fits text width, doesn't stretch */
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--white);
+    
+    padding: 10px 25px;
+    border-radius: 50px;
+    
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    
+    margin-top: 30px; /* Space between button and Title */
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.download-all-btn:hover {
+    background-color: var(--col-orange);
+    border-color: var(--col-orange);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.bottom-action-bar {
+    text-align: center;  
+    margin-bottom: 40px;
+    padding-top: 0px;
+}
+
+/* Specific adjustment for the bottom button */
+.download-all-btn.bottom-btn {
+    margin-top: 0; /* Override the header margin */
+    background-color: var(--col-teal-med); /* Different color to stand out (optional) */
+}
+
+.download-all-btn.bottom-btn:hover {
+    background-color: var(--col-orange);
+}
+
+/* Mobile Adjustment */
+@media (max-width: 600px) {
+    .download-all-btn {
+        font-size: 0.75rem; /* Slightly smaller text on phone */
+        padding: 8px 20px;
+    }
+}
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+    .lb-download-btn {
+        top: auto;
+        bottom: 20px; /* Move to bottom on phones */
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+    }
+    
+    .lb-download-btn:hover {
+        transform: translateX(-50%) translateY(-2px);
+    }
+}
+/* Mobile */
+@media (max-width: 768px) {
+    .photo-grid-standard {
+        /* Smaller columns on phone */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+    }
+    
+    .lb-arrow {
+        font-size: 20px;
+        padding: 10px;
+    }
+    
     .lb-prev { left: 5px; }
     .lb-next { right: 5px; }
 }
