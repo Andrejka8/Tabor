@@ -1,8 +1,4 @@
-pridat prispevky
-
 do kontaktních informaci pridat instagram
-
-aby se na fotky dalo kliknout
 
 pridat medailonky a prispevky
 
@@ -10,10 +6,12 @@ zmenit fotku 2O21
 
 projit style a vsechno jestli neni zbytecne
 
-na co se zeptat (zjistit) - fotka z 2021, tema text, rok ucastniku, sponzori z minulych let?, telefon na kontakt, rada?
+na co se zeptat (zjistit) - fotka z 2021, tema text, rozmezi let ucastniku, sponzori z minulych let?, telefon na kontakt, rada?
 
 zmenit zmensovani a zvetsovani
 
 zbytecne barvy gold a sand - smazat pokud nevyuzite
 
-cookies, zpracvani osobnich udaju info
+cookies, zpracovani osobnich udaju info
+
+při reloadu stranky se vse hejbe - nadpis, header atd

@@ -54,8 +54,8 @@
                     <div>
                         <strong>E-mail:</strong><br>
                         
-                        <span 
-                            onclick="copyEmail()" 
+                       <span 
+                            onclick="copyEmail('copy-msg')" 
                             style="color: var(--col-teal-dark); cursor: pointer; text-decoration: underline;" 
                             title="Klikněte pro zkopírování"
                         >
@@ -169,102 +169,6 @@
             <div class="copyright">© 2025 Klub mladých diabetiků, z.s.</div>
         </div>
     </footer>
-
-    <script>
-        function toggleMenu(){
-            document.querySelector('.nav-links').classList.toggle('active');
-        }
-
-        // --- Copy Email to Clipboard ---
-        function copyEmail() {
-            const email = "klubmladychdiabetiku@gmail.com";
-            
-            // Use the clipboard API
-            navigator.clipboard.writeText(email).then(() => {
-                // 1. Show "Copied" message
-                const msg = document.getElementById("copy-msg");
-                msg.style.display = "inline";
-
-                // 2. Hide it after 2 seconds
-                setTimeout(() => {
-                    msg.style.display = "none";
-                }, 2000);
-            }).catch(err => {
-                console.error('Chyba při kopírování: ', err);
-            });
-        }
-
-        // --- Highlight Form Effect ---
-        // 'shouldScroll' determines if we move the screen or just flash
-        function highlightForm(shouldScroll = true) {
-            const formBox = document.getElementById('formular');
-            if (formBox) {
-                
-                // Only scroll if clicked manually (not on page load)
-                if (shouldScroll) {
-                    formBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-
-                // Restart Animation
-                formBox.classList.remove('highlight-pulse');
-                void formBox.offsetWidth; // Trigger reflow
-                formBox.classList.add('highlight-pulse');
-            }
-        }
-
-        // --- Check URL on Page Load ---
-        document.addEventListener("DOMContentLoaded", function() {
-            if (window.location.hash === '#formular') {
-                // Browser already jumped to #formular. 
-                // We just trigger the animation (false = no scroll).
-                setTimeout(() => highlightForm(false), 300);
-            }
-        });
-
-        // --- Web3Forms AJAX Handling ---
-        const form = document.getElementById('contactForm');
-        const formContent = document.getElementById('form-content');
-        const successMsg = document.getElementById('success-message');
-        const submitBtn = document.getElementById('submitBtn');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault(); 
-
-            const originalBtnText = submitBtn.innerText;
-            submitBtn.innerText = "Odesílám...";
-            submitBtn.style.opacity = "0.7";
-
-            const formData = new FormData(form);
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
-
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-            .then(async (response) => {
-                let json = await response.json();
-                if (response.status == 200) {
-                    formContent.style.display = 'none';
-                    successMsg.style.display = 'flex';
-                } else {
-                    console.log(response);
-                    alert(json.message); 
-                    submitBtn.innerText = originalBtnText;
-                    submitBtn.style.opacity = "1";
-                }
-            })
-            .catch(error => {
-                console.log(error);
-                alert("Něco se pokazilo. Zkuste to prosím znovu.");
-                submitBtn.innerText = originalBtnText;
-                submitBtn.style.opacity = "1";
-            });
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
