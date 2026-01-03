@@ -921,6 +921,7 @@ input, textarea {
     color: var(--col-blue-dark);
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
+    resize: none;
 }
 
 input:focus, textarea:focus {
@@ -1600,4 +1601,39 @@ footer {
     opacity: 1;           
     visibility: visible;
     transform: translateX(-50%) translateY(0); /* Pops UP into place */
+}
+
+/* Instagram Button (Clean & Minimal) */
+.instagram-btn {
+    /* Layout: Forces button to fit content */
+    display: inline-flex !important; 
+    width: fit-content !important;   
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    
+    /* Small, Pill Shape */
+    padding: 6px 16px;
+    border-radius: 50px;
+    
+    /* Clean Design (No Gradient) */
+    background-color: transparent; 
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    
+    /* Text matches footer text color */
+    color: var(--col-mint-light) !important;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem;
+    
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect: Uses YOUR Brand Orange */
+.instagram-btn:hover {
+    background-color: var(--col-orange);
+    border-color: var(--col-orange);
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(228, 97, 58, 0.4);
 }
