@@ -698,20 +698,6 @@ header.hero {
     font-family: 'Alpino', sans-serif;
 }
 
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .big-card-image {
-        height: 240px;
-    }
-
-    .big-card-footer {
-        padding: 15px;
-    }
-
-    .footer-text h3 {
-        font-size: 1.3rem;
-    }
-}
 /* =========================================
    11. PAGE: SPONZOŘI
    ========================================= */
@@ -1020,21 +1006,6 @@ button.btn-submit:hover {
     transition: color 0.3s ease;
 }
 
-@media (min-width: 769px) {
-    .phone-link {
-        pointer-events: none;
-        cursor: text;
-        color: var(--col-blue-dark);
-    }
-}
-
-@media (max-width: 768px) {
-    .phone-link {
-        cursor: pointer;
-        text-decoration: underline;
-    }
-}
-
 /* =========================================
    13. LIGHTBOX
    ========================================= */
@@ -1178,8 +1149,11 @@ footer {
 /* =========================================
    15. MEDIA QUERIES (MOBILE OPTIMIZATION)
    ========================================= */
+
+/* --- TABLETS & PHONES (Max Width 768px) --- */
 @media (max-width: 768px) {
-    /* Navigation */
+    
+    /* 1. Navigation */
     .nav-links {
         display: none;
         flex-direction: column;
@@ -1200,21 +1174,21 @@ footer {
         display: block;
     }
 
-    /* Headers */
+    /* 2. Headers & Hero */
     .hero-content h1 {
         font-size: 2.5rem;
     }
+    
     header.hero {
         height: 60vh;
         border-radius: 0;
     }
 
-    /* O nas: Carousel */
+    /* 3. O Nás: Carousel & Timeline */
     .image-carousel {
         height: 300px;
     }
 
-    /* O nas: Timeline (Zig-Zag reset to linear) */
     .story-container::before {
         left: 30px; 
     }
@@ -1242,8 +1216,7 @@ footer {
         padding-left: 20px; 
         background: var(--white);
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        
-        /* Indent from the line */
+        /* Indent from the timeline line */
         margin-left: 70px !important; 
         width: calc(100% - 70px);
     }
@@ -1252,22 +1225,72 @@ footer {
         display: none; 
     }
 
-    /* Diatabor */
+    /* 4. Diatabor & Contact */
     .nature-notice {
         flex-direction: column;
         text-align: center;
         padding: 30px;
     }
 
-    /* Kontakt */
     .contact-wrapper {
         grid-template-columns: 1fr;
     }
+    
+    .phone-link {
+        cursor: pointer;
+        text-decoration: underline;
+    }
 
-    /* Lightbox */
-    .lb-arrow { font-size: 30px; padding: 10px; }
+    /* 5. Fotogalerie: Big Cards */
+    .big-card-image {
+        height: 240px;
+    }
+
+    .big-card-footer {
+        padding: 15px;
+    }
+
+    .footer-text h3 {
+        font-size: 1.3rem;
+    }
+
+    /* 6. Subpage: Photo Grid (Masonry) */
+    .photo-grid-standard {
+        /* Smaller columns on phone (2 per row usually) */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+    }
+
+    /* 7. Lightbox Interface */
+    .lb-arrow {
+        font-size: 20px;
+        padding: 10px;
+    }
+    
     .lb-prev { left: 5px; }
     .lb-next { right: 5px; }
+
+    /* Move Download button to bottom center on mobile */
+    .lb-download-btn {
+        top: auto;
+        bottom: 20px; 
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+    }
+    
+    .lb-download-btn:hover {
+        transform: translateX(-50%) translateY(-2px);
+    }
+}
+
+/* --- SMALL PHONES (Max Width 600px) --- */
+@media (max-width: 600px) {
+    /* Header "Download All" Button */
+    .download-all-btn {
+        font-size: 0.75rem; 
+        padding: 8px 20px;
+    }
 }
 
 /* =========================================
@@ -1497,4 +1520,84 @@ footer {
     
     .lb-prev { left: 5px; }
     .lb-next { right: 5px; }
+}
+
+/* =========================================
+   18. FOOTER EMAIL COPY & INSTAGRAM (FINAL)
+   ========================================= */
+
+/* 1. Space for the bubble */
+.footer-col h4 {
+    margin-bottom: 25px; 
+}
+
+/* 2. Email Wrapper */
+.email-click-wrapper {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    transition: transform 0.1s ease;
+    margin-bottom: 10px; 
+}
+
+.email-click-wrapper:hover {
+    transform: scale(1.02);
+}
+
+.email-click-wrapper:hover .footer-email-text {
+    color: var(--col-orange);
+    text-decoration: underline;
+}
+
+.email-click-wrapper:active {
+    transform: scale(0.98);
+}
+
+/* 3. The Popup Bubble (Small & Animated) */
+.copy-popup {
+    /* Visuals */
+    background-color: var(--col-teal-dark);
+    color: #fff;
+    
+    /* Compact Size */
+    padding: 3px 8px; 
+    font-size: 0.7rem; 
+    
+    border-radius: 4px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 100;
+
+    /* Positioning */
+    position: absolute;
+    bottom: 105%; /* Moves it ABOVE the email */
+    left: 50%;
+    
+    /* HIDDEN STATE (Default) */
+    opacity: 0;           
+    visibility: hidden;   
+    transform: translateX(-50%) translateY(10px); /* Sits slightly lower */
+    
+    /* Animation settings */
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* 4. The Arrow (Small) */
+.copy-popup::after {
+    content: "";
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    margin-left: -4px; 
+    border-width: 4px; 
+    border-style: solid;
+    border-color: var(--col-teal-dark) transparent transparent transparent;
+}
+
+/* 5. VISIBLE STATE */
+.copy-popup.show {
+    opacity: 1;           
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); /* Pops UP into place */
 }

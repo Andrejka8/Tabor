@@ -23,16 +23,22 @@ function copyEmail(elementId) {
     if (!feedback) return; 
 
     navigator.clipboard.writeText(email).then(() => {
-        // Show message
-        feedback.classList.add("show"); // For Footer styling
+        // 1. Show the message (Adds CSS class)
+        feedback.classList.add("show");
         
-        // Handle display type: Kontakt page uses 'inline', Footer uses 'block'/'flex'
-        feedback.style.display = (elementId === 'copy-msg' || elementId === 'contact-msg') ? "inline" : "block";
+        // 2. Special handling ONLY for Contact Page (Inline text)
+        // We do NOT touch the display style for the Footer (footer-msg), 
+        // we let the CSS class handle it.
+        if (elementId === 'contact-msg' || elementId === 'copy-msg') {
+            feedback.style.display = "inline";
+        }
 
-        // Hide after 2 seconds
+        // 3. Hide after 2 seconds
         setTimeout(() => {
             feedback.classList.remove("show");
-            if (elementId === 'copy-msg' || elementId === 'contact-msg') {
+            
+            // Hide the Contact Page text again
+            if (elementId === 'contact-msg' || elementId === 'copy-msg') {
                 feedback.style.display = "none";
             }
         }, 2000);

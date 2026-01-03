@@ -54,15 +54,15 @@
                     <div>
                         <strong>E-mail:</strong><br>
                         
-                       <span 
-                            onclick="copyEmail('copy-msg')" 
+                        <span 
+                            onclick="copyEmail('contact-msg')" 
                             style="color: var(--col-teal-dark); cursor: pointer; text-decoration: underline;" 
                             title="Klikněte pro zkopírování"
                         >
                             klubmladychdiabetiku@gmail.com
                         </span>
 
-                        <span id="copy-msg" style="display:none; color: var(--col-orange); font-size: 0.8rem; margin-left: 10px; font-weight: bold;">
+                        <span id="contact-msg" style="display:none; color: var(--col-orange); font-size: 0.8rem; margin-left: 10px; font-weight: bold;">
                             ✓ Zkopírováno
                         </span>
                     </div>
@@ -163,7 +163,11 @@
                 </div>
                 <div class="footer-col">
                     <h4>Kontaktní informace</h4>
-                    <p>✉️ klubmladychdiabetiku@gmail.com</p>
+                    <p class="email-click-wrapper" onclick="copyEmail('footer-msg')">
+                    ✉️ <span class="footer-email-text">klubmladychdiabetiku@gmail.com</span>
+
+                    <span id="footer-msg" class="copy-popup">Zkopírováno!</span>
+                    </p>
                 </div>
             </div>
             <div class="copyright">© 2025 Klub mladých diabetiků, z.s.</div>
