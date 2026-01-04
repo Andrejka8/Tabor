@@ -40,14 +40,15 @@
         </div>
     </header>
 
-    <main class="container">
-        
+    <main class="container"> 
         <div class="photo-grid-standard" id="gallery-container"></div>
-           
-         <div class="bottom-action-bar">
+        <div class="bottom-action-bar">
             <a href="images/2023.zip" class="download-all-btn bottom-btn" download>
                 💾 Stáhnout celé album (.zip)
             </a>
+            <div style="margin-top: 20px;">
+                <a href="fotogalerie.html" class="back-link bottom-link-fix">← Zpět na seznam</a>
+            </div>
         </div>
     </main>
 
@@ -60,7 +61,8 @@
                 </div>
                 <div class="footer-col">
                     <h4>Rychlé odkazy</h4>
-                    <a href="fotogalerie.html">Zpět do galerie</a>
+                    <a href="o-nas.html">O nás</a>
+                    <a href="diatabor-2026.html">Diatábor 2026</a>
                     <a href="kontakt.html">Kontakt</a>
                 </div>
                 <div class="footer-col">
@@ -94,6 +96,11 @@
         <img id="lightbox-img" src="">
         <div class="lb-counter" id="lb-counter"></div>
     </div>
+    <button id="scrollToTopBtn" class="scroll-top-btn" title="Zpět nahoru">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
     
     <script src="js/script.js"></script>
 

@@ -56,21 +56,22 @@ document.addEventListener("DOMContentLoaded", function() {
     const heroSection = document.querySelector('header.hero');
     
     if (heroSection) {
-        const totalImages = 14; 
+        const totalImages = 11; // Ensure this matches your file count
         const folder = 'images/';
-        const extension = '.JPG'; // Case sensitive
+        const extension = '.JPG'; // Case sensitive!
 
+        // Generate number
         const randomNum = Math.floor(Math.random() * totalImages) + 1;
-        const gradient = "linear-gradient(135deg, rgba(15, 125, 100, 0.9), rgba(43, 69, 112, 0.8))";
+        
+        // Define Image URL
         const imageUrl = `${folder}${randomNum}${extension}`;
+        
+        // Define Gradient
+        const gradient = "linear-gradient(135deg, rgba(15, 125, 100, 0.9), rgba(43, 69, 112, 0.8))";
 
-        const img = new Image();
-        img.src = imageUrl;
-        img.onload = function() {
-            heroSection.style.background = `${gradient}, url('${imageUrl}')`;
-            heroSection.style.backgroundSize = 'cover';
-            heroSection.style.backgroundPosition = 'center';
-        };
+        heroSection.style.backgroundImage = `${gradient}, url('${imageUrl}')`;
+        heroSection.style.backgroundSize = 'cover';
+        heroSection.style.backgroundPosition = 'center';
     }
 });
 
@@ -313,6 +314,29 @@ function initGalleryPage(totalPhotos, folderPath, extension = '.jpg') {
                 if (e.key === 'ArrowRight') changeSlide(1);
                 if (e.key === 'Escape') closeLightbox();
             }
+        });
+    });
+}
+/* =========================================
+   SCROLL TO TOP FUNCTIONALITY
+   ========================================= */
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+if (scrollToTopBtn) {
+    // 1. Show/Hide button on scroll
+    window.addEventListener("scroll", function() {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add("show-btn");
+        } else {
+            scrollToTopBtn.classList.remove("show-btn");
+        }
+    });
+
+    // 2. Scroll to top when clicked
+    scrollToTopBtn.addEventListener("click", function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth" 
         });
     });
 }

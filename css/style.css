@@ -652,7 +652,9 @@ header.hero {
 /* Big Image Area */
 .big-card-image {
     width: 100%;
-    height: 550px;
+    height: auto; 
+    aspect-ratio: 16 / 9; /* Keeps a nice rectangular shape relative to width */
+    max-height: 550px;
     position: relative;
     overflow: hidden;
 }
@@ -1312,6 +1314,15 @@ footer {
     transform: translateX(-5px);
 }
 
+.bottom-link-fix {
+    color: var(--col-teal-dark) !important; /* Overrides the yellow color */
+}
+
+.bottom-link-fix:hover {
+    color: var(--col-orange) !important;
+    transform: translateX(-5px); /* Keeps the arrow animation */
+}
+
 /* The Grid Container */
 .photo-grid-standard {
     display: grid;
@@ -1636,4 +1647,58 @@ footer {
     color: white !important;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(228, 97, 58, 0.4);
+}
+
+/* =========================================
+   BACK TO TOP BUTTON
+   ========================================= */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    
+    background-color: var(--col-orange);
+    color: var(--white);
+    
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    
+    /* Center the arrow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 9000; /* High z-index to stay on top of everything */
+    
+    /* Animation settings (Hidden by default) */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease-in-out;
+}
+
+.scroll-top-btn.show-btn {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Hover Effect */
+.scroll-top-btn:hover {
+    background-color: var(--col-teal-dark); 
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .scroll-top-btn {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+    }
 }
