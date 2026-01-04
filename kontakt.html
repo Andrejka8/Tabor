@@ -128,13 +128,16 @@
                     
                     <div class="form-group">
                         <label for="message">Zpráva</label>
-                        <input 
-                            type="hidden" 
-                            autocomplete="off"
-                        > 
+                        <input type="hidden" autocomplete="off"> 
                         <textarea id="message" name="Zpráva" rows="5" placeholder="Na co se chcete zeptat?" required></textarea>
                     </div>
-                    
+
+                    <div class="form-group checkbox-wrapper">
+                        <input type="checkbox" id="gdpr" name="Souhlas_GDPR" required>
+                        <label for="gdpr">
+                            Souhlasím se <a href="zpracovani-udaju.html" target="_blank" style="color: var(--white); text-decoration: underline;">zpracováním osobních údajů</a>.
+                        </label>
+                    </div>
                     <button type="submit" class="btn-submit" id="submitBtn">Odeslat zprávu</button>
                 </form>
                 </div>

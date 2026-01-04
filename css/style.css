@@ -810,6 +810,10 @@ header.hero {
     padding: 40px;
     border-radius: 25px;
     box-shadow: var(--shadow);
+    height: 100%;                
+    display: flex;               
+    flex-direction: column;   
+    justify-content: space-between;
 }
 
 .contact-info-box h2 {
@@ -899,6 +903,31 @@ a.icon:hover .contact-ig-icon {
 
 .form-group {
     margin-bottom: 20px;
+}
+
+.checkbox-wrapper {
+    display: flex;       /* Seřadí checkbox a text vedle sebe */
+    align-items: center; /* Zarovná je svisle na střed */
+    gap: 12px;           /* Mezera mezi čtverečkem a textem */
+    margin-bottom: 25px; /* Odstup od tlačítka */
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    width: 20px;         /* Pevná velikost čtverečku */
+    height: 20px;
+    margin: 0;
+    box-shadow: none;    /* Zruší stín, který mají ostatní inputy */
+    cursor: pointer;
+    accent-color: var(--col-orange); /* Oranžová barva zaškrtnutí (moderní prohlížeče) */
+}
+
+.checkbox-wrapper label {
+    margin: 0;           /* Zruší spodní odsazení labelu */
+    text-transform: none;/* Normální velikost písmen (ne kapitálky) */
+    font-weight: 400;    /* Tenčí písmo než u nadpisů polí */
+    font-size: 0.9rem;   /* Trochu menší text */
+    cursor: pointer;     /* Ruka při najetí myší */
+    line-height: 1.3;    /* Aby se text dobře četl, pokud se zalomí */
 }
 
 label {
