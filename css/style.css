@@ -1117,6 +1117,74 @@ button.btn-submit:hover {
     transition: color 0.3s ease;
 }
 
+.members-section {
+    max-width: 100%;
+    margin: 0 auto 60px auto;
+    background-color: var(--white);
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(43, 69, 112, 0.15); /* Používáme stín z proměnných */
+    text-align: center;
+    border-top: 5px solid var(--col-teal-med);
+}
+
+.members-section h2 {
+    font-size: 27px;
+    font-weight: 700;
+    color: var(--col-blue-dark);
+    margin-bottom: 30px;
+    font-family: 'Alpino', sans-serif;
+}
+
+/* Styl pro předsedu */
+.chairman-box {
+    background-color: #F0F7F4; /* Jemná mentolová */
+    border: 1px solid var(--col-mint);
+    color: var(--col-teal-dark);
+    display: inline-block;
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: 35px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.chairman-box span {
+    color: var(--col-blue-dark); 
+}
+
+/* Mřížka pro ostatní členy */
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 15px;
+    justify-content: center;
+}
+
+.member-item {
+    font-size: 1.05rem;
+    color: var(--col-blue-dark);
+    font-weight: 600;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: color 0.3s;
+}
+
+.member-item:hover {
+    color: var(--col-orange);
+}
+
+@media (max-width: 600px) {
+    .members-grid {
+        grid-template-columns: 1fr; /* Pod sebe */
+        gap: 5px;
+    }
+    .member-item {
+        border-bottom: none;
+        padding: 5px;
+    }
+}
 /* =========================================
    13. LIGHTBOX
    ========================================= */

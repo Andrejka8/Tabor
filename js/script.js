@@ -56,9 +56,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const heroSection = document.querySelector('header.hero');
     
     if (heroSection) {
-        const totalImages = 11; // Ensure this matches your file count
+        const totalImages = 11; 
         const folder = 'images/';
-        const extension = '.JPG'; // Case sensitive!
+        const extension = '.jpg'; // Case sensitive!
 
         // Generate number
         const randomNum = Math.floor(Math.random() * totalImages) + 1;
