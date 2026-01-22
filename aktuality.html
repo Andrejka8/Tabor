@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Aktuality | Klub mladých diabetiků</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Klub mladých diabetiků</a>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <ul class="nav-links">
+                <li><a href="o-nas.html">O nás</a></li>
+                <li><a href="diatabor-2026.html" style="color: var(--col-yellow-pale);">Diatábor 2026</a></li>
+                <li><a href="aktuality.html" class="active">Aktuality</a></li> 
+                <li><a href="fotogalerie.html">Fotogalerie</a></li>
+                <li><a href="sponzori.html">Sponzoři</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Aktuality</h1>
+            <p>Co se u nás děje nového</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <div class="news-grid">
+            
+            <article class="news-card">
+                <div class="news-image">
+                    <img src="images/aktualita.jpg" alt="Veletrh">
+                    <div class="news-date">
+                        <span class="day">03</span>
+                        <span class="month">LIS</span>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <h3>Veletrh Detektiv Dia Tábor 2025</h3>
+                    <p>Ohlédnutí za akcí plnou záhad a luštění. Přečtěte si, jak se našim malým detektivům dařilo.</p>
+                    <a href="" target="_blank" class="read-more-link">Číst celý článek &rarr;</a>
+                </div>
+            </article>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Klub mladých diabetiků</h4>
+                    <p>Pomáháme dětem s diabetem žít naplno <br>a ukazujeme, že cukrovka nemusí být žádnou překážkou.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Rychlé odkazy</h4>
+                    <a href="o-nas.html">O nás</a>
+                    <a href="diatabor-2026.html">Diatábor 2026</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontaktní informace</h4>
+                    <p class="email-click-wrapper" onclick="copyEmail('footer-msg')">
+                    ✉️ <span class="footer-email-text">klubmladychdiabetiku@gmail.com</span>
+                    <span id="footer-msg" class="copy-popup">Zkopírováno!</span>
+                    </p>
+                    <a href="https://www.instagram.com/tabory_kmd/" target="_blank" class="instagram-btn">
+                        <img src="images/instagram.png" alt="Instagram" class="icon-png">
+                        <span>Instagram</span>
+                    </a>    
+                </div>
+            </div>
+            <div class="copyright">© 2026 Klub mladých diabetiků, z.s.</div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

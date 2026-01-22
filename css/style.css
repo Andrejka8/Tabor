@@ -539,18 +539,18 @@ header.hero {
 
 .camp-intro h2 {
     font-size: 2.2rem;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     color: var(--col-teal-dark);
 }
 
 .theme-title {
     font-family: 'Antipol VF', sans-serif; 
-    font-size: 2.5rem;  
+    font-size: 2.8rem;  
     font-weight: 800;   
     text-transform: uppercase; 
     color: var(--col-gold); 
     margin-top: 10px;   
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     letter-spacing: 2px; 
     line-height: 1.1;
     text-shadow: 2px 2px 0px rgba(0,0,0,0.1); 
@@ -1356,6 +1356,7 @@ footer {
     color: rgba(255,255,255,0.5);
 }
 
+
 /* =========================================
    15. MEDIA QUERIES (MOBILE OPTIMIZATION)
    ========================================= */
@@ -1903,4 +1904,198 @@ footer {
         bottom: 20px;
         right: 20px;
     }
+}
+
+
+
+/* =========================================
+   19. AKTUALITY (NEWS)
+   ========================================= */
+
+/* Mřížka pro články */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+/* Karta článku */
+.news-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 5px solid var(--col-teal-med);
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(15, 125, 100, 0.15);
+}
+
+/* Obrázek v kartě */
+.news-image {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.news-card:hover .news-image img {
+    transform: scale(1.05);
+}
+
+/* Datum (čtvereček přes obrázek) */
+.news-date {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: var(--white);
+    padding: 8px 12px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    min-width: 60px;
+}
+
+.news-date .day {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--col-orange);
+    line-height: 1;
+    font-family: 'Antipol VF', sans-serif;
+}
+
+.news-date .month {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--col-blue-light);
+}
+
+/* Obsah karty */
+.news-content {
+    padding: 25px;
+    padding-bottom: 60px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.news-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--col-teal-dark);
+    line-height: 1.2;
+}
+
+.news-content p {
+    color: var(--col-blue-dark);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    flex: 1; /* Roztáhne se, aby tlačítko bylo dole */
+    opacity: 0.8;
+}
+
+/* Tlačítka v kartě */
+.small-btn {
+    align-self: flex-start;
+    padding: 10px 20px 6px 20px; /* Upraveno pro Antipol */
+    font-size: 0.8rem;
+}
+
+.read-more-link {
+    color: var(--col-teal-med);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    position: absolute;
+    bottom: 15px;  /* Odstup odspodu */
+    right: 30px;   /* Odstup zprava */
+    
+    transition: all 0.3s ease;
+}
+
+.read-more-link:hover {
+    color: var(--col-orange);
+    text-decoration: underline;
+}
+
+/* =========================================
+   20. HOMEPAGE: LATEST POST SECTION
+   ========================================= */
+.latest-post-banner {
+    background: var(--white);
+    border-radius: 25px;
+    padding: 0; 
+    box-shadow: var(--shadow);
+    margin: -30px auto 60px auto;
+    max-width: 100%;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    overflow: hidden;
+    border: 2px solid var(--white);
+}
+
+@media (max-width: 768px) {
+    .latest-post-banner {
+        flex-direction: column;
+        margin-top: 20px; 
+    }
+}
+
+.lp-image {
+    flex: 1;
+    min-height: 250px;
+    position: relative;
+}
+
+.lp-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lp-content {
+    flex: 1.2;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.lp-date {
+    color: var(--col-mint);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.lp-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--col-blue-dark);
+}
+
+.lp-content p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: var(--col-blue-light);
 }
