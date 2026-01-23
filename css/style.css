@@ -1999,6 +1999,7 @@ a.news-card:hover {
     display: flex;
     flex-direction: column;
     min-width: 60px;
+    
 }
 
 .news-date .day {
@@ -2014,6 +2015,17 @@ a.news-card:hover {
     font-weight: 700;
     text-transform: uppercase;
     color: var(--col-blue-light);
+}
+
+
+.news-year {
+    font-size: 0.85rem;
+    color: var(--col-orange); /* Použijeme vaši oranžovou */
+    font-weight: 700;
+    margin-bottom: 5px;       /* Malá mezera pod rokem */
+    text-transform: uppercase;
+    letter-spacing: 1px;      /* Roztažení písmen pro moderní vzhled */
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* Obsah karty */
