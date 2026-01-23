@@ -1175,7 +1175,7 @@ button.btn-submit:hover {
     background-color: var(--white);
     border-radius: 25px;
     padding: 40px;
-    box-shadow: 0 4px 15px rgba(43, 69, 112, 0.15); /* Používáme stín z proměnných */
+    box-shadow: 0 4px 15px rgba(43, 69, 112, 0.15); 
     text-align: center;
     border-top: 5px solid var(--col-teal-med);
 }
@@ -1674,7 +1674,7 @@ footer {
     backdrop-filter: blur(5px);
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    z-index: 2005; /* Above everything */
+    z-index: 2005; 
     display: flex;
     align-items: center;
     gap: 8px;
@@ -1732,7 +1732,7 @@ footer {
 
 /* Specific adjustment for the bottom button */
 .download-all-btn.bottom-btn {
-    margin-top: 0; /* Override the header margin */
+    margin-top: 0; 
     background-color: var(--col-teal-med); 
 }
 
@@ -1743,7 +1743,7 @@ footer {
 /* Mobile Adjustment */
 @media (max-width: 600px) {
     .download-all-btn {
-        font-size: 0.75rem; /* Slightly smaller text on phone */
+        font-size: 0.75rem; 
         padding: 8px 20px;
     }
 }
@@ -1752,7 +1752,7 @@ footer {
 @media (max-width: 768px) {
     .lb-download-btn {
         top: auto;
-        bottom: 20px; /* Move to bottom on phones */
+        bottom: 20px; 
         left: 50%;
         transform: translateX(-50%);
         width: max-content;
@@ -1907,7 +1907,7 @@ footer {
     justify-content: center;
     
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    z-index: 9000; /* High z-index to stay on top of everything */
+    z-index: 9000; 
     
     /* Animation settings */
     opacity: 0;
@@ -2020,11 +2020,11 @@ a.news-card:hover {
 
 .news-year {
     font-size: 0.85rem;
-    color: var(--col-orange); /* Použijeme vaši oranžovou */
+    color: var(--col-orange); 
     font-weight: 700;
-    margin-bottom: 5px;       /* Malá mezera pod rokem */
+    margin-bottom: 5px;      
     text-transform: uppercase;
-    letter-spacing: 1px;      /* Roztažení písmen pro moderní vzhled */
+    letter-spacing: 1px;     
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -2073,7 +2073,7 @@ a.news-card:hover {
 a.news-card:hover .read-more-link {
     color: var(--col-orange);
     text-decoration: underline;
-    transform: translateX(5px); /* Šipka se pohne doprava */
+    transform: translateX(5px); 
 }
 
 /* =========================================
@@ -2168,10 +2168,10 @@ a.news-card:hover .read-more-link {
 
 .article-row {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Půl na půl */
+    grid-template-columns: 1fr 1fr; 
     gap: 60px;
     align-items: center;
-    margin-bottom: 80px; /* Mezera mezi řádky */
+    margin-bottom: 80px; 
 }
 
 /* 3. Obrázky v článku */
@@ -2235,7 +2235,232 @@ a.news-card:hover .read-more-link {
     
     .article-img-box {
         height: 300px;
-        /* Díky Flexboxu a HTML pořadí (Text, pak Foto) 
-           bude fotka VŽDY pod textem, bez ohledu na třídu .pic-left */
+    }
+}
+
+/* =========================================
+   22. NÁŠ TÝM (MEDAILONKY)
+   ========================================= */
+
+/* Nadpis sekce */
+.team-section-title {
+    text-align: center;          
+    margin: 60px 0 40px 0;
+    color: var(--col-blue-dark);
+    font-size: 2rem;
+    position: relative;
+    display: block;             
+    width: 100%;
+}
+
+/* Ozdobná čára pod nadpisem */
+.team-section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--col-orange);
+    margin: 10px auto 0 auto;   
+    border-radius: 2px;
+}
+/* Mřížka pro karty */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+
+/* Karta člena týmu */
+.team-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border-bottom: 4px solid transparent; 
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Barevné pozadí nahoře v kartě */
+.card-header-bg {
+    height: 100px;
+    background: linear-gradient(135deg, var(--col-blue-light), var(--col-blue-dark));
+    width: 100%;
+}
+
+/* Různé barvy pro různé role (pomocí tříd) */
+.role-medic .card-header-bg { background: linear-gradient(135deg, #e53e3e, #c53030); } /* Červená pro zdravotníky */
+.role-leader .card-header-bg { background: linear-gradient(135deg, var(--col-teal-med), var(--col-teal-dark)); } /* Zelená pro vedoucí */
+.role-boss .card-header-bg { background: linear-gradient(135deg, var(--col-orange), #d69e2e); } /* Oranžová pro hlavase */
+
+/* Fotka v kruhu */
+.team-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid var(--white);
+    background-color: #eee; 
+    margin: -60px auto 15px auto; 
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Obsah karty */
+.team-info {
+    padding: 0 25px 30px 25px;
+}
+
+.team-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--col-blue-dark);
+    margin-bottom: 5px;
+}
+
+.team-role {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* Barevné texty rolí */
+.role-medic .team-role { color: #e53e3e; }
+.role-boss .team-role { color: var(--col-orange); }
+.role-leader .team-role { color: var(--col-teal-dark); }
+
+.team-bio {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+    font-style: italic;
+}
+
+
+/* ======================
+   22. NÁŠ TÝM 2. NÁVRH
+   ====================== */
+
+/* Obal pro seznam karet - zarovnáno na střed */
+.team-list-wrapper {
+    max-width: 1100px; 
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+/* Styl horizontální karty */
+.team-card-row {
+    display: flex; 
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 10px solid #ccc; /* Výchozí barva proužku */
+    min-height: 250px; /* Minimální výška */
+}
+
+.team-card-row:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* 1. Levá část - FOTKA */
+.team-row-img {
+    width: 250px; 
+    flex-shrink: 0; 
+    position: relative;
+}
+
+.team-row-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+/* 2. Pravá část - TEXT */
+.team-row-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+/* Jméno */
+.team-row-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--col-blue-dark);
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+/* Role (Funkce) */
+.team-row-role {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+/* Popis (Bio) */
+.team-row-bio {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    font-style: italic;
+}
+
+/* --- BAREVNÉ ODLIŠENÍ ROLÍ --- */
+
+/* HLAVAS (Oranžová) */
+.role-boss { border-left-color: var(--col-orange); }
+.role-boss .team-row-role { color: var(--col-orange); }
+
+/* VEDOUCÍ (Zelená/Teal) */
+.role-leader { border-left-color: var(--col-teal-dark); }
+.role-leader .team-row-role { color: var(--col-teal-dark); }
+
+/* ZDRAVOTNÍK (Červená) */
+.role-medic { border-left-color: #e53e3e; }
+.role-medic .team-row-role { color: #e53e3e; }
+
+
+/* --- MOBILNÍ VERZE (Pod sebe) --- */
+@media (max-width: 768px) {
+    .team-card-row {
+        flex-direction: column; /* Fotka nahoru, text dolů */
+        height: auto;
+    }
+    
+    .team-row-img {
+        width: 100%; /* Fotka přes celou šířku */
+        height: 250px;
+    }
+    
+    .team-row-content {
+        padding: 25px;
     }
 }
