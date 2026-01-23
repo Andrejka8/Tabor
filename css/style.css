@@ -2464,3 +2464,44 @@ a.news-card:hover .read-more-link {
         padding: 25px;
     }
 }
+
+/* Rozbalovací menu (Dropdown) */
+.nav-links li {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--white);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    min-width: 200px;
+    z-index: 1000;
+    padding: 10px 0;
+    list-style: none;
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--col-blue-dark);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.dropdown-menu li a:hover {
+    color: var(--col-orange);
+    background-color: #f9f9f9;
+}
+
+/* Zobrazit menu při najetí myší */
+.nav-links li:hover .dropdown-menu {
+    display: block;
+}
