@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Diatábor 2026 | Klub mladých diabetiků</title>
+    <title>Diavýlety | Klub mladých diabetiků</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,14 +17,13 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
     <nav>
         <div class="container nav-container">
-            <a href="index.html" class="logo">
+           <a href="index.html" class="logo">
                 <img src="images/logo2.png" alt="Logo" class="nav-logo-img">
                 <span>Klub mladých diabetiků</span>
             </a>
-            <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
             <ul class="nav-links">
                 <li><a href="o-nas.html">O nás</a></li>
                 <li class="dropdown">
@@ -40,85 +39,13 @@
                 <li><a href="aktuality.html">Aktuality</a></li>
                 <li><a href="medailonky.html">Náš tým</a></li>
                 <li><a href="fotogalerie.html">Fotogalerie</a></li>
-                <li><a href="sponzori.html">Sponzoři</a></li>
+                <li><a href="sponzori.html" class="active">Sponzoři</a></li>
                 <li><a href="kontakt.html">Kontakt</a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="page-header">
-        <div class="container">
-            <h1>Letní Diatábor 2026</h1>
-        </div>
-    </header>
-
-    <main class="container"> 
-
-        <div class="camp-intro">
-            <h2>Téma letošního tábora?</h2>
-            <div class="theme-title">Hobit</div>
-            <p>
-                Vypadalo to jako dar... ale byla to past. Letošní celotáborová hra nás zavede na výpravu k&nbsp;Osamělé hoře. 
-                Na začátku cesty získají naše skupiny vzácné prsteny, které jim propůjčí nevídané výhody a moc. 
-                Kdo by nechtěl mít cestu snazší než ostatní? 
-            </p>
-            <p style="margin-top: 15px;">
-                Ale pozor! Staré legendy nelžou. S každým dnem začne zlato těžknout. Co když se dary změní v břemeno? 
-                Zprávy ze sousedního království jsou děsivé – král, který prstenu podlehl, se&nbsp;změnil v nestvůru. 
-            </p>
-            <p style="margin-top: 10px;">
-                <strong>Dokážeme se moci vzdát a prsteny zničit dřív, než nás stihne stejný osud?</strong>
-            </p>
-        </div> 
-
-        <div class="info-grid">
-            <div class="info-box main-box">
-                <div class="icon-circle">📅</div>
-                <h3>Kdy jedeme?</h3>
-                <p class="big-data">25. 7. – 1. 8. 2026</p>
-                <span class="sub-data">7 dní v přírodě</span>
-            </div>
-
-            <div class="info-box">
-                <div class="icon-circle">📍</div>
-                <h3>Kde to bude?</h3>
-                <p class="big-data">Horská chata Bílá</p>
-                <span class="sub-data">Beskydy</span>
-            </div>
-
-            <div class="info-box">
-                <div class="icon-circle">🎒</div>
-                <h3>Pro koho?</h3>
-                <p class="big-data">7 – 16 let</p>
-                <span class="sub-data">Kapacita: <strong>40 dětí</strong></span>
-            </div>
-        </div>
-
-        <div class="nature-notice">
-            <div class="notice-icon">📝</div>
-            <div class="notice-content">
-                <h3>Přihlášky spouštíme v únoru 2026</h3>
-                <p>Dokumenty ke stažení a online přihláška budou k dispozici zde na webu.</p>
-            </div>
-        </div>
-
-           <section class="section-highlight">
-            <div class="container">
-                <h2 style="color: var(--col-teal-dark);">Chcete nás podpořit?</h2>
-                <p style="max-width: 800px; margin: 20px auto;">Bez našich skvělých sponzorů by to nešlo. Podívejte se, kdo nám pomáhá, nebo se staňte jedním z nich. 
-                    <br><br>
-                    Pokud byste rádi podpořili naše tábory, můžete tak učinit <strong>finančním darem</strong> (na základě darovací smlouvy) nebo <strong>hmotným příspěvkem</strong> (např. sladkosti na hypoglykémie či odměny pro děti).
-                    <br><br>
-                    V případě zájmu nás prosím kontaktujte. <strong>Děkujeme!</strong>
-                </p>
-                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
-                    <a href="sponzori.html" class="btn btn-secondary">Naši sponzoři</a>
-                    <a href="kontakt.html#formular" class="btn btn-primary">✉️ Napište nám</a>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
+       <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
@@ -150,5 +77,5 @@
         </div>
     </footer>
     <script src="js/script.js"></script>
-</body>
+<body>
 </html>

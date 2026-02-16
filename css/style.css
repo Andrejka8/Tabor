@@ -572,7 +572,7 @@ header.hero {
     font-size: 2.8rem;  
     font-weight: 800;   
     text-transform: uppercase; 
-    color: var(--col-gold); 
+    color: #B7950B;
     margin-top: 10px;   
     margin-bottom: 10px;
     letter-spacing: 4px; 
@@ -583,9 +583,11 @@ header.hero {
 .camp-intro p {
     font-size: 1.15rem;
     color: var(--col-blue-dark);
+    text-align: center;
     font-weight: 500;
-    line-height: 1.8;
+    line-height: 1.9;
     opacity: 0.9;
+   
 }
 
 .info-grid {
