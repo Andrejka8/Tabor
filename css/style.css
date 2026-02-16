@@ -31,7 +31,7 @@
     src: url('../font/Antipol_VF.otf') format('opentype'); 
     font-weight: 100 900; 
     font-style: normal;
-    font-display: swap;
+    font-display: block;
 }
 
 /* =========================================
@@ -221,7 +221,7 @@ header.hero {
     background: linear-gradient(135deg, rgba(15, 125, 100, 0.9), rgba(43, 69, 112, 0.8)), url('image/1.JPG');
     background-size: cover;
     background-position: center;
-    height: 80vh;
+    height: 65vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -259,6 +259,7 @@ header.hero {
     margin: 0 0 20px 0;
     position: relative;
     top: 8px;
+    font-family: 'Antipol VF', sans-serif;
 }
 
 .page-header p {
@@ -2355,153 +2356,132 @@ a.news-card:hover .read-more-link {
 }
 
 
-/* ======================
-   22. NÁŠ TÝM 2. NÁVRH
-   ====================== */
+/* =========================================
+   OPRAVA KONTAKTU PRO MOBIL
+   ========================================= */
 
-/* Obal pro seznam karet - zarovnáno na střed */
-.team-list-wrapper {
-    max-width: 1100px; 
-    margin: 0 auto;
-    padding-bottom: 30px;
-}
-
-/* Styl horizontální karty */
-.team-card-row {
-    display: flex; 
-    background: var(--white);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    margin-bottom: 30px; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-left: 10px solid #ccc; /* Výchozí barva proužku */
-    min-height: 250px; /* Minimální výška */
-}
-
-.team-card-row:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
-
-/* 1. Levá část - FOTKA */
-.team-row-img {
-    width: 250px; 
-    flex-shrink: 0; 
-    position: relative;
-}
-
-.team-row-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    display: block;
-}
-
-/* 2. Pravá část - TEXT */
-.team-row-content {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-}
-
-/* Jméno */
-.team-row-name {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--col-blue-dark);
-    margin-bottom: 5px;
-    line-height: 1.2;
-}
-
-/* Role (Funkce) */
-.team-row-role {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-    display: inline-block;
-}
-
-/* Popis (Bio) */
-.team-row-bio {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #555;
-    font-style: italic;
-}
-
-/* --- BAREVNÉ ODLIŠENÍ ROLÍ --- */
-
-/* HLAVAS (Oranžová) */
-.role-boss { border-left-color: var(--col-orange); }
-.role-boss .team-row-role { color: var(--col-orange); }
-
-/* VEDOUCÍ (Zelená/Teal) */
-.role-leader { border-left-color: var(--col-teal-dark); }
-.role-leader .team-row-role { color: var(--col-teal-dark); }
-
-/* ZDRAVOTNÍK (Červená) */
-.role-medic { border-left-color: #e53e3e; }
-.role-medic .team-row-role { color: #e53e3e; }
-
-
-/* --- MOBILNÍ VERZE (Pod sebe) --- */
 @media (max-width: 768px) {
-    .team-card-row {
-        flex-direction: column; /* Fotka nahoru, text dolů */
-        height: auto;
-    }
     
-    .team-row-img {
-        width: 100%; /* Fotka přes celou šířku */
-        height: 250px;
+    /* 1. Ujistíme se, že hlavní kontejner nemá divné okraje */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+        overflow-x: hidden; /* Zabrání vodorovnému posuvníku */
     }
-    
-    .team-row-content {
-        padding: 25px;
+
+    /* 2. Obal kontaktů srovnáme pod sebe a na střed */
+    .contact-wrapper {
+        display: flex;
+        flex-direction: column; /* Boxy pod sebe */
+        align-items: center;    /* Zarovnat na střed */
+        justify-content: center;
+        width: 100%;            /* Využít celou šířku */
+        margin: 0;              /* Zrušit vnější odsazení */
+        padding: 0;             /* Zrušit vnitřní odsazení */
+        gap: 30px;              /* Mezera mezi boxy */
+        margin-bottom: 60px !important;
+    }
+
+    /* 3. Samotné boxy (Info i Formulář) roztáhneme */
+    .contact-info-box, 
+    .contact-form-box {
+        width: 100% !important;  /* Vynutit plnou šířku */
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box;  /* Aby padding nezvětšoval šířku */
     }
 }
 
-/* Rozbalovací menu (Dropdown) */
-.nav-links li {
-    position: relative;
+@media (max-width: 768px) {
+    /* Uvnitř odstavců (p) se značka <br> nebude zobrazovat = nebude odřádkovávat */
+    p br, .text-block br, .news-content br {
+        display: none;
+    }
 }
 
+/* =========================================
+   ROZBALOVACÍ MENU (DROPDOWN)
+   ========================================= */
+.nav-links li.dropdown {
+    position: relative; /* Aby se podmenu pozicovalo vůči tomuto bodu */
+}
+
+/* Samotné vysouvací menu */
 .dropdown-menu {
-    display: none;
+    display: none; /* Skryté ve výchozím stavu */
     position: absolute;
-    top: 100%;
+    top: 100%; /* Hned pod lištou */
     left: 0;
     background-color: var(--white);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    min-width: 150px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     border-radius: 10px;
-    min-width: 200px;
-    z-index: 1000;
     padding: 10px 0;
     list-style: none;
+    z-index: 1000;
+    flex-direction: column; 
 }
 
+/* Položky uvnitř rozbalovacího menu */
 .dropdown-menu li {
     margin: 0;
+    width: 100%;
 }
 
 .dropdown-menu li a {
     display: block;
     padding: 10px 20px;
     color: var(--col-blue-dark);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
+    text-transform: none; 
+    border-bottom: 1px solid #f0f0f0;
 }
 
+.dropdown-menu li:last-child a {
+    border-bottom: none;
+}
+
+/* Hover efekt na položky v menu */
 .dropdown-menu li a:hover {
-    color: var(--col-orange);
     background-color: #f9f9f9;
+    color: var(--col-orange);
+    padding-left: 24px; /* Malý posun doprava pro efekt */
 }
 
-/* Zobrazit menu při najetí myší */
-.nav-links li:hover .dropdown-menu {
-    display: block;
+/* Zobrazení menu při najetí myší (Desktop) */
+@media (min-width: 769px) {
+    .nav-links li.dropdown:hover .dropdown-menu {
+        display: flex; /* Ukáže se jako flexbox */
+    }
+}
+
+/* --- MOBILNÍ VERZE --- */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static; /* Na mobilu nebude plavat, ale posune obsah */
+        box-shadow: none;
+        background-color: rgba(255,255,255,0.05); /* Lehce odlišené pozadí */
+        width: 100%;
+        padding: 0;
+    }
+
+    .dropdown-menu li a {
+        padding-left: 30px; /* Větší odsazení zleva, ať je vidět hierarchie */
+        color: white; /* Na mobilu je menu modré, takže text bílý */
+        border-bottom: none;
+    }
+    
+    /* Třída .show se přidá JavaScriptem při kliknutí */
+    .dropdown-menu.show {
+        display: flex;
+    }
+    
+    /* Šipka dolů u rodiče */
+    .dropdown-toggle::after {
+        content: ' ▼';
+        font-size: 0.7em;
+        margin-left: 5px;
+    }
 }

@@ -340,3 +340,18 @@ if (scrollToTopBtn) {
         });
     });
 }
+
+/* --- NOVÁ FUNKCE PRO DROPDOWN NA MOBILU --- */
+function toggleDropdown(event) {
+    // Pouze pokud jsme na mobilu (šířka okna menší než 768px)
+    if (window.innerWidth <= 768) {
+        event.preventDefault(); // Zabrání prokliku, aby se jen otevřelo menu
+        const dropdown = document.getElementById("myDropdown");
+        
+        if (dropdown.style.display === "flex") {
+            dropdown.style.display = "none";
+        } else {
+            dropdown.style.display = "flex";
+        }
+    }
+}

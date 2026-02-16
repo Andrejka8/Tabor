@@ -27,7 +27,16 @@
             <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div>
             <ul class="nav-links">
                 <li><a href="o-nas.html">O nás</a></li>
-                <li><a href="diatabor-2026.html" class="active" style="color: var(--col-yellow-pale);">Diatábor 2026</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" onclick="toggleDropdown(event)" style="color: var(--col-yellow-pale); display: flex; align-items: center;">
+                        Naše akce <span style="font-size: 0.7em; margin-left: 5px;">▼</span>
+                    </a>
+                    
+                    <ul class="dropdown-menu" id="myDropdown">
+                        <li><a href="diatabor-2026.html">Diatábor 2026</a></li>
+                        <li><a href="vylety.html">Diavýlety</a></li>
+                    </ul>
+                </li>
                 <li><a href="aktuality.html">Aktuality</a></li>
                 <li><a href="medailonky.html">Náš tým</a></li>
                 <li><a href="fotogalerie.html">Fotogalerie</a></li>
@@ -126,7 +135,7 @@
                     </a>        
                 </div>
             </div>
-            <div class="copyright">© 2026 Klub mladých diabetiků, z.s.</div>
+            <div class="copyright">© 2026 Klub mladých diabetiků, z. s. | Vytvořila Andrea Dvořáková</div>
         </div>
     </footer>
     <script src="js/script.js"></script>

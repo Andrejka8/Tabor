@@ -26,7 +26,16 @@
             <div class="hamburger" onclick="toggleMenu()">☰</div>
             <ul class="nav-links">
                 <li><a href="o-nas.html">O nás</a></li>
-                <li><a href="diatabor-2026.html" style="color: var(--col-yellow-pale);">Diatábor 2026</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" onclick="toggleDropdown(event)" style="color: var(--col-yellow-pale); display: flex; align-items: center;">
+                        Naše akce <span style="font-size: 0.7em; margin-left: 5px;">▼</span>
+                    </a>
+                    
+                    <ul class="dropdown-menu" id="myDropdown">
+                        <li><a href="diatabor-2026.html">Diatábor 2026</a></li>
+                        <li><a href="vylety.html">Diavýlety</a></li>
+                    </ul>
+                </li>
                 <li><a href="aktuality.html">Aktuality</a></li>
                 <li><a href="nas-tym.html" class="active">Náš tým</a></li>
                 <li><a href="fotogalerie.html">Fotogalerie</a></li>
@@ -210,23 +219,6 @@
                 </div>
             </div>
         </div>
-
-        <div style="text-align: right; margin-top: 60px; margin-bottom: 20px;">
-            <a href="medailonky1.html" style="
-                display: inline-block;
-                padding: 8px 20px;
-                background-color: #ffff;
-                color: #555;
-                text-decoration: none;
-                border-radius: 30px;
-                font-size: 0.85rem;
-                font-weight: 700;
-                border: 1px solid #ccc;
-                transition: all 0.3s ease;
-            " onmouseover="this.style.backgroundColor='#e0e0e0'" onmouseout="this.style.backgroundColor='#f0f0f0'">
-                 Návrh 2 &rarr;
-            </a>
-        </div>
     </main>
 
      <footer>
@@ -257,7 +249,7 @@
                     </a>        
                 </div>
             </div>
-            <div class="copyright">© 2026 Klub mladých diabetiků, z.s.</div>
+            <div class="copyright">© 2026 Klub mladých diabetiků, z. s. | Vytvořila Andrea Dvořáková</div>
         </div>
     </footer>
     <script src="js/script.js"></script>
