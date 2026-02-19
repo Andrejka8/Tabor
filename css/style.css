@@ -2074,7 +2074,7 @@ a.news-card:hover {
 }
 
 /* Efekt na odkazu při najetí NA KARTU */
-a.news-card:hover .read-more-link {
+a.news-card:hover {
     color: var(--col-orange);
     text-decoration: underline;
     transform: translateX(5px); 
@@ -2617,9 +2617,9 @@ a.news-card:hover .read-more-link {
 .mobile-break { display: none; } /* Na PC enter skryjeme */
 
 @media (max-width: 768px) {
-    .desktop-divider { display: none; } /* Na mobilu skryjeme čáru */
-    .mobile-break { display: block; }   /* Na mobilu povolíme enter */
-    .copyright { line-height: 1.6; }    /* Větší mezera mezi řádky */
+    .desktop-divider { display: none; }
+    .mobile-break { display: block; }  
+    .copyright { line-height: 1.6; }   
 }
 
 @media (max-width: 768px) {
@@ -2638,9 +2638,24 @@ a.news-card:hover .read-more-link {
     .latest-post-banner.reverse {
         flex-direction: row-reverse;
     }
+}
 
-    /* Volitelné: Pokud by se text lepil na obrázek,
-       můžeme přidat mezeru z druhé strany.
-       (Pokud to bude vypadat dobře i bez toho, tento řádek smažte) */
-     /* .latest-post-banner.reverse .lp-content { padding-right: 30px; padding-left: 0; } */
+/* =========================================
+   ZÁCHRANA PRO "NÁŠ INSTAGRAM" NA MOBILU
+   ========================================= */
+@media (max-width: 768px) {
+    /* 1. Odlepíme odkaz z pravého dolního rohu a vrátíme ho mezi lidi */
+    .latest-post-banner .read-more-link {
+        position: static !important; 
+        margin: 5px 0 0 8px !important;
+    }
+
+    /* 2. Obal s tlačítky vycentrujeme a dáme jim mezeru */
+    .latest-post-banner .lp-content div {
+        display: flex;
+        flex-wrap: wrap; /* Pokud se nevejdou, skočí pod sebe */
+        justify-content: left; /* Zarovnáme pěkně na střed */
+        gap: 20px; /* Dostatečná mezera, aby se nepřekrývaly */
+        margin-top: 25px;
+    }
 }
