@@ -2095,12 +2095,14 @@ a.news-card:hover .read-more-link {
     display: flex;
     overflow: hidden;
     border: 2px solid var(--white);
+    height: 330px;
 }
 
 @media (max-width: 768px) {
     .latest-post-banner {
         flex-direction: column;
         margin-top: 20px; 
+        height: auto;
     }
 }
 
@@ -2111,9 +2113,13 @@ a.news-card:hover .read-more-link {
 }
 
 .lp-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    
 }
 
 .lp-content {
@@ -2143,6 +2149,7 @@ a.news-card:hover .read-more-link {
     margin-bottom: 20px;
     font-size: 1rem;
     color: var(--col-blue-light);
+    text-align: justify;
 }
 
 /* =========================================
@@ -2622,3 +2629,18 @@ a.news-card:hover .read-more-link {
     }
 }
 
+/* =========================================
+   ZIG-ZAG PRO BANNERY NA HLAVNÍ STRÁNCE
+   ========================================= */
+/* Toto pravidlo platí jen pro počítače a tablety (nad 768px) */
+@media (min-width: 769px) {
+    /* Třída .reverse otočí směr Flexboxu */
+    .latest-post-banner.reverse {
+        flex-direction: row-reverse;
+    }
+
+    /* Volitelné: Pokud by se text lepil na obrázek,
+       můžeme přidat mezeru z druhé strany.
+       (Pokud to bude vypadat dobře i bez toho, tento řádek smažte) */
+     /* .latest-post-banner.reverse .lp-content { padding-right: 30px; padding-left: 0; } */
+}
