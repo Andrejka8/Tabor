@@ -11,8 +11,12 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="image/png" href="images/favicon1.png">
-    <link rel="apple-touch-icon" href="images/favicon1.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo/favicon-16x16.png">
+    <link rel="manifest" href="images/logo/site.webmanifest">
+
+    <meta name="format-detection" content="telephone=no">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -21,14 +25,14 @@
     <nav>
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <img src="images/logo3.png" alt="Logo" class="nav-logo-img">
+                <img src="images/logo/logo3.png" alt="Logo" class="nav-logo-img">
                 <span>Klub mladých diabetiků, z. s.</span>
             </a>
             <div class="hamburger" onclick="toggleMenu()">☰</div>
             <ul class="nav-links">
                 <li><a href="o-nas.html">O nás</a></li>
                 <li class="dropdown">
-                    <a href="javascript:void(0);" class="dropdown-toggle" onclick="toggleDropdown(event)" style=" display: flex; align-items: center;">
+                    <a href="javascript:void(0);" class="dropdown-toggle" onclick="toggleDropdown(event)" style=" display: flex; align-items: center; font-weight: 900;">
                         Naše akce <span style="font-size: 0.7em; margin-left: 5px;">▼</span>
                     </a>
                     
@@ -63,7 +67,7 @@
                 </div>
                 <div class="info-item">
                     <div class="icon">📞</div>
-                    <div><strong>Telefon:</strong><br><a href="tel:+420" class="phone-link">+420 xxx xxx xxx</a></div>
+                    <div><strong>Telefon:</strong><br><a href="tel:+420722064254" class="phone-link">+420 722 064 254</a></div>
                 </div>
                 <div class="info-item">
                     <div class="icon">✉️</div>
@@ -72,8 +76,9 @@
                         
                         <span 
                             onclick="copyEmail('contact-msg')" 
-                            style="color: var(--col-teal-dark); cursor: pointer; text-decoration: underline;" 
+                            style="color: var(--col-teal-dark); cursor: pointer" 
                             title="Klikněte pro zkopírování"
+                            class="email-link"
                         >
                             klubmladychdiabetiku@gmail.com
                         </span>
@@ -98,7 +103,7 @@
                         </svg>
                     </a>
                     <div><strong>Instagram:</strong><br>
-                        <a href="https://www.instagram.com/tabory_kmd/" target="_blank" style="color: var(--col-teal-dark);">@tabory_kmd</a>
+                        <a href="https://www.instagram.com/tabory_kmd/" target="_blank" style="color: var(--col-teal-dark);" class="instagram-link">@tabory_kmd</a>
                     </div>
                 </div>
             </div>
@@ -172,7 +177,7 @@
             <h2>Rada spolku</h2>
             
             <div class="chairman-box">
-                Předseda: Adéla Sklenářová
+                Předseda: Adéla&nbsp;Sklenářová
             </div>
 
             <div class="members-grid">
@@ -185,7 +190,7 @@
 
         <section class="section-highlight">
             <div class="container">
-                <h2 style="color: var(--col-teal-dark);">Chcete nás podpořit?</h2>
+                <h2>Chcete nás podpořit?</h2>
                 <div style="max-width: 800px; margin: 20px auto;">
                     <p>Bez našich skvělých sponzorů by to nešlo. Podívejte se, kdo nám pomáhá, nebo se staňte jedním z nich.</p>                   
                     <p style="margin-top: 15px;">Pokud byste rádi podpořili naše tábory, můžete tak učinit <strong>finančním darem</strong> (na základě darovací smlouvy) nebo <strong>hmotným příspěvkem</strong> (např. sladkosti na hypoglykémie či odměny pro děti).</p>                

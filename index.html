@@ -12,8 +12,10 @@
     <link rel="preload" href="font/Antipol_VF.otf" as="font" type="opentype" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="image/png" href="images/favicon1.png">
-    <link rel="apple-touch-icon" href="images/favicon1.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo/favicon-16x16.png">
+    <link rel="manifest" href="images/logo/site.webmanifest">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -21,14 +23,14 @@
     <nav>
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <img src="images/logo3.png" alt="Logo" class="nav-logo-img">
-                <span>Klub mladých diabetiků, z. s.</span>
+                <img src="images/logo/logo3.png" alt="Logo" class="nav-logo-img">
+                <span>Klub mladých diabetiků, z.&nbsp;s.</span>
             </a>
             <div class="hamburger" onclick="toggleMenu()">☰</div>
             <ul class="nav-links">
                 <li><a href="o-nas.html">O nás</a></li>
                 <li class="dropdown">
-                    <a href="javascript:void(0);" class="dropdown-toggle" onclick="toggleDropdown(event)" style=" display: flex; align-items: center;">
+                    <a href="javascript:void(0);" class="dropdown-toggle" onclick="toggleDropdown(event)" style=" display: flex; align-items: center; font-weight: 900;">
                         Naše akce <span style="font-size: 0.7em; margin-left: 5px;">▼</span>
                     </a>
                     
@@ -73,7 +75,7 @@
             </div>
 
             <div class="card">
-                <img src="images/spekacek.png" alt="Špekáček - diabetes" class="card-icon-img">
+                <img src="images/kapka.png" alt="Špekáček - diabetes" class="card-icon-img">
                 <h3>Fotogalerie</h3>
                 <p>Podívejte se, jak jsme si užili minulé ročníky. Spousta úsměvů a&nbsp;skvělých prožitých momentů.</p>
                
@@ -83,14 +85,14 @@
 
         <div class="latest-post-banner">
             <div class="lp-image">
-                <img src="images/vylet2025.png" alt="Diavýlety s KMD">
+                <img src="images/vylety/vylet2025.png" alt="Diavýlety s KMD">
             </div>
             <div class="lp-content">
                 <span class="lp-date">Celoroční aktivity</span>
                 <h2>Vyrážíme i na Diavýlety!</h2>
-                <p>Nejen tábory, ale i víkendové výšlapy! Společně poznáváme krásy Česka, stmelujeme partu a&nbsp;dokazujeme, že&nbsp;cukrovka není žádnou překážkou pro zdolávání kopců. Sledujte náš web nebo Instagram, ať vám neuteče termín další akce.</p>
+                <p>Nejen tábory, ale i víkendové výšlapy! Společně poznáváme krásy Česka, stmelujeme partu a&nbsp;dokazujeme, že cukrovka není žádnou překážkou pro zdolávání kopců. Sledujte náš web nebo Instagram, ať vám neuteče termín další akce.</p>
 
-                <div>
+                <div class="lp-buttons">
                     <a href="vylety.html" class="btn btn-secondary">Více o výletech</a>
                     <a href="https://www.instagram.com/tabory_kmd/" target="_blank" class="read-more-link">
                         Náš Instagram &rarr;
@@ -108,9 +110,9 @@
                 <h2>Veletrh Detektiv Diatábor 2025</h2>
                 <p style="line-height: 1.8;">Přinášíme vám ohlédnutí za naším veletrhem s detektivní tématikou. Podívejte se, jak jsme si to užili, co&nbsp;všechno jsme vypátrali a&nbsp;jak probíhal celý program.</p>
                 
-                <div style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 15px;">
-                    <a href="clanek-veletrh-2025.html" class="btn btn-primary" style="margin: 0;">Číst článek</a>
-                    <a href="aktuality.html" class="btn btn-secondary" style="margin: 0;">Další aktuality</a>
+                <div class="lp-buttons">
+                    <a href="clanek-veletrh-2025.html" class="btn btn-primary">Číst článek</a>
+                    <a href="aktuality.html" class="btn btn-secondary">Další aktuality</a>
                 </div>
             </div>
         </div>

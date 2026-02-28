@@ -11,8 +11,11 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="image/png" href="images/favicon1.png">
-    <link rel="apple-touch-icon" href="images/favicon1.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo/favicon-16x16.png">
+    <link rel="manifest" href="images/logo/site.webmanifest">
+
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -21,14 +24,14 @@
     <nav>
         <div class="container nav-container">
            <a href="index.html" class="logo">
-                <img src="images/logo3.png" alt="Logo" class="nav-logo-img">
+                <img src="images/logo/logo3.png" alt="Logo" class="nav-logo-img">
                 <span>Klub mladých diabetiků, z. s.</span>
             </a>
             <div class="hamburger" onclick="toggleMenu()">☰</div>
             <ul class="nav-links">
                 <li><a href="o-nas.html">O nás</a></li>
                 <li class="dropdown">
-                    <a href="javascript:void(0);" class="dropdown-toggle" onclick="toggleDropdown(event)" style=" display: flex; align-items: center;">
+                    <a href="javascript:void(0);" class="dropdown-toggle" onclick="toggleDropdown(event)" style=" display: flex; align-items: center; font-weight: 900;">
                         Naše akce <span style="font-size: 0.7em; margin-left: 5px;">▼</span>
                     </a>
                     
@@ -70,7 +73,7 @@
             <div class="year-label">2025</div>
             
             <div class="year-photo-wrapper">
-                <img src="images/podpora2025.jpg" alt="Společné foto 2025" class="year-photo">
+                <img src="images/sponzori/podpora2025.jpg" alt="Společné foto 2025" class="year-photo">
             </div>
 
             <div class="tag-cloud">
@@ -100,7 +103,7 @@
             <div class="year-label">2024</div>
             
             <div class="year-photo-wrapper">
-                <img src="images/podpora2024.jpg" alt="Společné foto 2024" class="year-photo">
+                <img src="images/sponzori/podpora2024.jpg" alt="Společné foto 2024" class="year-photo">
             </div>
 
             <div class="tag-cloud">
@@ -135,7 +138,7 @@
             <div class="year-label">2023</div>
 
             <div class="year-photo-wrapper">
-                <img src="images/podpora2023.jpg" alt="Společné foto 2023" class="year-photo">
+                <img src="images/sponzori/podpora2023.jpg" alt="Společné foto 2023" class="year-photo">
             </div>
             
             <div class="tag-cloud">
@@ -153,9 +156,22 @@
             </div>
         </div>
 
+        <div id="galleryModal" class="lightbox">
+            <span class="close-btn">&times;</span>
+            
+            <button class="lb-arrow lb-prev">&#10094;</button>
+
+            <div class="lightbox-content">
+                <img id="modalImage" src="" alt="Sponzorská fotografie">
+                <div id="modalCaption" class="lb-year"></div>
+            </div>
+            
+            <button class="lb-arrow lb-next">&#10095;</button>
+        </div>
+
        <section class="section-highlight">
             <div class="container">
-                <h2 style="color: var(--col-teal-dark);">Chcete nás podpořit?</h2>
+                <h2>Chcete nás podpořit?</h2>
                 <div style="max-width: 800px; margin: 20px auto;">
                     <p>
                         Pokud byste rádi podpořili naše tábory, můžete tak učinit <strong>finančním darem</strong> (na základě darovací smlouvy) nebo <strong>hmotným příspěvkem</strong> (např. sladkosti na hypoglykémie či odměny pro děti).

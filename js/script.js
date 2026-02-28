@@ -1,7 +1,3 @@
-/* ==========================================================================
-   js/script.js - GLOBAL SCRIPT
-   ========================================================================== */
-
 /* --------------------------------------------------------------------------
    1. GLOBAL: NAVIGATION & COPY EMAIL
    -------------------------------------------------------------------------- */
@@ -50,25 +46,33 @@ function copyEmail(elementId) {
 
 
 /* --------------------------------------------------------------------------
-   2. HOMEPAGE: RANDOM HERO IMAGE
+   2. HOMEPAGE: RANDOM HERO IMAGE (Mobile Optimized)
    -------------------------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", function() {
     const heroSection = document.querySelector('header.hero');
     
     if (heroSection) {
-        const totalImages = 11; 
-        const folder = 'images/';
-        const extension = '.jpg'; // Case sensitive!
+        const totalImages = 7; 
+        const extension = '.jpg';
+        
+        // Základní složka pro PC
+        let folder = 'images/hero/';
 
-        // Generate number
+        // Pokud je to mobil, přepneme na složku /mobile/
+        if (window.innerWidth <= 768) {
+            folder = 'images/hero/mobile/';
+        }
+
+        // Vygenerujeme náhodné číslo
         const randomNum = Math.floor(Math.random() * totalImages) + 1;
         
-        // Define Image URL
+        // Složíme finální URL
         const imageUrl = `${folder}${randomNum}${extension}`;
         
-        // Define Gradient
-        const gradient = "linear-gradient(135deg, rgba(15, 125, 100, 0.9), rgba(43, 69, 112, 0.8))";
+        // Definujeme gradient
+        const gradient = "linear-gradient(135deg, rgba(43, 69, 112, 0.95), rgba(43, 69, 112, 0.4))";
 
+        // Aplikujeme styly
         heroSection.style.backgroundImage = `${gradient}, url('${imageUrl}')`;
         heroSection.style.backgroundSize = 'cover';
         heroSection.style.backgroundPosition = 'center';
@@ -93,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
             { src: 'images/vedouci/2025.jpg', year: '2025' },
             { src: 'images/vedouci/2024.jpg', year: '2024' },
             { src: 'images/vedouci/2023.jpg', year: '2023' },
-            { src: 'images/vedouci/2022.png', year: '2022' },
+            { src: 'images/vedouci/2022.jpg', year: '2022' },
             { src: 'images/vedouci/2021.jpg', year: '2021' },
             { src: 'images/vedouci/2019.jpg', year: '2019' },
             { src: 'images/vedouci/2018.jpg', year: '2018' },
@@ -116,17 +120,24 @@ document.addEventListener("DOMContentLoaded", function() {
             else if (index >= galleryData.length) currentIndex = 0;
             else currentIndex = index;
 
+            let finalSrc = galleryData[currentIndex].src;
+    
+            // Pokud je obrazovka užší než 768px, vložíme do cesty složku /mobile/
+            if (window.innerWidth <= 768) {
+                finalSrc = finalSrc.replace('images/vedouci/', 'images/vedouci/mobile/');
+            }
+
             // Update Main Carousel
             imgElement.style.opacity = 0;
             setTimeout(() => {
-                imgElement.src = galleryData[currentIndex].src;
+                imgElement.src = finalSrc; // Načte buď velkou, nebo malou verzi
                 if(yearBadgeElement) yearBadgeElement.innerText = galleryData[currentIndex].year;
                 imgElement.style.opacity = 1;
             }, 200);
 
-            // Update Lightbox if open
+            // To samé pro Lightbox
             if (lightbox && lightbox.classList.contains('active')) {
-                lbImg.src = galleryData[currentIndex].src;
+                lbImg.src = finalSrc;
                 lbYear.innerText = galleryData[currentIndex].year;
             }
         };
@@ -135,18 +146,32 @@ document.addEventListener("DOMContentLoaded", function() {
             window.showPhoto(currentIndex + direction);
         };
 
+       // Přidáme proměnnou pro pozici
+        let scrollPosition = 0;
+
         window.openLightbox = function() {
             if(!lightbox) return;
+
+            // Zapamatovat si pozici a zafixovat stránku
+            scrollPosition = window.scrollY;
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.classList.add('no-scroll');
+
             lightbox.classList.add('active');
             lbImg.src = galleryData[currentIndex].src;
             lbYear.innerText = galleryData[currentIndex].year;
-            document.body.style.overflow = 'hidden';
         };
 
         window.closeLightbox = function() {
             if(!lightbox) return;
             lightbox.classList.remove('active');
-            document.body.style.overflow = 'auto';
+
+            // Odemknout stránku
+            document.body.classList.remove('no-scroll');
+            document.body.style.top = '';
+
+            // Vrátit se na původní místo
+            window.scrollTo(0, scrollPosition);
         };
 
         // --- Event Listeners ---
@@ -238,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 /* --------------------------------------------------------------------------
-   5. GALLERY SUBPAGES: INIT FUNCTION
+   5. GALLERY SUBPAGES: INIT FUNCTION (Mobile Optimized + Preloading)
    -------------------------------------------------------------------------- */
 function initGalleryPage(totalPhotos, folderPath, extension = '.jpg') {
     document.addEventListener("DOMContentLoaded", function() {
@@ -252,10 +277,16 @@ function initGalleryPage(totalPhotos, folderPath, extension = '.jpg') {
         const downloadBtn = document.getElementById('lb-download');
         let bigImageLinks = [];
 
+        // 1. Zjistíme, jestli jsme na mobilu
+        const isMobile = window.innerWidth <= 768;
+        // Pokud je to mobil, vložíme do cesty "mobile/"
+        const bigFolderPath = isMobile ? `${folderPath}mobile/` : folderPath;
+
         // Generate Grid
         for (let i = 1; i <= totalPhotos; i++) {
             const thumbSrc = `${folderPath}thumbs/foto (${i})${extension}`;
-            const bigSrc   = `${folderPath}foto (${i})${extension}`;
+            // Použije buď cestu do originálu, nebo do složky mobile/
+            const bigSrc   = `${bigFolderPath}foto (${i})${extension}`;
             bigImageLinks.push(bigSrc);
 
             const div = document.createElement('div');
@@ -267,24 +298,35 @@ function initGalleryPage(totalPhotos, folderPath, extension = '.jpg') {
             
             const imageIndex = i - 1;
             img.onclick = function() { openLightbox(imageIndex); };
+            
+            // Pokud by náhodou mobilní fotka chyběla, zkusí načíst originál
             img.onerror = function() { this.src = bigSrc; };
 
             div.appendChild(img);
             container.appendChild(div);
         }
 
-        // Functions
+        let scrollPosition = 0;
+
         window.openLightbox = function(index) {
             currentIndex = parseInt(index);
             if (isNaN(currentIndex)) currentIndex = 0;
             showImage();
+            
+            // PRELOAD: Načteme hned i následující fotku
+            preloadNext();
+
+            scrollPosition = window.scrollY;
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.classList.add('no-scroll');
             lightbox.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; 
         };
 
         window.closeLightbox = function() {
             lightbox.style.display = 'none';
-            document.body.style.overflow = 'auto'; 
+            document.body.classList.remove('no-scroll');
+            document.body.style.top = '';
+            window.scrollTo(0, scrollPosition);
         };
 
         window.changeSlide = function(direction) {
@@ -292,6 +334,9 @@ function initGalleryPage(totalPhotos, folderPath, extension = '.jpg') {
             if (currentIndex >= bigImageLinks.length) currentIndex = 0;
             if (currentIndex < 0) currentIndex = bigImageLinks.length - 1;
             showImage();
+            
+            // PRELOAD: Po změně slidu připravíme další v pořadí
+            preloadNext();
         };
 
         function showImage() {
@@ -301,6 +346,13 @@ function initGalleryPage(totalPhotos, folderPath, extension = '.jpg') {
                 counter.innerText = (currentIndex + 1) + " / " + bigImageLinks.length;
                 if (downloadBtn) downloadBtn.href = path;
             }
+        }
+
+        // POMOCNÁ FUNKCE: Načte další fotku "do zásoby"
+        function preloadNext() {
+            const nextIndex = (currentIndex + 1) % bigImageLinks.length;
+            const nextImg = new Image();
+            nextImg.src = bigImageLinks[nextIndex];
         }
 
         // Listeners
@@ -355,3 +407,201 @@ function toggleDropdown(event) {
         }
     }
 }
+
+// =========================================
+// --- JAVASCRIPT PRO GALERII SPONZORŮ ---
+// =========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // 1. ZÍSKÁNÍ REFERENCE NA MODAL (Musí být jako první)
+    const modal = document.getElementById('galleryModal');
+    
+    // OCHRANA: Pokud nejsme na stránce sponzorů (modal tam není), zbytek kódu se vůbec nespustí!
+    if (!modal) return; 
+
+    // 2. DEFINICE DATABÁZE OBRÁZKŮ
+    const sponsorImages = {
+        'A.Import': [
+            'images/sponzori/aimport.JPG',
+            'images/sponzori/aimport (1).JPG',
+            'images/sponzori/aimport (2).JPG',
+            'images/sponzori/aimport (3).JPG',
+            'images/sponzori/aimport (4).JPG',
+            'images/sponzori/aimport (5).JPG',
+            'images/sponzori/aimport (6).JPG',
+            'images/sponzori/aimport (7).JPG',
+            'images/sponzori/aimport (8).JPG'
+        ],
+        'GLOBUS ČR - Opava': [
+            'images/sponzori/globus.JPG',
+            'images/sponzori/globus (1).JPG',
+            'images/sponzori/globus (2).JPG',
+            'images/sponzori/globus (4).JPG',
+            'images/sponzori/globus (5).JPG',
+            'images/sponzori/globus (6).JPG'
+        ],
+        'Lysek Petr Spedition s. r. o. - Kravaře': [
+            'images/sponzori/lysek.JPG',
+            'images/sponzori/lysek (1).JPG',
+            'images/sponzori/lysek (2).JPG',
+            'images/sponzori/lysek (3).JPG',
+            'images/sponzori/lysek (4).JPG',
+            'images/sponzori/lysek (5).JPG',
+            'images/sponzori/lysek (6).JPG',
+            'images/sponzori/lysek (7).JPG',
+            'images/sponzori/lysek (8).JPG',
+            'images/sponzori/lysek (9).JPG',
+            'images/sponzori/lysek (10).JPG',
+            'images/sponzori/lysek (11).JPG',
+            'images/sponzori/lysek (12).JPG',
+            'images/sponzori/lysek (13).JPG',
+            'images/sponzori/lysek (14).JPG',
+            'images/sponzori/lysek (15).JPG'
+        ],
+        'MTE': [
+            'images/sponzori/mte.JPG',
+            'images/sponzori/mte (2).JPG',
+            'images/sponzori/mte (3).JPG',
+            'images/sponzori/mte (4).JPG',
+            'images/sponzori/mte (5).jpg',
+            'images/sponzori/mte (6).jpg',
+            'images/sponzori/mte (7).jpg',
+            'images/sponzori/mte (8).JPG',
+            'images/sponzori/mte (9).jpg',
+            'images/sponzori/mte (10).jpg',
+            'images/sponzori/mte (11).JPG'
+        ],
+        'Ypsomed': [
+            'images/sponzori/ypso.JPG',
+            'images/sponzori/ypso (2).JPG',
+            'images/sponzori/ypso (3).JPG',
+            'images/sponzori/ypso (4).JPG',
+            'images/sponzori/ypso (5).jpg',
+            'images/sponzori/ypso (6).jpg',
+            'images/sponzori/ypso (7).JPG',
+            'images/sponzori/ypso (8).JPG',
+            'images/sponzori/ypso (9).jpg'
+        ],
+        'Abbott': [],
+        'Allianz': [],
+        'Medtronic': [],
+        'Kofola – ČeskoSlovensko a. s.': [],
+        'Ministerstvo zdravotnictví ČR': []
+    };
+
+    // 3. ZÍSKÁNÍ REFERENCE NA OSTATNÍ PRVKY 
+    // (Hledáme je přes "modal.querySelector", abychom se nepohádali s o-nas.html)
+    const modalImg = document.getElementById('modalImage');
+    const captionText = document.getElementById('modalCaption');
+    const closeBtn = modal.querySelector('.close-btn'); 
+    const prevBtn = modal.querySelector('.lb-prev'); 
+    const nextBtn = modal.querySelector('.lb-next'); 
+    const tagPills = document.querySelectorAll('.tag-pill');
+
+    let currentSponsor = '';
+    let currentImageIndex = 0;
+
+   // 4. FUNKCE PRO ZOBRAZENÍ OBRÁZKU
+    function showImage(sponsorName, index) {
+        const images = sponsorImages[sponsorName];
+        if (!images || images.length === 0) return; 
+
+        if (index >= images.length) index = 0;
+        if (index < 0) index = images.length - 1;
+
+        currentImageIndex = index;
+        let path = images[currentImageIndex];
+
+        // Pokud je to mobil, změníme cestu na verzi v podsložce mobile
+        if (window.innerWidth <= 768) {
+            path = path.replace('images/sponzori/', 'images/sponzori/mobile/');
+            modalImg.loading = "eager";
+        }
+
+        modalImg.src = path;
+        
+       captionText.innerHTML = `${sponsorName} (${currentImageIndex + 1} / ${images.length})`;
+    }
+
+   // 5. FUNKCE PRO OTEVŘENÍ
+   // Proměnná, která si zapamatuje poslední pozici
+    let scrollPosition = 0;
+
+    // 5. FUNKCE PRO OTEVŘENÍ
+    function openModal(sponsorName) {
+        if (!sponsorImages[sponsorName] || sponsorImages[sponsorName].length === 0) {
+            return; 
+        }
+        
+        // ZAPAMATUJEME SI, KDE NA STRÁNCE JSME
+        scrollPosition = window.scrollY;
+
+        currentSponsor = sponsorName;
+        showImage(currentSponsor, 0); 
+        modal.classList.add('active'); 
+        
+        // ZAMKNEME STRÁNKU PŘESNĚ NA TÉTO POZICI
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.classList.add('no-scroll'); 
+    }
+
+    // 6. FUNKCE PRO ZAVŘENÍ
+    function closeModal() {
+        modal.classList.remove('active');
+        
+        // ODEMKNEME STRÁNKU
+        document.body.classList.remove('no-scroll');
+        document.body.style.top = '';
+        
+        // VRÁTÍME TĚ PŘESNĚ TAM, KDE JSI BYLA
+        window.scrollTo(0, scrollPosition);
+    }
+
+    // 7. EVENT LISTENERY
+    tagPills.forEach(pill => {
+        const sponsorName = pill.textContent.trim();
+        if (sponsorImages[sponsorName] && sponsorImages[sponsorName].length > 0) {
+            pill.classList.add('has-gallery'); 
+            
+            // ZMĚNA ZDE: Přidali jsme 'e' do závorky a preventDefault
+            pill.addEventListener('click', function(e) {
+                e.preventDefault(); // Zabrání prohlížeči uskočit nahoru!
+                openModal(sponsorName);
+            });
+        }
+    });
+
+    closeBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        closeModal();
+    });
+
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    prevBtn.addEventListener('click', function(e) {
+        e.stopPropagation(); 
+        showImage(currentSponsor, currentImageIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', function(e) {
+        e.stopPropagation(); 
+        showImage(currentSponsor, currentImageIndex + 1);
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (!modal.classList.contains('active')) return; 
+
+        if (e.key === 'Escape') {
+            closeModal();
+        } else if (e.key === 'ArrowLeft') {
+            showImage(currentSponsor, currentImageIndex - 1);
+        } else if (e.key === 'ArrowRight') {
+            showImage(currentSponsor, currentImageIndex + 1);
+        }
+    });
+});

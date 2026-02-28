@@ -11,8 +11,11 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="image/png" href="images/favicon1.png">
-    <link rel="apple-touch-icon" href="images/favicon1.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo/favicon-16x16.png">
+    <link rel="manifest" href="images/logo/site.webmanifest">
+
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -20,14 +23,14 @@
     <nav>
         <div class="container nav-container">
            <a href="index.html" class="logo">
-                <img src="images/logo3.png" alt="Logo" class="nav-logo-img">
+                <img src="images/logo/logo3.png" alt="Logo" class="nav-logo-img">
                 <span>Klub mladých diabetiků, z. s.</span>
             </a>
             <div class="hamburger" onclick="toggleMenu()">☰</div>
             <ul class="nav-links">
                 <li><a href="o-nas.html">O nás</a></li>
                 <li class="dropdown">
-                    <a href="javascript:void(0);" class="dropdown-toggle" onclick="toggleDropdown(event)" style=" display: flex; align-items: center;">
+                    <a href="javascript:void(0);" class="dropdown-toggle" onclick="toggleDropdown(event)" style=" display: flex; align-items: center; font-weight: 900;">
                         Naše akce <span style="font-size: 0.7em; margin-left: 5px;">▼</span>
                     </a>
                     
@@ -66,7 +69,7 @@
 
         <div class="trip-card">
             <div class="trip-img">
-                <img src="images/vylet2025.png" alt="Diavýlet 2025" style="object-fit: contain; background-color: #f0f0f0;" loading="eager">
+                <img src="images/vylety/vylet2025.png" alt="Diavýlet 2025" style="object-fit: contain; background-color: #f0f0f0;" loading="eager">
             </div>
             <div class="trip-content">
                 <span class="trip-date">12. října 2025</span>
@@ -85,14 +88,14 @@
 
         <div class="trip-card reverse">
             <div class="trip-img">
-                <img src="images/vylet2024.png" alt="Pálava 2024" style="object-fit: contain; background-color: #f0f0f0;" loading="eager">
+                <img src="images/vylety/vylet2024.png" alt="Pálava 2024" style="object-fit: contain; background-color: #f0f0f0;" loading="eager">
             </div>
             <div class="trip-content">
                 <span class="trip-date">12. října 2024</span>
                 <h2>Pálava 2024: Přechod Pálavských vrchů</h2>
                 <p>
                     Legendární výšlap přes Děvín! Začali jsme v&nbsp;Dolních Věstonicích, vystoupali na nejvyšší vrchol Pálavy 
-                    a&nbsp;zakončili cestu v Mikulově. Nádherné výhledy a&nbsp;pořádná makačka pro nohy.
+                    a&nbsp;zakončili cestu v&nbsp;Mikulově. Nádherné výhledy a&nbsp;pořádná makačka pro nohy.
                 </p>
                 <div class="trip-stats">
                     <div class="stat-item">📍 <strong>Trasa:</strong> 13 km</div>
@@ -106,7 +109,7 @@
             <div class="notice-icon">🥾</div>
             <div class="notice-content">
                 <h3>Chceš jet přístě s námi?</h3>
-                <p>Sleduj náš web nebo Instagram, ať ti neuteče termín dalšího výletu!</p>
+                <p>Sleduj náš web nebo <a href="https://www.instagram.com/tabory_kmd/" target="_blank">Instagram</a>, ať ti neuteče termín dalšího výletu!</p>
             </div>
         </div>
 
