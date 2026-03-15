@@ -372,6 +372,7 @@ header.hero {
 }
 
 .mission-box h2 {
+    font-size: 1.6rem;
     color: var(--col-teal-dark);
     margin-bottom: 20px;
 }
