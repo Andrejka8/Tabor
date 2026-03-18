@@ -605,3 +605,58 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+function toggleText(btn) {
+    // Najde ten skrytý text, který je přesně před tlačítkem
+    const moreText = btn.previousElementSibling;
+
+    if (moreText.classList.contains("show")) {
+        // Pokud je text už zobrazený, tak ho schováme
+        moreText.classList.remove("show");
+        btn.innerHTML = "...číst více";
+    } else {
+        // Pokud je schovaný, tak ho ukážeme
+        moreText.classList.add("show");
+        btn.innerHTML = " skrýt text";
+    }
+}
+
+
+let scrollPosition = 0;
+
+function openBioModal(btn) {
+    const card = btn.closest('.team-card'); 
+    
+    const modal = document.getElementById('bio-modal');
+    const modalImg = document.getElementById('bio-modal-img');
+    const modalName = document.getElementById('bio-modal-name');
+    const modalRoles = document.getElementById('bio-modal-roles');
+    const modalDesc = document.getElementById('bio-modal-desc');
+
+    modalImg.src = card.querySelector('.team-img').src;
+    modalName.innerHTML = card.querySelector('.team-name').innerHTML;
+    modalRoles.innerHTML = card.querySelector('.team-role').innerHTML;
+    modalDesc.innerHTML = card.querySelector('.team-full-bio').innerHTML;
+
+    // --- MAGIE PROTI SKÁKÁNÍ NAHORU ---
+    scrollPosition = window.scrollY; // Zapamatujeme si aktuální pozici posuvníku
+    document.body.style.position = 'fixed'; // Zafixujeme stránku
+    document.body.style.top = `-${scrollPosition}px`; // Falešně ji posuneme tak, ať to vypadá, že jsme neuhli
+    document.body.style.width = '100%'; // Zabráníme smrsknutí stránky
+
+    // Zobrazíme okno
+    modal.style.display = 'flex';
+}
+
+function closeBioModal(event) {
+    if (!event || event.target.id === 'bio-modal' || event.target.classList.contains('close-bio')) {
+        document.getElementById('bio-modal').style.display = 'none';
+        
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        
+        // Vrátíme uživatele přesně na pixel tam, kde předtím kliknul
+        window.scrollTo(0, scrollPosition); 
+    }
+}

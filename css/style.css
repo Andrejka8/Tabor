@@ -8,11 +8,12 @@
     /* 1. OPRAVA KONTRASTU (Pozadí vs Kartičky) */
     /* Pozadí stránky je teď teplejší "písková/celtová". Bílé kartičky díky tomu konečně vyniknou! */
     --col-cream: #EBE6DF; 
-    --white: #ffffff; /* Kartičky zůstanou zářivě bílé */
+    --white: #ffffff; 
 
     /* 2. OPRAVA NAVBARU */
     /* Navbar má teď jasný, ale jemný modro-šedý nádech (už není bílý) */
-    --col-light: #DCE3ED; 
+    --col-light2: #DCE3ED; 
+     --col-light: #C5DFD4; /* navbar */
 
     /* 3. OPRAVA TLAČÍTEK (Více šťávy!) */
     /* Hlavní oranžová je teď sytější a živější (barva ohně) */
@@ -338,6 +339,8 @@ header.hero {
     object-fit: contain; 
     margin-bottom: 25px; 
     display: block;      
+    /* TADY JE TEN MAGICKÝ TRIK NA ODSTRANĚNÍ BÍLÉHO POZADÍ: */
+    mix-blend-mode: multiply; 
 }
 
 /* "Chcete nás podpořit" Highlight Section */
@@ -361,7 +364,7 @@ header.hero {
    ========================================= */
 /* Mission Box */
 .mission-box {
-    background-color: var(--col-mint-light);
+    background-color: var(--col-light);
     border-radius: 30px;
     padding: 50px;
     text-align: center;
@@ -389,7 +392,6 @@ header.hero {
     max-width: 900px;
     margin: 40px auto 80px auto;
     padding: 20px 0;
-    text-align: justify;
 }
 
 .story-container::before {
@@ -613,7 +615,7 @@ header.hero {
 
 .info-box {
     background: var(--white);
-    padding: 40px 30px;
+    padding: 35px 30px;
     border-radius: 20px;
     box-shadow: var(--shadow);
     text-align: center;
@@ -630,7 +632,6 @@ header.hero {
 .icon-circle {
     width: 70px;
     height: 70px;
-    background-color: var(--col-mint-light);
     color: var(--col-teal-dark);
     border-radius: 50%;
     display: flex;
@@ -638,6 +639,20 @@ header.hero {
     justify-content: center;
     font-size: 2rem;
     margin: 0 auto 20px auto;
+}
+
+.kdy-img {
+    width: 65px; 
+    height: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+.icon-img {
+    width: 450px;
+    height: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
 }
 
 .info-box h3 {
@@ -663,8 +678,8 @@ header.hero {
 }
 
 .nature-notice {
-    background-color: var(--col-mint-light);
-    border: 1px solid var(--col-mint-light);
+    background-color: var(--col-light);
+    border: 1px solid var(--col-light);
     border-radius: 25px;
     padding: 40px;
     max-width: 800px;
@@ -708,7 +723,7 @@ header.hero {
     flex-direction: column;
     gap: 50px;
     max-width: 1000px;
-    margin: 0 auto 100px auto;
+    margin: 0 auto 80px auto;
 }
 
 .big-card {
@@ -981,7 +996,6 @@ header.hero {
 }
 
 .icon {
-    background-color: var(--col-mint-light);
     color: var(--col-teal-dark);
     width: 40px;
     height: 40px;
@@ -2085,7 +2099,6 @@ a.news-card:hover {
     margin-bottom: 20px;
     flex: 1; 
     opacity: 0.9;
-    text-align: justify;
 }
 
 /* Tlačítko "Číst celý článek" */
@@ -2110,15 +2123,18 @@ a.news-card:hover {
    ========================================= */
 .latest-post-banner {
     display: flex;
-    align-items: stretch; /* Natáhne oba bloky, aby byly stejně vysoké */
+    align-items: stretch;
     background-color: var(--white);
     border-radius: 25px;
     overflow: hidden; 
     box-shadow: var(--shadow);
-    margin: -30px auto 60px auto;
+    margin: 20px auto 60px auto; /* Upravila jsem horní margin, aby se nelepily */
     max-width: 100%;
     z-index: 10;
     position: relative;
+    
+    /* PŘIDEJ TENTO ŘÁDEK: */
+    min-height: 350px; /* Nastaví minimální výšku, aby byly oba bloky stejně vysoké */
 }
 
 /* Základní rozložení pro tlačítka u článků (PC verze = doleva) */
@@ -2150,9 +2166,9 @@ a.news-card:hover {
 
 .lp-image img {
     width: 100%;
-    height: auto;
+    height: 100%; 
     display: block;
-    object-fit: contain; 
+    object-fit: cover; 
 }
 
 /* OBSAH A TEXTY */
@@ -2317,12 +2333,16 @@ a.news-card:hover {
 /* Nadpis sekce */
 .team-section-title {
     text-align: center;          
-    margin: 20px auto 60px auto;
+    margin: 80px auto 50px auto;
     color: var(--col-blue-dark);
     font-size: 2rem;
     position: relative;
     display: block;             
     width: 100%;
+}
+
+.team-section-title:first-of-type {
+    margin-top: 20px; 
 }
 
 /* Ozdobná čára pod nadpisem */
@@ -2341,11 +2361,9 @@ a.news-card:hover {
     flex-wrap: wrap;          /* Povolí kartám skočit na další řádek */
     justify-content: center;
     gap: 40px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
-
-/* Karta člena týmu */
 .team-card {
     width: 100%;
     max-width: 500px;
@@ -2357,6 +2375,9 @@ a.news-card:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     border-bottom: 4px solid transparent; 
+    /* TYTO DVĚ VLASTNOSTI PŘIDEJ: */
+    display: flex;
+    flex-direction: column;
 }
 
 .team-card:hover {
@@ -2375,6 +2396,14 @@ a.news-card:hover {
 .role-medic .card-header-bg { background: linear-gradient(135deg, #e53e3e, #c53030); } 
 .role-leader .card-header-bg { background: linear-gradient(135deg, var(--col-teal-med), var(--col-teal-dark)); } 
 .role-boss .card-header-bg { background: linear-gradient(135deg, var(--col-yellow-pale), var(--col-orange)); } 
+
+/* Hlavička pro bývalé členy (elegantní tlumená šedomodrá) */
+.role-former .card-header-bg { 
+    background: linear-gradient(135deg, #dfd1c1, #b5a28c); 
+}
+.role-former .team-role { 
+    color: #9e8a72; 
+}
 
 /* Tmavší, solidní ocelově stříbrná pro Hlavního vedoucího */
 .role-main-leader .card-header-bg { 
@@ -2409,9 +2438,39 @@ a.news-card:hover {
     object-fit: cover;
 }
 
-/* Obsah karty */
 .team-info {
     padding: 0 35px 40px 35px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+.team-info .btn {
+    margin-top: auto !important; 
+}
+
+/* Skryje dlouhý text */
+.more-text {
+    display: none;
+}
+
+/* Třída, kterou přidáme po kliknutí */
+.more-text.show {
+    display: inline; /* Zobrazí text, aby plynule navazoval */
+}
+
+/* Vzhled rozbalovacího tlačítka */
+.read-more-btn {
+    display: inline-block;
+    margin-top: 5px;
+    color: var(--col-orange); /* Použij vaši klubovou oranžovou */
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.read-more-btn:hover {
+    text-decoration: underline;
 }
 
 .team-name {
@@ -2442,6 +2501,11 @@ a.news-card:hover {
     color: var(--col-blue-dark);
     opacity: 0.8;
     font-style: italic;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    margin-bottom: 15px;
 }
 
 
@@ -2750,5 +2814,98 @@ a.news-card:hover {
         justify-content: left; /* Zarovnáme pěkně na střed */
         gap: 20px; /* Dostatečná mezera, aby se nepřekrývaly */
         margin-top: 25px;
+    }
+}
+
+
+/* Zatemnění pozadí (skryté ve výchozím stavu) */
+.modal-overlay {
+    display: none; 
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Samotné bílé okno */
+.bio-modal-content {
+    background: #fff;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 20px;
+    position: relative;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    max-height: 90vh;
+    overflow-y: auto; 
+}
+
+/* Křížek na zavření */
+.close-bio {
+    position: absolute;
+    top: 15px; 
+    right: 25px;
+    font-size: 35px;
+    cursor: pointer;
+    color: #333;
+    line-height: 1;
+    z-index: 10;
+    padding: 10;
+}
+
+/* Rozložení: fotka vlevo, text vpravo */
+.bio-modal-body {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* Obal pro fotku v okně */
+.bio-modal-image img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--col-orange);
+}
+
+/* Stylování textů v okně */
+.bio-modal-text {
+    text-align: left;
+}
+.bio-modal-text h3 {
+    color: var(--col-blue-dark);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+.bio-roles {
+    color: var(--col-orange);
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.bio-desc {
+    font-style: italic;
+    line-height: 1.6;
+    text-align: justify; /* Zarovná text krásně do bloku */
+   
+}
+
+/* Mobilní zobrazení - fotka nahoru, text dolů */
+@media (max-width: 768px) {
+    .bio-modal-body {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .bio-modal-text {
+        text-align: center;
+    }
+    .bio-modal-image img {
+        width: 180px;
+        height: 180px;
     }
 }

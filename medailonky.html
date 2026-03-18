@@ -24,7 +24,7 @@
         <div class="container nav-container">
             <a href="index.html" class="logo">
                 <img src="images/logo/logo3.png" alt="Logo" class="nav-logo-img">
-                <span>Klub mladých diabetiků, z. s.</span>
+                <span>Klub mladých diabetiků</span>
             </a>
             <div class="hamburger" onclick="toggleMenu()">☰</div>
             <ul class="nav-links">
@@ -58,23 +58,50 @@
     <h2 class="team-section-title">Vedení a rada spolku</h2>
     
     <div class="team-grid" style="margin-bottom: 60px;">
-        <div class="team-card role-boss">
+        
+       <div class="team-card role-boss">
             <div class="card-header-bg"></div>
-            <div class="team-photo"></div>
+            
+            <div class="team-photo">
+                <img src="images/vedouci/ada.jpg" class="team-img" alt="Adéla Sklenářová" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            </div>
+            
             <div class="team-info">
-                <div class="team-name">Adéla Sklenářová</div>
-                <span class="team-role">PŘEDSEDKYNĚ SPOLKU <br>Zástupkyně hl. vedoucího <br>Vedoucí oddílu</span>
-                <p class="team-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div class="team-name">Mgr. Adéla Sklenářová</div>
+                
+                <span class="team-role">PŘEDSEDKYNĚ SPOLKU <br>Zástupkyně hl. vedoucího <br>Vedoucí táborového oddílu</span>
+                
+                <p class="team-bio">
+                    Poprvé jsem na dia tábor vyrazila v&nbsp;roce 2013 jako účastnice – a&nbsp;ano, taky jsem si tehdy prošla klasickým „chci domů“. O&nbsp;to víc dneska chápu všechny, které to&nbsp;občas na táboře přepadne...
+                </p>
+
+                <div class="team-full-bio" style="display: none;">
+                    Poprvé jsem na dia tábor vyrazila v&nbsp;roce 2013 jako účastnice – a&nbsp;ano, taky jsem si tehdy prošla klasickým „chci domů“. O&nbsp;to víc dneska chápu všechny, které to&nbsp;občas na táboře přepadne. Od roku 2018 jsem součástí táborového týmu a&nbsp;snažím se vracet dětem to, co jsem na táborech sama zažila - přátelství, podporu, smích a&nbsp;pocit, že jsem mezi svými. Na táboře mě baví týmové hry v&nbsp;lese, celodenní výlety a&nbsp;vždy se těším na večerní zpívání u&nbsp;táboráku. K&nbsp;táborům bezpochyby patří také rozhovory o&nbsp;diabetu a&nbsp;vzájemné pochopení. Když zrovna nejsem na táboře, najdete mě s&nbsp;knížkou v&nbsp;ruce s&nbsp;výbornou kávou nebo na prknech ochotnického divadla.
+                </div>
+                
+                <button class="btn btn-secondary" style="margin-top: 10px; width: 100%;" onclick="openBioModal(this)">Celý profil</button>
             </div>
         </div>
         
         <div class="team-card role-main-leader">
             <div class="card-header-bg"></div>
-            <div class="team-photo"></div>
+            <div class="team-photo">
+                <img src="images/vedouci/ondrej.jpg" class="team-img" alt="Ondřej Štefek" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            </div>
             <div class="team-info">
                 <div class="team-name">Ondřej Štefek</div>
-                <span class="team-role">HLAVNÍ VEDOUCÍ TÁBORA <br>Člen&nbsp;rady (funkce)</span>
-                <p class="team-bio" style="margin-top: 35px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <span class="team-role">HLAVNÍ VEDOUCÍ TÁBORA <br>Člen&nbsp;rady</span>
+                
+                
+                <p class="team-bio">
+                    Jsem rodák z&nbsp;Prajzské, ale od 20 let bydlím v&nbsp;Ostravě. Rád se učím a&nbsp;zkouším nové věci. Přes 15 let se neúspěšně snažím naučit hrát na kytaru. Mám rád moderní technologie...
+                </p>
+                
+                <div class="team-full-bio" style="display: none;">
+                    Jsem rodák z&nbsp;Prajzské, ale od 20 let bydlím v&nbsp;Ostravě. Rád se učím a&nbsp;zkouším nové věci. Přes 15 let se neúspěšně snažím naučit hrát na kytaru. Mám rád moderní technologie, počítačové hry, všechna roční období a&nbsp;bramboráky. Na dia tábory jezdím od 5&nbsp;let.
+                </div>
+                
+                <button class="btn btn-secondary" style="margin-top: 10px; width: 100%;" onclick="openBioModal(this)">Celý profil</button>
             </div>
         </div>
     </div>
@@ -82,31 +109,65 @@
     <div class="team-grid">
         <div class="team-card role-leader">
             <div class="card-header-bg"></div>
-            <div class="team-photo"></div>
+            <div class="team-photo">
+                <img src="images/vedouci/tana.jpg" class="team-img" alt="Ing. Táňa Sivá" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            </div>
+            <div class="team-info">
+                <div class="team-name">Ing. Táňa Sivá</div>
+                <span class="team-role">ČLENKA RADY (Účetnictví) <br> Vedoucí táborového oddílu</span>
+                
+                <p class="team-bio">
+                    Dia tábory jsou mou součástí již od dětství. Od roku 2002 jsem jezdila jako dítě a&nbsp;od roku 2012 pak jako zdravotník a&nbsp;nakonec i&nbsp;jako vedoucí oddílu...
+                </p>
+                
+                <div class="team-full-bio" style="display: none;">
+                    Dia tábory jsou mou součástí již od dětství. Od roku 2002 jsem jezdila jako dítě a&nbsp;od roku 2012 pak jako zdravotník a&nbsp;nakonec&nbsp;i jako vedoucí oddílu. Jsem máma dvou krásných chlapečků, mám ráda knihy, hory, les, naši chalupu, hudbu, miluju srandu a&nbsp;dobrodružství. Díky táborům jsem našla skvělé přátele a&nbsp;staly se mou nedílnou součástí v&nbsp;životě.
+                </div>
+                
+                <button class="btn btn-secondary" style="margin-top: 10px; width: 100%;" onclick="openBioModal(this)">Celý profil</button>
+            </div>
+        </div>
+
+        <div class="team-card role-leader">
+            <div class="card-header-bg"></div>
+            <div class="team-photo">
+                <img src="images/vedouci/michal.jpg" class="team-img" alt="Michal Mikoláš" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            </div>
             <div class="team-info">
                 <div class="team-name">Michal Mikoláš</div>
-                <span class="team-role">ČLEN RADY (funkce) <br> Vedoucí oddílu</span>
-                <p class="team-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                
+                <span class="team-role">ČLEN RADY <br> Vedoucí táborového oddílu</span>
+                
+                <p class="team-bio">
+                    Jmenuji se Michal a&nbsp;na dia tábory jezdím s&nbsp;malými přestávkami od roku 2007. Již několik let je mým útočištěm Ostrava, odkud zároveň pracuji pro jeden internetový obchod...
+                </p>
+
+                <div class="team-full-bio" style="display: none;">
+                    Jmenuji se Michal a&nbsp;na dia tábory jezdím s&nbsp;malými přestávkami od roku 2007. Již několik let je mým útočištěm Ostrava, odkud zároveň pracuji pro jeden internetový obchod. Mám rád burgery, dobrou kávu a&nbsp;kvalitní humor, o&nbsp;který v&nbsp;plénu mých táborových přátel není nikdy nouze. Ve volných chvílích rád vyrazím do&nbsp;přírody, do&nbsp;sauny nebo si zahrát badminton.
+                </div>
+                
+                <button class="btn btn-secondary" style="margin-top: 10px; width: 100%;" onclick="openBioModal(this)">Celý profil</button>
             </div>
         </div>
 
         <div class="team-card role-leader">
             <div class="card-header-bg"></div>
-            <div class="team-photo"></div>
+            <div class="team-photo">
+                <img src="images/vedouci/petr.jpg" class="team-img" alt="Petr Roman" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            </div>
             <div class="team-info">
                 <div class="team-name">Petr Roman</div>
-                <span class="team-role">ČLEN RADY (funkce) <br> Vedoucí oddílu</span>
-                <p class="team-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-        </div>
+                <span class="team-role">ČLEN RADY <br> Vedoucí táborového oddílu</span>
+                
+                <p class="team-bio">
+                    Peťa jezdí na dia tábory od roku 2005. Ve volném čase rád jezdí na kole, běhá, chodí po horách a&nbsp;vyráží na dlouhé procházky do přírody...
+                </p>
 
-        <div class="team-card role-leader">
-            <div class="card-header-bg"></div>
-            <div class="team-photo"></div>
-            <div class="team-info">
-                <div class="team-name">Táňa Sivá</div>
-                <span class="team-role">ČLENKA RADY (funkce) <br> Vedoucí oddílu</span>
-                <p class="team-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div class="team-full-bio" style="display: none;">
+                    Peťa jezdí na dia tábory od roku 2005. Ve volném čase rád jezdí na kole, běhá, chodí po horách a&nbsp;vyráží na dlouhé procházky do přírody. Když zrovna není venku, tak ho&nbsp;najdete na boulderu nebo třeba jak pokyvuje hlavou na koncertě. Má rád dobrou hudbu, pohyb a&nbsp;chvíle, kdy může být mezi lidmi.
+                </div>
+                
+                <button class="btn btn-secondary" onclick="openBioModal(this)">Celý profil</button>
             </div>
         </div>
     </div>
@@ -115,26 +176,147 @@
     <div class="team-grid">
         <div class="team-card role-leader">
             <div class="card-header-bg"></div>
-            <div class="team-photo"></div>
+            <div class="team-photo">
+                <img src="images/vedouci/matej.jpg" class="team-img" alt="Matěj Homolka" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            </div>
             <div class="team-info">
-                <div class="team-name">Jméno Příjmení</div>
-                <span class="team-role">Vedoucí oddílu</span>
-                <p class="team-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="team-name">Matěj Homolka</div>
+                <span class="team-role">VEDOUCÍ TÁBOROVÉHO ODDÍLU</span>
+                
+                <p class="team-bio">
+                    Ahoj, jmenuji se Matěj a&nbsp;na tábory jezdím od roku 2014. Od roku 2022 jezdím jako instruktor a&nbsp;tento rok jedu poprvé jako vedoucí. Studuji druhým rokem Právo...
+                </p>
+
+                <div class="team-full-bio" style="display: none;">
+                    Ahoj, jmenuji se Matěj a&nbsp;na tábory jezdím od roku 2014. Od roku 2022 jezdím jako instruktor a&nbsp;tento rok jedu poprvé jako vedoucí. Studuji druhým rokem Právo na Masarykově Univerzitě v&nbsp;Brně. Jsem kluk z&nbsp;malé vesnice kousek pod Brnem. Ve volném čase rád hraji deskovky s&nbsp;kamarády nebo si jdu zaběhat.
+                </div>
+                
+                <button class="btn btn-secondary" style="margin-top: 10px; width: 100%;" onclick="openBioModal(this)">Celý profil</button>
             </div>
         </div>
 
-        <div class="team-card role-leader"><div class="card-header-bg"></div><div class="team-photo"></div><div class="team-info"><div class="team-name">Jméno Příjmení</div><span class="team-role">Instruktor</span><p class="team-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div></div>
-        <div class="team-card role-leader"><div class="card-header-bg"></div><div class="team-photo"></div><div class="team-info"><div class="team-name">Jméno Příjmení</div><span class="team-role">Instruktor</span><p class="team-bio">Lorem ipsum.</p></div></div>
-        <div class="team-card role-leader"><div class="card-header-bg"></div><div class="team-photo"></div><div class="team-info"><div class="team-name">Jméno Příjmení</div><span class="team-role">Instruktor</span><p class="team-bio">Lorem ipsum.</p></div></div>
-        <div class="team-card role-leader"><div class="card-header-bg"></div><div class="team-photo"></div><div class="team-info"><div class="team-name">Jméno Příjmení</div><span class="team-role">Instruktor</span><p class="team-bio">Lorem ipsum.</p></div></div>
+        <div class="team-card role-leader">
+            <div class="card-header-bg"></div>
+            <div class="team-photo">
+                <img src="images/vedouci/Elen.jpg" class="team-img" alt="Elen" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            </div>
+            <div class="team-info">
+                <div class="team-name">Elen Sobotková</div>
+                <span class="team-role">INSTRUKTORKA</span>
+                
+                <p class="team-bio">
+                    Ahoj, tady Elen – milovnice přírody, srdcař a&nbsp;umělecká duše po výtvarné i&nbsp;hudební stránce. Na tábory jezdím od roku 2018 a&nbsp;letos mě čeká už třetí rok v&nbsp;roli instruktorky...
+                </p>
 
-        <div class="team-card role-medic"><div class="card-header-bg"></div><div class="team-photo"></div><div class="team-info"><div class="team-name">Jméno Příjmení</div><span class="team-role">Táborový lékař</span><p class="team-bio">Lorem ipsum.</p></div></div>
-        <div class="team-card role-medic"><div class="card-header-bg"></div><div class="team-photo"></div><div class="team-info"><div class="team-name">Jméno Příjmení</div><span class="team-role">Zdravotní sestra</span><p class="team-bio">Lorem ipsum.</p></div></div>
-        <div class="team-card role-medic"><div class="card-header-bg"></div><div class="team-photo"></div><div class="team-info"><div class="team-name">Jméno Příjmení</div><span class="team-role">Zdravotní sestra</span><p class="team-bio">Lorem ipsum.</p></div></div>
-    </div>
+                <div class="team-full-bio" style="display: none;">
+                    Ahoj, tady Elen – milovnice přírody, srdcař a&nbsp;umělecká duše po výtvarné i&nbsp;hudební stránce. Na tábory jezdím od roku 2018 a&nbsp;letos mě čeká už třetí rok v&nbsp;roli instruktorky. Normálně nejsem zrovna ranní ptáče, ale na táboře to neplatí – když jde o&nbsp;společné zážitky, spánek může klidně chvíli počkat. U&nbsp;táboráku mě spolehlivě najdete s&nbsp;kytarou v&nbsp;ruce. Miluju tanec, dobrou kávu a&nbsp;všechno, co přináší radost, smích a&nbsp;pozitivní energii. Dnes můžu říct, že jsem za cukrovku ráda. Právě díky ní jsem totiž poznala tuhle úžasnou partu. Těším se na další nezapomenutelné zážitky!
+                </div>
+                
+                <button class="btn btn-secondary" style="margin-top: 10px; width: 100%;" onclick="openBioModal(this)">Celý profil</button>
+            </div>
+        </div>
+        <div class="team-card role-leader">
+            <div class="card-header-bg"></div>
+            <div class="team-photo">
+                <img src="images/vedouci/matous.jpg" class="team-img" alt="Matouš Kašša" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            </div>
+            <div class="team-info">
+                <div class="team-name">Matouš Kašša</div>
+                <span class="team-role">INSTRUKTOR</span>
+                
+                <p class="team-bio">
+                    Jmenuji se Matouš, bydlím v&nbsp;Rajhradě kousek od Brna a&nbsp;je mi 17&nbsp;let. Jsem student čtyřletého gymnázia a&nbsp;nejvíce mě baví chemie, biologie a&nbsp;fyzika...
+                </p>
+
+                <div class="team-full-bio" style="display: none;">
+                    Jmenuji se Matouš, bydlím v&nbsp;Rajhradě kousek od Brna a&nbsp;je mi 17&nbsp;let. Jsem student čtyřletého gymnázia a&nbsp;nejvíce mě baví chemie, biologie a&nbsp;fyzika, kterým se chci věnovat i&nbsp;do&nbsp;budoucna. Na tábory jezdím od roku 2019 a&nbsp;jako instruktor jsem byl poprvé v&nbsp;roce 2025. Ve volném čase rád jezdím na kole, kajaku a&nbsp;běhám. Mám rád cestování a&nbsp;poznávání nových míst. Zároveň se zajímám o&nbsp;moderní technologie a&nbsp;snažím se pořád posouvat dál.
+                </div>
+                
+                <button class="btn btn-secondary" onclick="openBioModal(this)">Celý profil</button>
+            </div>
+        </div>
+        <div class="team-card role-leader">
+            <div class="card-header-bg"></div>
+            <div class="team-photo">
+                <img src="images/vedouci/andy.png" class="team-img" alt="Andrea Dvořáková" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            </div>
+            <div class="team-info">
+                <div class="team-name">Andrea Dvořáková</div>
+                <span class="team-role">INSTRUKTORKA</span>
+                
+                <p class="team-bio">
+                    Ahoj, jmenuji se Andrea, ale&nbsp;všichni mi říkají Andy. Na diatábory jezdím už od roku 2015, takže jsem tu v&nbsp;podstatě vyrostla. V&nbsp;roce 2025 jsem se poprvé přesunula...
+                </p>
+
+                <div class="team-full-bio" style="display: none;">
+                   Ahoj, jmenuji se Andrea, ale&nbsp;všichni mi říkají Andy. Na diatábory jezdím už od roku 2015, takže jsem tu v&nbsp;podstatě vyrostla. V roce 2025 jsem se poprvé přesunula na druhou stranu jako instruktorka a&nbsp;naplno si tuhle novou roli užívám! Aktuálně studuji Informační technologie na střední škole<!-- (mimo jiné mám na svědomí i&nbsp;tenhle web) -->. Když zrovna neprogramuji, nejčastěji mě najdete někde venku s&nbsp;kamarády, na cestách za novým dobrodružstvím nebo s&nbsp;pořádným hrnkem dobrého kafe v&nbsp;ruce.
+                </div>
+                
+                <button class="btn btn-secondary" onclick="openBioModal(this)">Celý profil</button>
+            </div>
+        </div>
+
+    <h2 class="team-section-title" style="margin: 35px 0 7px 0">Bývalí členové</h2>
+    <div class="team-grid">
+        <div class="team-card role-former">
+            <div class="card-header-bg"></div>
+            <div class="team-photo">
+                <img src="images/vedouci/pista.jpg" class="team-img" alt="Štefan Pišta Kurinec" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            </div>
+            <div class="team-info">
+                <div class="team-name">Štefan „Pišta“ Kurinec</div>
+                <span class="team-role"> Bývalý předseda spolku<br> Od táborového dítěte po vedoucího </span>
+                
+                <p class="team-bio">
+                    Jmenuji se Štefan, ale&nbsp;všichni mi říkají Pišta. Jsem bývalý předseda spolku KMD, ale&nbsp;prošel jsem si tu vším – od táborového dítěte přes instruktora až po vedoucího. Na dia tábory jezdím už od roku 1990...
+                </p>
+
+                <div class="team-full-bio" style="display: none;">
+                    Jmenuji se Štefan, ale&nbsp;všichni mi říkají Pišta. Jsem bývalý předseda spolku KMD, ale&nbsp;prošel jsem si tu vším – od táborového dítěte přes instruktora až po vedoucího. Na dia tábory jsem začal jezdit už v&nbsp;roce 1990. Baví mě turistika, výlety, příroda a&nbsp;dobrá hudba – hlavně Jarek Nohavica a&nbsp;Nedvědi. A&nbsp;co je pro mě úplně nejdůležitější? Být se svými přáteli.
+                </div>
+                
+                <button class="btn btn-secondary" onclick="openBioModal(this)">Celý profil</button>
+            </div>
+        </div>
+
+        <div class="team-card role-former">
+            <div class="card-header-bg"></div>
+            <div class="team-photo">
+                <img src="images/vedouci/paja.jpg" class="team-img" alt="Pavla Rychtarčíková" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            </div>
+            <div class="team-info">
+                <div class="team-name">Mgr. Pavla „Pája“ Rychtarčíková</div>
+                <span class="team-role">BÝVALÁ HLAVNÍ VEDOUCÍ <br> Zdravotnice, fotografka</span>
+                
+                <p class="team-bio">
+                    Na táborech mě všichni znají jako Páju. Už delší dobu bydlím v&nbsp;Ostravě, kde učím na gymnáziu. Je to už více než třicet let, kdy jsem poprvé nastoupila do autobusu směr dia tábor a&nbsp;bylo to jedno z&nbsp;nejlepších rozhodnutí...
+                </p>
+
+                <div class="team-full-bio" style="display: none;">
+                    Na táborech mě všichni znají jako Páju. Už delší dobu bydlím v&nbsp;Ostravě, kde učím na gymnáziu. Je to už více než třicet let, kdy jsem poprvé nastoupila do autobusu směr dia tábor a&nbsp;bylo to jedno z&nbsp;nejlepších rozhodnutí. Proto jsem dalších třicet let žádný tábor nevynechala. Měla jsem možnost být v&nbsp;roli dítěte, instruktorky, vedoucí, či&nbsp;hlavní vedoucí a&nbsp;pokaždé mě to bavilo. Nejvíc si cením získaných přátelství, které daleko přesahují hranice tábora. Současně je to nespočet zážitků, radosti, zkušeností, spoustu smíchu a&nbsp;na konci tábora i&nbsp;slzy, že to zase končí. Někdy je to i&nbsp;hodně práce, ale pokud se to povede a&nbsp;vidím radost dětí i&nbsp;ostatních vedoucích, je to hlavně pocit štěstí. A&nbsp;co když nejsme na táboře? Pak mě nejčastěji potkáte na horách, baví mě to na kole, na snowboardu, na turistice i&nbsp;té vysokohorské a&nbsp;nejvíc zrelaxuji na delším treku nedotčenou přírodou. Nemám ráda, když se z&nbsp;maličkostí dělají problémy a&nbsp;nesnáším špenát.
+                </div>
+                
+                <button class="btn btn-secondary" onclick="openBioModal(this)">Celý profil</button>
+            </div>
+        </div>
 </main>
 
-     <footer>
+    <div id="bio-modal" class="modal-overlay" onclick="closeBioModal(event)">
+        <div class="bio-modal-content">
+            <span class="close-bio" onclick="closeBioModal()">&times;</span>
+            <div class="bio-modal-body">
+                <div class="bio-modal-image">
+                    <img id="bio-modal-img" src="" alt="Fotka vedoucího">
+                </div>
+                <div class="bio-modal-text">
+                    <h3 id="bio-modal-name">Jméno</h3>
+                    <div id="bio-modal-roles" class="bio-roles">Role</div>
+                    <div id="bio-modal-desc" class="bio-desc">Tady se načte celý text...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
