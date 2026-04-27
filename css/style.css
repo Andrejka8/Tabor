@@ -1,37 +1,28 @@
-/* =========================================
-   1. VARIABLES & COLORS (KONTRASTNÍ & ŽIVÁ VERZE)
-   ========================================= */
+/* ======================================
+   1. VARIABLES & COLORS 
+   ====================================== */
 :root {
-    /* Vaše hlavní tmavě modrá (logo) */
-    --col-blue-dark: #2B4570; 
-    
-    /* 1. OPRAVA KONTRASTU (Pozadí vs Kartičky) */
-    /* Pozadí stránky je teď teplejší "písková/celtová". Bílé kartičky díky tomu konečně vyniknou! */
+    /* Pozadí */
     --col-cream: #EBE6DF; 
     --white: #ffffff; 
 
-    /* 2. OPRAVA NAVBARU */
-    /* Navbar má teď jasný, ale jemný modro-šedý nádech (už není bílý) */
-    --col-light2: #DCE3ED; 
-     --col-light: #C5DFD4; /* navbar */
+    /* Mintová v navbaru */
+    --col-light: #C5DFD4; 
 
-    /* 3. OPRAVA TLAČÍTEK (Více šťávy!) */
-    /* Hlavní oranžová je teď sytější a živější (barva ohně) */
+    /* Tlačítka */
     --col-orange: #E65A35; 
-    --col-orange-light: #F27B5C;
+    --col-orange-light: #F27B5C; /* Hover */
+    --col-teal-dark: #2B4570; /* Hover */
+    --col-teal-med: #4470A6; 
 
-    /* Sekundární tlačítka (místo té vybledlé šedo-modré) */
-    /* Nyní je to bohatá středně modrá, která má energii, ale neruší logo */
-    --col-teal-med: #4470A6;  
-    --col-teal-dark: #2B4570; 
-    
-    /* Detaily a podkresy ikon */
-    /* Podkres ikon ladíme do jemné modro-šedé, aby to pasovalo k Navbaru */
+    /* Meněí nadpisy a pozadí */
     --col-mint-light: #D5DFE8; 
     --col-yellow-pale: #e4c77f;
+
+    /* Hobit barva */
     --col-hobit:#B7950B;
 
-    /* Zesílený stín, aby kartičky opravdu "vystoupily" z pozadí */
+    /* Stín */
     --shadow: 0 10px 25px rgba(43, 69, 112, 0.12);
 }
 
@@ -67,8 +58,8 @@ body {
 
 body.no-scroll {
     overflow: hidden !important;
-    position: fixed !important; /* Zafixuje celou stránku na místě */
-    width: 100% !important;     /* Zabrání smrsknutí stránky do strany */
+    position: fixed !important; 
+    width: 100% !important;     
 }
 
 ul {
@@ -98,7 +89,7 @@ main {
    ========================================= */
 h1, h2, h3, h4 {
     font-family: 'Antipol VF', sans-serif; 
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     font-weight: 700; 
     position: relative;
     top: 3px; 
@@ -108,7 +99,7 @@ h1, h2, h3, h4 {
 /* Generic Section Title (with underline) */
 .section-title {
     text-align: center;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     font-size: 2.4rem;
     margin-top: 60px;
     margin-bottom: 40px;
@@ -163,6 +154,31 @@ h1, h2, h3, h4 {
     background-color: var(--col-teal-dark);
 }
 
+
+/* =========================================
+   28. ZMENŠENÍ TLAČÍTEK PRO VELMI MALÉ DISPLEJE
+   ========================================= */
+@media (max-width: 662px) {
+    .btn {
+        font-size: 0.85rem;   /* Zmenší samotné písmo (aby to tolik nekřičelo) */
+        padding: 12px 20px;   /* "Vyfoukne" bublinu kolem textu (menší vnitřní okraje) */
+        line-height: 1.4;     /* Kdyby se dlouhý text přece jen zalomil, ať na sobě řádky nejsou nalepené */
+    }
+}
+
+/* =========================================
+   29. EXTRÉMNÍ ZÁCHRANA PRO PIDI DISPLEJE (pod 320px)
+   ========================================= */
+@media (max-width: 320px) {
+    .btn {
+        font-size: 0.75rem;    /* Ještě o kousek menší písmo */
+        padding: 10px 8px;     /* Osekneme okraje na absolutní minimum */
+        letter-spacing: 0px;   /* Zrušíme případné mezery mezi písmeny */
+        width: 100%;           /* Tlačítko se roztáhne na celou dostupnou šířku, ať má text co nejvíc místa */
+        box-sizing: border-box;
+    }
+}
+
 /* =========================================
    5. NAVIGATION (NAVBAR)
    ========================================= */
@@ -187,7 +203,7 @@ nav {
     gap: 15px;              
     font-size: 25px; 
     font-weight: 500;       
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     font-family: 'Antipol VF', sans-serif;
     text-decoration: none; 
     position: relative;
@@ -199,7 +215,7 @@ nav {
     height: 55px;          
     border-radius: 50%;    
     object-fit: contain;   
-    background-color: var(--col-blue-dark); 
+    background-color: var(--col-teal-dark); 
     position: relative;
     top: -5px; 
 }
@@ -210,7 +226,7 @@ nav {
 }
 
 .nav-links a {
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     font-weight: 600;
     font-size: 17px;
 }
@@ -222,7 +238,7 @@ nav {
 
 .hamburger {
     display: none;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     font-size: 1.8rem;
     cursor: pointer;
 }
@@ -255,12 +271,11 @@ header.hero {
     font-size: 1.2rem;
     max-width: 600px;
     margin: 0 auto 30px auto;
-    color: var(white);
 }
 
 /* Page Header (Subpages) */
 .page-header {
-    background-color: var(--col-blue-dark);
+    background-color: var(--col-teal-dark);
     color: var(--white);
     padding: 35px 0;
     text-align: center;
@@ -277,7 +292,7 @@ header.hero {
 }
 
 .page-header p {
-    color: var(--col-mint-light);
+    color: var(--col-light);
     font-size: 1.2rem;
 }
 
@@ -285,14 +300,20 @@ header.hero {
    7. SHARED COMPONENTS (INDEX & OTHERS)
    ========================================= */
 /* Index Cards */
+/* =========================================
+   7. SHARED COMPONENTS - VERZE GRID (STEJNÁ VÝŠKA KARET)
+   ========================================= */
+
 .grid-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Na velkém monitoru budou automaticky 3 vedle sebe */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-bottom: 80px;
-    text-align: justify;
+    text-align: left;
 }
 
+/* Zajištění, že tlačítko zůstane vždy dole */
 .card {
     background: var(--white);
     border-radius: 25px;
@@ -302,14 +323,28 @@ header.hero {
     position: relative;
     overflow: hidden;
     border-top: 5px solid var(--col-teal-med);
-    display: flex;
+    display: flex; /* Vnitřek karty je flex, aby se tlačítko dalo poslat dolů */
     flex-direction: column;
     height: 100%; 
 }
 
 .card .btn {
-    margin-top: auto; 
+    margin-top: auto; /* Tohle natlačí tlačítko vždycky úplně na dno karty */
     align-self: flex-start; 
+}
+
+/* --- MAGIE PRO TABLETY (Ten "zlatý střed") --- */
+@media (min-width: 620px) and (max-width: 1024px) {
+    .grid-cards {
+        grid-template-columns: 1fr 1fr; /* Na sílu vynutíme 2 sloupce */
+    }
+    
+    .grid-cards .card:last-child {
+        grid-column: 1 / -1;  /* Karta dostane povolení roztáhnout se přes oba sloupce... */
+        justify-self: center; /* ...vycentrujeme ji hezky doprostřed... */
+        width: 75%;           /* ...a roztáhneme ji přesně na 75 %, takže bude větší, ale ne ošklivá! */
+        max-width: 500px;     /* Malá pojistka proti extrémům */
+    }
 }
 
 .card:hover {
@@ -319,7 +354,7 @@ header.hero {
 .card h3 {
     font-size: 1.75rem;
     margin-bottom: 15px;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     font-weight: 700;
 }
 
@@ -383,7 +418,32 @@ header.hero {
 .mission-box p {
     font-size: 1.1rem;
     margin-bottom: 15px;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
+}
+
+/* =========================================
+   33. ÚPRAVA BOXU "NAŠE POSLÁNÍ" PRO MOBILY (pod 700px)
+   ========================================= */
+@media (max-width: 700px) {
+    /* Zmenšíme samotný box a jeho okraje */
+    .mission-box {
+        padding: 30px 20px !important; /* Výrazně zmenšená vata uvnitř boxu */
+        border-radius: 20px !important; /* Lehce menší zakulacení, ať to na mobilu nevypadá jak bublina */
+        margin: 30px auto !important; /* Menší mezery nad a pod boxem */
+    }
+
+    /* Zmenšíme nadpis */
+    .mission-box h2 {
+        font-size: 1.4rem !important; 
+        margin-bottom: 15px !important;
+    }
+
+    /* Zmenšíme samotný text poslání */
+    .mission-box p {
+        font-size: 0.95rem !important; /* Drobnější a elegantnější písmo */
+        line-height: 1.5 !important;   /* Trochu upravíme řádkování, ať se to dobře čte */
+        margin-bottom: 10px !important;
+    }
 }
 
 /* Timeline (Story) */
@@ -423,7 +483,7 @@ header.hero {
 .story-date {
     width: 100px;
     height: 100px;
-    background-color: var(--col-blue-dark);
+    background-color: var(--col-teal-dark);
     color: var(--white);
     border-radius: 50%;
     display: flex;
@@ -449,7 +509,7 @@ header.hero {
     padding: 30px;
     border-radius: 25px;
     box-shadow: var(--shadow);
-    border-top: 5px solid var(--col-blue-dark);
+    border-top: 5px solid var(--col-teal-dark);
     position: relative;
     transition: transform 0.3s;
 }
@@ -480,7 +540,7 @@ header.hero {
     margin-bottom: 10px;
     font-weight: 700;
     font-size: 21px;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
 }
 
 /* Image Carousel */
@@ -535,7 +595,7 @@ header.hero {
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(255, 255, 255, 0.3);
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     border: none;
     width: 50px;
     height: 50px;
@@ -562,7 +622,7 @@ header.hero {
     text-align: center;
     font-family: 'Antipol VF', sans-serif;
     font-size: 23px;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     margin-bottom: 60px;
     margin-top: 20px;
     font-weight: 900;
@@ -588,7 +648,7 @@ header.hero {
     font-size: 2.8rem;  
     font-weight: 800;   
     text-transform: uppercase; 
-    color: #b69c35;
+    color: var(--col-hobit);
     margin-top: 10px;   
     margin-bottom: 10px;
     letter-spacing: 4px; 
@@ -598,7 +658,7 @@ header.hero {
 
 .camp-intro p {
     font-size: 1.15rem;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     text-align: center;
     font-weight: 500;
     line-height: 1.9;
@@ -612,6 +672,8 @@ header.hero {
     gap: 30px;
     margin-bottom: 60px;
 }
+
+
 
 .info-box {
     background: var(--white);
@@ -649,7 +711,7 @@ header.hero {
 }
 
 .icon-img {
-    width: 450px;
+    width: 66px;
     height: auto;
     object-fit: contain;
     mix-blend-mode: multiply;
@@ -657,7 +719,7 @@ header.hero {
 
 .info-box h3 {
     font-size: 1.1rem;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -712,7 +774,52 @@ header.hero {
 .notice-content p {
     margin: 0;
     line-height: 1.9;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
+}
+
+
+
+/* 1. Kolečko se stane oknem, které ořízne všechno, co trčí ven */
+.info-box .icon-circle {
+    position: relative !important;
+    overflow: hidden !important;
+    width: 70px !important;
+    height: 70px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+
+/* =========================================
+   49. DIATÁBOR INFO KARTY - ZLATÝ STŘED (od 939px do 620px)
+   ========================================= */
+
+/* 1. FÁZE: Tablety (939px až 620px) - Dvě karty nahoře, třetí roztažená dole */
+@media (max-width: 939px) and (min-width: 620px) {
+    .info-grid {
+        /* Bezpečné rozdělení na 2 sloupce, které nerozbije šířku stránky */
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; 
+    }
+    
+    .info-grid .info-box:last-child {
+        grid-column: 1 / -1 !important;  /* Karta zabere celý spodní řádek */
+        justify-self: center !important; /* Vycentruje se doprostřed */
+        width: 75% !important;           /* Trošku se roztáhne (tvůj požadavek) */
+        max-width: 500px !important;     /* Pojistka, aby z ní nebyla obří nudle */
+    }
+}
+
+/* 2. FÁZE: Mobily (pod 619px) - Klasicky všechny tři pod sebou */
+@media (max-width: 619px) {
+    .info-grid {
+        grid-template-columns: 1fr !important; /* Jeden sloupec */
+    }
+    
+    .info-grid .info-box:last-child {
+        width: 100% !important;      /* Třetí karta se vrátí do normálu */
+        max-width: none !important;
+    }
 }
 
 /* =========================================
@@ -789,7 +896,7 @@ header.hero {
     margin: 0px 0px 5px 0px;
     font-size: 1.75rem;
     font-weight: 700;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     font-family: 'Antipol VF', sans-serif;
 }
 
@@ -807,7 +914,7 @@ header.hero {
 .intro-text-box p {
     font-size: 1.2rem; 
     line-height: 1.8;  
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     font-weight: 400;
     opacity: 0.9;
 }
@@ -894,7 +1001,7 @@ header.hero {
 
 .tag-pill {
     background-color: var(--white);
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     padding: 12px 28px; 
     font-size: 1rem; 
     border-radius: 50px; 
@@ -924,7 +1031,7 @@ header.hero {
     margin-top: 40px;
     display: inline-block;
     background-color: var(--white); 
-    border: 2px solid var(--col-mint-light); 
+    border: 2px solid var(--col-light); 
     padding: 25px 50px;
     border-radius: 25px;
     max-width: 750px;
@@ -943,7 +1050,7 @@ header.hero {
 }
 
 .donors-text {
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     font-weight: 600;
     font-size: 1.1rem;
 }
@@ -951,7 +1058,7 @@ header.hero {
 .footer-note {
     margin-top: 30px;
     font-size: 1rem;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     font-style: italic;
     position: relative;
     z-index: 2;
@@ -962,6 +1069,45 @@ header.hero {
     font-weight: 500;
 }
 
+/* =========================================
+   52. SPONZOŘI - KROCENÍ BUBLIN NA MENŠÍCH DISPLEJÍCH
+   ========================================= */
+
+/* 1. Fáze: Tablety a menší monitory (pod 800px) */
+@media (max-width: 849px) {
+    .tag-cloud {
+        gap: 12px !important; /* Zmenšíme obří mezery mezi bublinami */
+    }
+    
+    .tag-pill {
+        padding: 10px 20px !important; /* Vyfoukneme tu vnitřní vatu */
+        font-size: 0.9rem !important;  /* Zmenšíme text */
+    }
+}
+
+/* 2. Fáze: Mobily (pod 480px) */
+@media (max-width: 619px) {
+    .tag-cloud {
+        gap: 8px !important; /* Úplně mini mezery pro pidi displeje */
+    }
+    
+    .tag-pill {
+        padding: 9px 9px !important; 
+        font-size: 0.8rem !important; 
+    }
+}
+
+/* 2. Fáze: Mobily (pod 480px) */
+@media (max-width: 480px) {
+    .tag-cloud {
+        gap: 8px !important; /* Úplně mini mezery pro pidi displeje */
+    }
+    
+    .tag-pill {
+        padding: 8px 15px !important; 
+        font-size: 0.8rem !important; 
+    }
+}
 /* =========================================
    12. PAGE: KONTAKT
    ========================================= */
@@ -1033,7 +1179,7 @@ a.icon:hover .contact-ig-icon {
 
 /* Contact Form */
 .contact-form-box {
-    background: linear-gradient(135deg, var(--col-blue-dark) 0%, #3a5b91 100%);
+    background: linear-gradient(135deg, var(--col-teal-dark) 0%, #3a5b91 100%);
     padding: 40px;
     border-radius: 25px;
     box-shadow: 0 15px 35px rgba(43, 69, 112, 0.25); 
@@ -1117,7 +1263,7 @@ input, textarea {
     font-family: inherit;
     font-size: 1rem;
     background-color: var(--white);
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
     resize: none;
@@ -1220,7 +1366,7 @@ button.btn-submit:hover {
 .members-section h2 {
     font-size: 27px;
     font-weight: 700;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     margin-bottom: 30px;
     font-family: 'Antipol VF', sans-serif;
 }
@@ -1240,7 +1386,7 @@ button.btn-submit:hover {
 }
 
 .chairman-box span {
-    color: var(--col-blue-dark); 
+    color: var(--col-teal-dark); 
 }
 
 /* Mřížka pro ostatní členy */
@@ -1253,7 +1399,7 @@ button.btn-submit:hover {
 
 .member-item {
     font-size: 1.05rem;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     font-weight: 600;
     padding: 10px;
     border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -1274,6 +1420,87 @@ button.btn-submit:hover {
         padding: 5px;
     }
     
+}
+
+/* =========================================
+   41. OPTIMALIZACE KONTAKTŮ PRO MOBILY (pod 600px)
+   ========================================= */
+@media (max-width: 406px) {
+    /* 1. Zmenšíme vatu (padding) kolem celé karty */
+    .contact-info-box {
+        padding: 25px 20px !important;
+    }
+
+    /* 2. Zmenšíme hlavní nadpis na kartě */
+    .contact-info-box h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 0px !important;
+        margin-left: 10px;
+    }
+
+    /* 3. Zmenšíme ikony, ať nechají víc místa pro text */
+    .icon {
+        width: 32px !important;
+        height: 32px !important;
+        margin-right: 12px !important;
+    }
+    
+    /* Musíme zmenšit i obrázky uvnitř ikon (ten tvůj instagram) */
+    .icon img, .contact-ig-icon {
+        width: 18px !important;
+        height: 18px !important;
+    }
+
+    /* 4. Oprava dlouhých textů (záchrana před přetékáním a ošklivým lámáním) */
+    .info-item div {
+        /* Zmenšíme lehce text u kontaktů */
+        font-size: 0.8rem; 
+        word-break: break-all;      /* Rozbije to v půlce slova, když není zbytí */
+        overflow-wrap: break-word;  /* Novější příkaz pro to samé */
+    }
+
+    /* Zabráníme ošklivému zalomení telefonního čísla uprostřed */
+    .phone-link {
+        white-space: nowrap; 
+    }
+    
+    /* Zmenšení mezer mezi jednotlivými kontakty */
+    .info-item {
+        margin-bottom: 20px !important;
+    }
+}
+
+/* =========================================
+   46. ABSOLUTNÍ OPRAVA VŠECH IKON V KONTAKTECH
+   ========================================= */
+@media (max-width: 406px) {
+    /* 1. Obal ikony: dostane jasný rozměr a přísný zákaz se smrsknout */
+    .info-item .icon {
+        width: 34px !important;
+        height: 34px !important;
+        min-width: 34px !important;  /* Zákaz ždímání! */
+        flex-shrink: 0 !important;   /* Dvojitá pojistka proti smrsknutí */
+        margin-right: 15px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /* 2. Samotné obrázky (PNG) v HTML: zrušíme 280px a vnutíme 24px */
+    .info-item .icon img {
+        width: 32px !important;       /* Natvrdo velikost */
+        height: auto !important;
+        min-width: 32px !important;   /* Zákaz stát se tečkou */
+        max-width: 32px !important;
+        object-fit: contain !important;
+    }
+
+    /* 3. Instagram SVG: srovnáme ho na stejnou velikost jako PNG obrázky */
+    .info-item .icon svg.contact-ig-icon {
+        width: 20px !important;
+        height: 20px !important;
+        min-width: 20px !important;
+    }
 }
 /* =========================================
    13. LIGHTBOX
@@ -1360,7 +1587,7 @@ button.btn-submit:hover {
    14. FOOTER
    ========================================= */
 footer {
-    background-color: var(--col-blue-dark);
+    background-color: var(--col-teal-dark);
     color: var(--col-mint-light);
     padding: 60px 0 20px 0;
     margin-top: auto;
@@ -1383,7 +1610,7 @@ footer {
 
 .footer-col p {
     line-height: 2;         
-    margin-bottom: 20px;    
+    margin-bottom: 15px;    
     max-width: 330px;      
 }
 
@@ -1417,13 +1644,38 @@ footer {
     color: rgba(255,255,255,0.5);
 }
 
+/* =========================================
+   27. OPRAVA PATIČKY PRO TABLETY
+   ========================================= */
+
+/* Spustíme mobilní zobrazení patičky už na 950px, aby nevznikala prázdná díra */
+@media (max-width: 950px) {
+    .footer-grid {
+        /* Vynutíme zobrazení všeho pod sebou (1 sloupec) */
+        grid-template-columns: 1fr !important;
+        gap: 40px !important; /* Dáme jim trochu prostoru na dýchání */
+    }
+
+    .footer-col {
+        /* Všechno vycentrujeme, aby to vypadalo jako úmyslný design */
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    /* Omezíme šířku toho prvního odstavce, aby se na tabletu netáhl přes celou obrazovku */
+    .footer-col p {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 
 /* =========================================
    15. MEDIA QUERIES (MOBILE OPTIMIZATION)
    ========================================= */
 
-/* --- TABLETS & PHONES (Max Width 768px) --- */
-@media (max-width: 768px) {
+/* --- TABLETS & PHONES --- */
+@media (max-width: 1100px) {
     
     /* 1. Navigation */
     .nav-links {
@@ -1505,6 +1757,9 @@ footer {
         padding: 30px;
     }
 
+}
+@media (max-width: 850px) {
+
     .contact-wrapper {
         grid-template-columns: 1fr;
     }
@@ -1579,7 +1834,7 @@ footer {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     .logo {
         font-size: 1.2rem; 
         gap: 10px;        
@@ -1588,6 +1843,30 @@ footer {
     .nav-logo-img {
         width: 50px;       
         height: 50px;
+    }
+}
+
+@media (max-width: 350px) {
+    .logo {
+        font-size: 1.1rem; 
+        gap: 8px;        
+    }
+    
+    .nav-logo-img {
+        width: 40px;       
+        height: 40px;
+    }
+}
+
+@media (max-width: 300px) {
+    .logo {
+        font-size: 1rem; 
+        gap: 5px;        
+    }
+    
+    .nav-logo-img {
+        width: 35px;       
+        height: 35px;
     }
 }
 /* =========================================
@@ -1903,13 +2182,15 @@ footer {
     transform: translateX(-50%) translateY(0); 
 }
 
-/* Instagram Button */
 .instagram-btn {
     display: inline-flex !important; 
-    width: fit-content !important;
+    
+    /* TOTO ZMĚŇ: Místo fit-content dáme všem tlačítkům stejnou šířku */
+    width: 140px !important; 
+    
     padding: 10px 24px !important; 
     line-height: normal !important; 
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
     gap: 8px;
     border-radius: 50px;
@@ -1919,9 +2200,8 @@ footer {
     text-decoration: none;
     font-weight: 600;
     font-size: 0.85rem;
-    margin-top: 15px; 
     margin-bottom: 0 !important; 
-    
+    white-space: nowrap; 
     transition: all 0.3s ease;
 }
 
@@ -2063,7 +2343,7 @@ a.news-card:hover {
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    color: var(--col-blue-dark); /* Lehce upraveno pro lepsi citelnost */
+    color: var(--col-teal-dark); /* Lehce upraveno pro lepsi citelnost */
 }
 
 .news-year {
@@ -2094,7 +2374,7 @@ a.news-card:hover {
 }
 
 .news-content p {
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     font-size: 0.95rem;
     margin-bottom: 20px;
     flex: 1; 
@@ -2116,6 +2396,35 @@ a.news-card:hover {
 .read-more-link:hover {
     transform: translateX(5px);
     color: var(--col-orange);
+}
+
+/* 1. FÁZE: Tablety a menší monitory (1029px až 650px) */
+@media (max-width: 1029px) and (min-width: 650px) {
+    .news-grid {
+        /* Vynutíme přesně 2 sloupce vedle sebe */
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; 
+    }
+    
+    /* Zacílíme na poslední kartu, ALE jen pokud je lichá (např. 3. v pořadí) */
+    .news-grid a.news-card:last-child:nth-child(odd) {
+        grid-column: 1 / -1 !important;  /* Zabere celou šířku spodního řádku */
+        justify-self: center !important; /* Vycentruje se doprostřed */
+        width: 75% !important;           /* Lehce se roztáhne (přesně jak chceš) */
+        max-width: 600px !important;     /* Pojistka proti obřím nudlím */
+    }
+}
+
+/* 2. FÁZE: Mobily (pod 649px) - Všechno poslušně pod sebou */
+@media (max-width: 649px) {
+    .news-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Zrušíme to roztahování z předchozího kroku */
+    .news-grid a.news-card:last-child:nth-child(odd) {
+        width: 100% !important;
+        max-width: none !important;
+    }
 }
 
 /* =========================================
@@ -2192,19 +2501,19 @@ a.news-card:hover {
 .lp-content h2 {
     font-size: 1.8rem;
     margin-bottom: 15px;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
 }
 
 .lp-content p {
     margin-bottom: 20px;
     font-size: 1rem;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     opacity: 0.9;
     text-align: justify;
 }
 
 /* --- MOBILNÍ ÚPRAVA --- */
-@media (max-width: 768px) {
+@media (max-width: 927px) {
     .latest-post-banner {
         flex-direction: column; 
         margin-top: 20px;
@@ -2247,7 +2556,7 @@ a.news-card:hover {
 .intro-text {
     font-size: 1.3rem;
     line-height: 1.6;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     font-weight: 650;
     text-align: justify;
 }
@@ -2281,7 +2590,7 @@ a.news-card:hover {
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 20px;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     opacity: 0.9;
     text-align: justify;
 }
@@ -2327,6 +2636,18 @@ a.news-card:hover {
 }
 
 /* =========================================
+   50. DETAIL ČLÁNKU - ZAROVNÁNÍ TEXTU DOLEVA (pod 490px)
+   ========================================= */
+@media (max-width: 490px) {
+    /* Zarovná text v detailu článku (jak ten úvodní, tak ty vedle fotek) doleva */
+    .article-wide-wrapper .intro-text,
+    .article-wide-wrapper .text-block p,
+    .article-wide-wrapper .span-full p {
+        text-align: left !important;
+        hyphens: auto; /* Pro hezčí dělení dlouhých slov na mobilu */
+    }
+}
+/* =========================================
    22. NÁŠ TÝM (MEDAILONKY)
    ========================================= */
 
@@ -2334,7 +2655,7 @@ a.news-card:hover {
 .team-section-title {
     text-align: center;          
     margin: 80px auto 50px auto;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     font-size: 2rem;
     position: relative;
     display: block;             
@@ -2476,18 +2797,32 @@ a.news-card:hover {
 .team-name {
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     margin-bottom: 5px;
 }
 
 .team-role {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.team-role span {
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #999;
     font-weight: 700;
-    margin-bottom: 15px;
-    display: block;
+    text-align: center;
+    
+}
+
+/* Tento kód automaticky přidá tečku před každou funkci */
+.team-role span::before {
+    content: "• ";
+    margin-right: 5px;
+    opacity: 0.7;
 }
 
 /* Barevné texty rolí */
@@ -2498,7 +2833,7 @@ a.news-card:hover {
 .team-bio {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     opacity: 0.8;
     font-style: italic;
     display: -webkit-box;
@@ -2554,6 +2889,42 @@ a.news-card:hover {
 }
 
 /* =========================================
+   44. ÚPRAVA KONTAKTNÍHO FORMULÁŘE PRO MOBILY
+   ========================================= */
+@media (max-width: 450px) {
+    /* 1. Vyfoukneme tu obří vatu kolem formuláře, získáme tím spoustu místa! */
+    .contact-form-box {
+        padding: 25px 20px !important;
+    }
+
+    /* 2. Zmenšíme hlavní nadpis, aby se hezky vešel vedle ikonky na jeden řádek */
+    .contact-form-box h3 {
+        font-size: 1.4rem !important;
+    }
+
+    .contact-form-box label{
+        font-size: 0.8rem;
+    }
+
+    /* 3. Zmenšíme políčka a jejich text, aby to působilo elegantněji */
+    input, textarea {
+        padding: 12px 10px !important;
+        font-size: 0.8rem !important;
+    }
+
+    /* 4. Oprava checkboxu - zarovnáme čtvereček nahoru k prvnímu řádku textu */
+    .checkbox-wrapper {
+        align-items: flex-start !important; 
+        gap: 10px !important;
+    }
+    
+    .checkbox-wrapper input[type="checkbox"] {
+        margin-top: 3px !important; /* Lehce ho posuneme, aby přesně lícoval s textem */
+        flex-shrink: 0;             /* Zákaz zmenšování samotného čtverečku */
+    }
+}
+
+/* =========================================
    ROZBALOVACÍ MENU (DROPDOWN)
    ========================================= */
 .nav-links li.dropdown {
@@ -2585,7 +2956,7 @@ a.news-card:hover {
 .dropdown-menu li a {
     display: block;
     padding: 10px 20px;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     font-size: 0.95rem;
     font-weight: 600;
     text-transform: none; 
@@ -2611,7 +2982,7 @@ a.news-card:hover {
 }
 
 /* --- MOBILNÍ VERZE --- */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
     .dropdown-menu {
         position: static; 
         box-shadow: none;
@@ -2622,7 +2993,7 @@ a.news-card:hover {
 
     .dropdown-menu li a {
         padding-left: 17px; 
-        color: var(--col-blue-dark);
+        color: var(--col-teal-dark);
         border-bottom: none;
         padding-top: 10px;
         line-height: 1.3;
@@ -2689,7 +3060,7 @@ a.news-card:hover {
 .trip-date {
     display: inline-block;
     background-color: var(--col-yellow-pale);
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     padding: 5px 12px;
     border-radius: 25px;
     font-weight: bold;
@@ -2698,7 +3069,7 @@ a.news-card:hover {
 }
 
 .trip-content h2 {
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     margin-bottom: 15px;
     font-size: 1.8rem;
 }
@@ -2706,7 +3077,7 @@ a.news-card:hover {
 .trip-content p {
     margin-bottom: 20px;
     font-size: 1rem;
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     opacity: 0.9;
     text-align: justify;
 }
@@ -2728,7 +3099,7 @@ a.news-card:hover {
 }
 
 /* --- MOBILNÍ ÚPRAVA --- */
-@media (max-width: 768px) {
+@media (max-width: 1060px) {
     .trip-card, .trip-card.reverse {
         flex-direction: column; 
         height: auto;
@@ -2755,11 +3126,11 @@ a.news-card:hover {
 /* =========================================
    OPRAVA MENU NA MOBILU (Naše akce)
    ========================================= */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
     /* 1. Zarovnání textu na střed */
     .nav-links li.dropdown .dropdown-toggle {
-        justify-content: center !important; /* Vynutí střed */
-        width: 100%; /* Roztáhne odkaz na celou šířku, aby šel vycentrovat */
+        justify-content: center !important; 
+        width: 100%;
         padding-bottom: 5px;
     }
 
@@ -2790,7 +3161,7 @@ a.news-card:hover {
    ZIG-ZAG PRO BANNERY NA HLAVNÍ STRÁNCE
    ========================================= */
 /* Toto pravidlo platí jen pro počítače a tablety (nad 768px) */
-@media (min-width: 769px) {
+@media (min-width: 928px) {
     /* Třída .reverse otočí směr Flexboxu */
     .latest-post-banner.reverse {
         flex-direction: row-reverse;
@@ -2852,7 +3223,6 @@ a.news-card:hover {
     color: #333;
     line-height: 1;
     z-index: 10;
-    padding: 10;
 }
 
 /* Rozložení: fotka vlevo, text vpravo */
@@ -2876,7 +3246,7 @@ a.news-card:hover {
     text-align: left;
 }
 .bio-modal-text h3 {
-    color: var(--col-blue-dark);
+    color: var(--col-teal-dark);
     font-size: 1.8rem;
     margin-bottom: 5px;
 }
@@ -2885,17 +3255,31 @@ a.news-card:hover {
     font-weight: bold;
     font-size: 0.9rem;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: left; 
 }
 .bio-desc {
     font-style: italic;
     line-height: 1.6;
-    text-align: justify; /* Zarovná text krásně do bloku */
+    text-align: justify;
    
 }
 
+.bio-roles span {
+    display: block;
+}
+
+.bio-roles span::before {
+    content: "• ";
+    margin-right: 5px;
+    opacity: 0.7; 
+}
+
 /* Mobilní zobrazení - fotka nahoru, text dolů */
-@media (max-width: 768px) {
+@media (max-width: 720px) {
     .bio-modal-body {
         flex-direction: column;
         align-items: center;
@@ -2907,5 +3291,59 @@ a.news-card:hover {
     .bio-modal-image img {
         width: 180px;
         height: 180px;
+    }
+}
+
+
+/* =========================================
+   31. ABSOLUTNÍ NANO DISPLEJE (pod 300px)
+   ========================================= */
+@media (max-width: 300px) {
+    /* Osekáme hlavní kontejner na krev */
+    .container {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    /* Zmenšíme i ty nejmenší mezery a ikony, abychom nahnali pixely pro text */
+    .card {
+        padding: 15px 10px !important; 
+        border-radius: 15px !important; /* Zmenšíme i zakulacení rohů, ať to ladí */
+    }
+
+    .card-icon-img {
+        width: 40px !important;
+        height: 40px !important;
+        margin-bottom: 15px !important;
+    }
+
+    .card h3 {
+        font-size: 1.25rem !important;
+    }
+
+    /* Tlačítko se roztáhne, ale ubereme mu ještě víc vaty */
+    .btn {
+        padding: 8px 5px !important;
+        font-size: 0.7rem !important;
+    }
+
+    /* TADY JE HLAVNÍ ZÁCHRANA:
+       Kdyby náhodou jakýkoliv skrytý prvek (obrázek, div, text) 
+       měl natvrdo nastavenou šířku, tady mu ji všem plošně zakážeme. */
+    * {
+        max-width: 100vw !important; 
+    }
+}
+
+/* =========================================
+   32. OPRAVA BOXU PŘEDSEDKYNĚ (pro malé mobily)
+   ========================================= */
+@media (max-width: 400px) {
+    .chairman-box {
+        padding: 10px 15px !important; /* Výrazně ubereme vatu po stranách */
+        font-size: 0.95rem !important; /* O chloupek zmenšíme písmo */
+        max-width: 100%;               /* Přísný zákaz přetéct přes okraj karty */
+        box-sizing: border-box;
+        word-wrap: break-word;         /* Jistota je jistota - kdyby se to pořád nevešlo, zalomí se to */
     }
 }
