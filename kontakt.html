@@ -12,7 +12,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <link rel="preload" href="font/Antipol_VF.otf" as="font" type="opentype" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
+    </noscript>
 
     <link rel="apple-touch-icon" sizes="180x180" href="images/logo/apple-touch-icon.png?v=2">
     <link rel="icon" type="image/png" sizes="32x32" href="images/logo/favicon-32x32.png?v=2">
@@ -35,7 +38,7 @@
             <ul class="nav-links">
                 <li><a href="o-nas.html">O nás</a></li>
                 <li class="dropdown">
-                    <a href="javascript:void(0);" class="dropdown-toggle" onclick="toggleDropdown(event)" style=" display: flex; align-items: center; font-weight: 900;">
+                    <a href="#" class="dropdown-toggle" onclick="event.preventDefault(); toggleDropdown(event)" style="display: flex; align-items: center; font-weight: 900;">
                         Naše akce <span style="font-size: 0.7em; margin-left: 5px;">▼</span>
                     </a>
                     
@@ -66,19 +69,19 @@
                 <br>
                <div class="info-item">
                     <div class="icon">
-                        <img src="images/ikony/poloha.png" alt="Adresa sídla spolku" style="width: 43px; height: auto">
+                        <img src="images/ikony/poloha.webp" alt="Adresa sídla spolku" style="width: 43px; height: auto">
                     </div>
                     <div><strong>Sídlo spolku:</strong><br>Bulharská 1418/9<br>708 00 Ostrava-Poruba</div>
                 </div>
                <div class="info-item">
                     <div class="icon">
-                        <img src="images/ikony/telefon.png"  alt="Telefonní kontakt" style="width: 43px; height: auto">
+                        <img src="images/ikony/telefon.webp"  alt="Telefonní kontakt" style="width: 43px; height: auto">
                     </div>
                     <div><strong>Telefon:</strong><br><a href="tel:+420722064254" class="phone-link">+420 722 064 254</a></div>
                 </div>
                 <div class="info-item">
                     <div class="icon">
-                        <img src="images/ikony/email.png" alt="E-mailový kontakt" style="width: 43px; height: auto">
+                        <img src="images/ikony/email.webp" alt="E-mailový kontakt" style="width: 43px; height: auto">
                     </div>
                     <div>
                         <strong>E-mail:</strong><br>
@@ -99,13 +102,13 @@
                 </div>
                 <div class="info-item">
                     <div class="icon">
-                        <img src="images/ikony/banka.png" alt="Bankovní účet" style="width: 43px; height: auto">
+                        <img src="images/ikony/banka.webp" alt="Bankovní účet" style="width: 43px; height: auto">
                     </div>
                     <div><strong>Bankovní číslo účtu:</strong><br>1022335156/5500</div>
                 </div>
                 <div class="info-item">
                     <div class="icon">
-                        <img src="images/ikony/ico.png" alt="IČO spolku" style="width: 43px; height: auto">
+                        <img src="images/ikony/ico.webp" alt="IČO spolku" style="width: 43px; height: auto">
                     </div>
                     <div><strong>IČO:</strong><br> 01780972</div>
                 </div>
@@ -205,7 +208,7 @@
             <div class="container">
                 <h2>Chcete nás podpořit?</h2>
                 <div style="max-width: 800px; margin: 20px auto;">
-                    <p>Bez našich skvělých sponzorů by to nešlo. Podívejte se, kdo nám pomáhá, nebo se staňte jedním z nich.</p>                   
+                    <p>Bez našich skvělých sponzorů by to nešlo. Podívejte se, kdo nám pomáhá, nebo se staňte jedním z nich.</p>                  
                     <p style="margin-top: 15px;">Pokud byste rádi podpořili naše tábory, můžete tak učinit <strong>finančním darem</strong> (na základě darovací smlouvy) nebo <strong>hmotným příspěvkem</strong> (např. sladkosti na hypoglykémie či odměny pro děti).</p>                
                     <p style="margin-top: 15px;">V&nbsp;případě zájmu nás prosím kontaktujte. <strong>Děkujeme!</strong></p>                   
                 </div>
@@ -223,18 +226,18 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Klub mladých diabetiků, z. s.</h4>
+                    <h3>Klub mladých diabetiků, z. s.</h3>
                     <p>Pomáháme dětem s diabetem žít naplno a&nbsp;ukazujeme, že cukrovka nemusí být žádnou překážkou.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Rychlé odkazy</h4>
+                    <h3>Rychlé odkazy</h3>
                     <a href="o-nas.html">O nás</a>
                     <a href="diatabor-2026.html">Diatábor 2026</a>
                     <a href="kontakt.html">Kontakt</a>
                     <a href="images/vyrocni-zprava-2024.pdf" target="_blank">Výroční zpráva</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Kontaktní informace</h4>
+                    <h3>Kontaktní informace</h3>
                     <p class="email-click-wrapper" onclick="copyEmail('footer-msg')">
                         ✉️ <span class="footer-email-text">klubmladychdiabetiku@gmail.com</span>
                         <span id="footer-msg" class="copy-popup">Zkopírováno!</span>

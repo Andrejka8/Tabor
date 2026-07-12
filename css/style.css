@@ -31,7 +31,7 @@
     src: url('../font/Antipol_VF.otf') format('opentype'); 
     font-weight: 100 900; 
     font-style: normal;
-    font-display: block;
+    font-display: swap;
 }
 
 /* =========================================
@@ -248,7 +248,7 @@ nav {
    ========================================= */
 /* Hero Header (Index) */
 header.hero {
-    background: linear-gradient(135deg, rgba(43, 69, 112, 0.95), rgba(43, 69, 112, 0.4)), url('image/1.JPG');
+    background: linear-gradient(135deg, rgba(43, 69, 112, 0.95), rgba(43, 69, 112, 0.4));
     background-size: cover;
     background-position: center;
     height: 65vh;
@@ -297,23 +297,17 @@ header.hero {
 }
 
 /* =========================================
-   7. SHARED COMPONENTS (INDEX & OTHERS)
-   ========================================= */
-/* Index Cards */
-/* =========================================
-   7. SHARED COMPONENTS - VERZE GRID (STEJNÁ VÝŠKA KARET)
+   7. SHARED COMPONENTS
    ========================================= */
 
 .grid-cards {
     display: grid;
-    /* Na velkém monitoru budou automaticky 3 vedle sebe */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-bottom: 80px;
     text-align: left;
 }
 
-/* Zajištění, že tlačítko zůstane vždy dole */
 .card {
     background: var(--white);
     border-radius: 25px;
@@ -323,27 +317,26 @@ header.hero {
     position: relative;
     overflow: hidden;
     border-top: 5px solid var(--col-teal-med);
-    display: flex; /* Vnitřek karty je flex, aby se tlačítko dalo poslat dolů */
+    display: flex; 
     flex-direction: column;
     height: 100%; 
 }
 
 .card .btn {
-    margin-top: auto; /* Tohle natlačí tlačítko vždycky úplně na dno karty */
+    margin-top: auto; 
     align-self: flex-start; 
 }
 
-/* --- MAGIE PRO TABLETY (Ten "zlatý střed") --- */
 @media (min-width: 620px) and (max-width: 1024px) {
     .grid-cards {
-        grid-template-columns: 1fr 1fr; /* Na sílu vynutíme 2 sloupce */
+        grid-template-columns: 1fr 1fr; 
     }
     
     .grid-cards .card:last-child {
-        grid-column: 1 / -1;  /* Karta dostane povolení roztáhnout se přes oba sloupce... */
-        justify-self: center; /* ...vycentrujeme ji hezky doprostřed... */
-        width: 75%;           /* ...a roztáhneme ji přesně na 75 %, takže bude větší, ale ne ošklivá! */
-        max-width: 500px;     /* Malá pojistka proti extrémům */
+        grid-column: 1 / -1;  
+        justify-self: center; 
+        width: 75%;           
+        max-width: 500px;
     }
 }
 
@@ -351,7 +344,7 @@ header.hero {
     transform: translateY(-10px);
 }
 
-.card h3 {
+.card h2 {
     font-size: 1.75rem;
     margin-bottom: 15px;
     color: var(--col-teal-dark);
@@ -374,11 +367,9 @@ header.hero {
     object-fit: contain; 
     margin-bottom: 25px; 
     display: block;      
-    /* TADY JE TEN MAGICKÝ TRIK NA ODSTRANĚNÍ BÍLÉHO POZADÍ: */
     mix-blend-mode: multiply; 
 }
 
-/* "Chcete nás podpořit" Highlight Section */
 .section-highlight {
     background-color: var(--white);
     padding: 60px 20px;
@@ -868,7 +859,7 @@ header.hero {
 .big-card-footer {
     padding: 18px 25px; 
     display: flex;
-    justify-content: center; /* Centers content horizontally */
+    justify-content: center; 
     align-items: center;
     background: var(--white);
     border-top: 1px solid rgba(0,0,0,0.04);
@@ -1614,7 +1605,7 @@ footer {
     max-width: 330px;      
 }
 
-.footer-col h4 {
+.footer-col h3 {
     color: var(--col-yellow-pale);
     margin: 0;              
     margin-bottom: 20px;    
@@ -1641,7 +1632,7 @@ footer {
     border-top: 1px solid rgba(255,255,255,0.1);
     padding-top: 20px;
     font-size: 0.9rem;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* =========================================
@@ -2343,7 +2334,7 @@ a.news-card:hover {
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    color: var(--col-teal-dark); /* Lehce upraveno pro lepsi citelnost */
+    color: var(--col-teal-dark); 
 }
 
 .news-year {
@@ -2366,7 +2357,7 @@ a.news-card:hover {
     position: relative; 
 }
 
-.news-content h3 {
+.news-content h2 {
     font-size: 1.4rem;
     margin-bottom: 10px;
     color: var(--col-teal-dark);
@@ -2398,29 +2389,24 @@ a.news-card:hover {
     color: var(--col-orange);
 }
 
-/* 1. FÁZE: Tablety a menší monitory (1029px až 650px) */
 @media (max-width: 1029px) and (min-width: 650px) {
     .news-grid {
-        /* Vynutíme přesně 2 sloupce vedle sebe */
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; 
     }
     
-    /* Zacílíme na poslední kartu, ALE jen pokud je lichá (např. 3. v pořadí) */
     .news-grid a.news-card:last-child:nth-child(odd) {
-        grid-column: 1 / -1 !important;  /* Zabere celou šířku spodního řádku */
-        justify-self: center !important; /* Vycentruje se doprostřed */
-        width: 75% !important;           /* Lehce se roztáhne (přesně jak chceš) */
-        max-width: 600px !important;     /* Pojistka proti obřím nudlím */
+        grid-column: 1 / -1 !important;  
+        justify-self: center !important; 
+        width: 75% !important;           
+        max-width: 600px !important;     
     }
 }
 
-/* 2. FÁZE: Mobily (pod 649px) - Všechno poslušně pod sebou */
 @media (max-width: 649px) {
     .news-grid {
         grid-template-columns: 1fr !important;
     }
     
-    /* Zrušíme to roztahování z předchozího kroku */
     .news-grid a.news-card:last-child:nth-child(odd) {
         width: 100% !important;
         max-width: none !important;
@@ -2428,7 +2414,7 @@ a.news-card:hover {
 }
 
 /* =========================================
-   20. HOMEPAGE: LATEST POST SECTION (Nyní funguje jako výlety!)
+   20. HOMEPAGE: LATEST POST SECTION 
    ========================================= */
 .latest-post-banner {
     display: flex;
@@ -2437,29 +2423,25 @@ a.news-card:hover {
     border-radius: 25px;
     overflow: hidden; 
     box-shadow: var(--shadow);
-    margin: 20px auto 60px auto; /* Upravila jsem horní margin, aby se nelepily */
+    margin: 20px auto 60px auto; 
     max-width: 100%;
     z-index: 10;
     position: relative;
-    
-    /* PŘIDEJ TENTO ŘÁDEK: */
-    min-height: 350px; /* Nastaví minimální výšku, aby byly oba bloky stejně vysoké */
+    min-height: 350px; 
 }
 
-/* Základní rozložení pro tlačítka u článků (PC verze = doleva) */
 .lp-buttons {
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-    justify-content: flex-start; /* Zarovná tlačítka doleva */
-    align-items: center;         /* Zarovná je hezky do jedné výškové roviny */
+    justify-content: flex-start;
+    align-items: center;        
 }
 
-/* Mobilní verze (displeje menší než 768px) */
 @media (max-width: 768px) {
     .lp-buttons {
-        justify-content: center !important;/* Vystředí tlačítka na mobilu */
+        justify-content: center !important;
     }
 }
 
@@ -2469,7 +2451,7 @@ a.news-card:hover {
     display: flex;            
     align-items: center;      
     justify-content: center;
-    background-color: var(--col-mint-light); /* Barva pozadí pod letákem */
+    background-color: var(--col-mint-light);
     overflow: hidden;
 }
 
@@ -3299,16 +3281,14 @@ a.news-card:hover {
    31. ABSOLUTNÍ NANO DISPLEJE (pod 300px)
    ========================================= */
 @media (max-width: 300px) {
-    /* Osekáme hlavní kontejner na krev */
     .container {
         padding-left: 8px !important;
         padding-right: 8px !important;
     }
 
-    /* Zmenšíme i ty nejmenší mezery a ikony, abychom nahnali pixely pro text */
     .card {
         padding: 15px 10px !important; 
-        border-radius: 15px !important; /* Zmenšíme i zakulacení rohů, ať to ladí */
+        border-radius: 15px !important;
     }
 
     .card-icon-img {
@@ -3321,15 +3301,11 @@ a.news-card:hover {
         font-size: 1.25rem !important;
     }
 
-    /* Tlačítko se roztáhne, ale ubereme mu ještě víc vaty */
     .btn {
         padding: 8px 5px !important;
         font-size: 0.7rem !important;
     }
 
-    /* TADY JE HLAVNÍ ZÁCHRANA:
-       Kdyby náhodou jakýkoliv skrytý prvek (obrázek, div, text) 
-       měl natvrdo nastavenou šířku, tady mu ji všem plošně zakážeme. */
     * {
         max-width: 100vw !important; 
     }
@@ -3340,10 +3316,93 @@ a.news-card:hover {
    ========================================= */
 @media (max-width: 400px) {
     .chairman-box {
-        padding: 10px 15px !important; /* Výrazně ubereme vatu po stranách */
-        font-size: 0.95rem !important; /* O chloupek zmenšíme písmo */
-        max-width: 100%;               /* Přísný zákaz přetéct přes okraj karty */
+        padding: 10px 15px !important; 
+        font-size: 0.95rem !important; 
+        max-width: 100%;              
         box-sizing: border-box;
-        word-wrap: break-word;         /* Jistota je jistota - kdyby se to pořád nevešlo, zalomí se to */
+        word-wrap: break-word;       
+    }
+}
+
+/* =========================================
+   ŠTÍTEK PRO NOVÝ VÝLET
+   ========================================= */
+.vylet-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--col-orange);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 15px rgba(213, 87, 59, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 10;
+}
+
+@media (max-width: 927px) {
+    .vylet-badge {
+        position: relative; 
+        top: 0;
+        right: 0;
+        display: inline-block; 
+        margin-bottom: 20px; 
+        align-self: flex-start; 
+    }
+}
+
+/* =========================================
+   KARTA PRO CHYSTANÝ VÝLET 
+   ========================================= */
+.upcoming-trip-box {
+    background-color: var(--white);
+    border-radius: 25px;
+    padding: 40px;
+    margin-bottom: 50px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    border: 3px dashed var(--col-mint-light);
+    position: relative;
+}
+
+.vylet-badge-static {
+    display: inline-block;
+    background-color: var(--col-orange);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 15px rgba(213, 87, 59, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+
+.upcoming-trip-box h2 {
+    color: var(--col-blue-dark);
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-family: 'Antipol VF', sans-serif;
+}
+
+.upcoming-trip-box p {
+    color: var(--col-teal-dark);
+    font-size: 1.05rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .upcoming-trip-box {
+        padding: 30px 20px;
+    }
+    
+    .upcoming-trip-box h2 {
+        font-size: 1.5rem;
     }
 }

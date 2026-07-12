@@ -7,17 +7,44 @@
     <title>Klub mladých diabetiků | Letní tábory a akce pro děti</title>
     <meta name="description" content="Jsme komunita, která pomáhá dětem s diabetem žít naplno. Pořádáme letní diatábor, diavýlety a další akce, kde cukrovka není překážkou. Přidejte se k nám!">
 
-    <link rel="canonical" href="https://www.klubmladychdiabetiku.cz/">
+    <link rel="canonical" href="https://www.klubmladychdiabetiku.cz/index.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <link rel="preload" href="font/Antipol_VF.otf" as="font" type="opentype" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
+    </noscript>
 
     <link rel="apple-touch-icon" sizes="180x180" href="images/logo/apple-touch-icon.png?v=2">
     <link rel="icon" type="image/png" sizes="32x32" href="images/logo/favicon-32x32.png?v=2">
     <link rel="icon" type="image/png" sizes="16x16" href="images/logo/favicon-16x16.png?v=2">
     <link rel="manifest" href="images/logo/site.webmanifest?v=2">
+
+    <script>
+        const totalImages = 7; 
+        const isMobile = window.innerWidth <= 768;
+        const folder = isMobile ? 'images/hero/mobile/' : 'images/hero/';
+        const randomNum = Math.floor(Math.random() * totalImages) + 1;
+        const heroImageUrl = folder + randomNum + '.jpg';
+
+        const preloadLink = document.createElement("link");
+        preloadLink.href = heroImageUrl;
+        preloadLink.rel = "preload";
+        preloadLink.as = "image";
+        preloadLink.fetchPriority = "high";
+        document.head.appendChild(preloadLink);
+
+        document.documentElement.style.setProperty('--hero-bg-image', `url('${heroImageUrl}')`);
+    </script>
+    <style>
+        header.hero {
+            background-image: linear-gradient(135deg, rgba(43, 69, 112, 0.95), rgba(43, 69, 112, 0.4)), var(--hero-bg-image) !important;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -25,14 +52,14 @@
     <nav>
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <img src="images/logo/logo3.png" alt="Klub mladých diabetiků" class="nav-logo-img">
+                <img src="images/logo/logo3.png" alt="Klub mladých diabetiků" class="nav-logo-img" width="88" height="88">
                 <span>Klub mladých diabetiků</span>
             </a>
             <div class="hamburger" onclick="toggleMenu()">☰</div>
             <ul class="nav-links">
                 <li><a href="o-nas.html">O nás</a></li>
                 <li class="dropdown">
-                    <a href="javascript:void(0);" class="dropdown-toggle" onclick="toggleDropdown(event)" style=" display: flex; align-items: center; font-weight: 900;">
+                    <a href="#" class="dropdown-toggle" onclick="event.preventDefault(); toggleDropdown(event)" style="display: flex; align-items: center; font-weight: 900;">
                         Naše akce <span style="font-size: 0.7em; margin-left: 5px;">▼</span>
                     </a>
                     
@@ -54,44 +81,46 @@
         <div class="container hero-content">
             <h1>Léto plné zážitků</h1>
             <p>Zveme vás na nezapomenutelný letní tábor pro děti s diabetem. Zábava, edukace a nová přátelství v přírodě.</p>
-            <!-- <a href="diatabor-2026.html" class="btn btn-primary">Přihlásit se na Diatábor 2026</a> -->
             <a href="diatabor-2026.html" class="btn btn-primary">Více informací o&nbsp;Diatáboře 2026</a>
-            
         </div>
     </header>
 
     <main class="container">  
         <div class="grid-cards">
             <div class="card">
-                <img src="images/ikony/kapka.png" alt="Kapka/list - diabetes" class="card-icon-img">
-                <h3>O nás</h3>
+                <img src="images/ikony/kapka.webp" alt="Kapka/list - diabetes" class="card-icon-img" width="102" height="105" loading="lazy">
+                <h2>O nás</h2>
                 <p>Jsme komunita, která pomáhá mladým diabetikům žít naplno. Zjistěte více o&nbsp;naší historii a&nbsp;poslání.</p>
                 <a href="o-nas.html" class="btn btn-secondary">Více o klubu</a>
             </div>
 
             <div class="card" style="border-color: var(--col-orange);">
-                <img src="images/ikony/kytara.png" alt="Kytara a táborák - diabetes" class="card-icon-img">
-                <h3>Diatábor 2026</h3>
+                <img src="images/ikony/kytara.webp" alt="Kytara a táborák - diabetes" class="card-icon-img" width="104" height="105" loading="lazy">
+                <h2>Diatábor 2026</h2>
                 <p>Termíny, přihlášky a&nbsp;veškeré důležité informace k&nbsp;nadcházejícímu ročníku našeho tábora.</p>
                 <a href="diatabor-2026.html" class="btn btn-primary">Informace k táboru</a>
             </div>
 
             <div class="card">
-                <img src="images/ikony/fotky.png" alt="Fotogalerie - diabetes" class="card-icon-img">
-                <h3>Fotogalerie</h3>
+                <img src="images/ikony/fotky.webp" alt="Fotogalerie - diabetes" class="card-icon-img" width="102" height="105" loading="lazy">
+                <h2>Fotogalerie</h2>
                 <p>Podívejte se, jak jsme si užili minulé ročníky. Spousta úsměvů a&nbsp;skvělých prožitých momentů.</p>
-               
                 <a href="fotogalerie.html" class="btn btn-secondary">Prohlédnout fotky</a>
             </div>
         </div>
 
         <div class="latest-post-banner">
             <div class="lp-image">
-                <img src="images/vylety/vylet2025.png" alt="Diavýlety s KMD">
+                <img src="images/vylety/2025_1.jpeg" alt="Diavýlety s KMD" loading="lazy">
             </div>
-            <div class="lp-content">
+
+            <div class="lp-content" style="position: relative;">
+                <div class="vylet-badge">
+                    📅 Další výlet: 3. ŘÍJNA 2026!
+                </div>
                 <span class="lp-date">Celoroční aktivity</span>
                 <h2>Vyrážíme i na Diavýlety!</h2>
+
                 <p>Nejen tábory, ale i víkendové výšlapy! Společně poznáváme krásy Česka, stmelujeme partu a&nbsp;dokazujeme, že cukrovka není žádnou překážkou pro zdolávání kopců. Sledujte náš web nebo Instagram, ať vám neuteče termín další akce.</p>
 
                 <div class="lp-buttons">
@@ -105,7 +134,7 @@
 
         <div class="latest-post-banner reverse">
             <div class="lp-image">
-                <img src="images/aktualita.jpg" alt="Veletrh Detektiv Dia Tábor">
+                <img src="images/aktualita.jpg" alt="Veletrh Detektiv Dia Tábor" width="669" height="446" loading="lazy">
             </div>
             <div class="lp-content">
                 <span class="lp-date">3. listopadu 2025</span>
@@ -140,18 +169,18 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Klub mladých diabetiků, z. s.</h4>
+                    <h3>Klub mladých diabetiků, z. s.</h3>
                     <p>Pomáháme dětem s diabetem žít naplno a&nbsp;ukazujeme, že cukrovka nemusí být žádnou překážkou.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Rychlé odkazy</h4>
+                    <h3>Rychlé odkazy</h3>
                     <a href="o-nas.html">O nás</a>
                     <a href="diatabor-2026.html">Diatábor 2026</a>
                     <a href="kontakt.html">Kontakt</a>
                     <a href="images/vyrocni-zprava-2024.pdf" target="_blank">Výroční zpráva</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Kontaktní informace</h4>
+                    <h3>Kontaktní informace</h3>
                     <p class="email-click-wrapper" onclick="copyEmail('footer-msg')">
                         ✉️ <span class="footer-email-text">klubmladychdiabetiku@gmail.com</span>
                         <span id="footer-msg" class="copy-popup">Zkopírováno!</span>

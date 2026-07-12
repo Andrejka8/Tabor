@@ -12,7 +12,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <link rel="preload" href="font/Antipol_VF.otf" as="font" type="opentype" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
+    </noscript>
 
     <link rel="apple-touch-icon" sizes="180x180" href="images/logo/apple-touch-icon.png?v=2">
     <link rel="icon" type="image/png" sizes="32x32" href="images/logo/favicon-32x32.png?v=2">
@@ -33,7 +36,7 @@
             <ul class="nav-links">
                 <li><a href="o-nas.html">O nás</a></li>
                 <li class="dropdown">
-                    <a href="javascript:void(0);" class="dropdown-toggle" onclick="toggleDropdown(event)" style=" display: flex; align-items: center; font-weight: 900;">
+                    <a href="#" class="dropdown-toggle" onclick="event.preventDefault(); toggleDropdown(event)" style="display: flex; align-items: center; font-weight: 900;">
                         Naše akce <span style="font-size: 0.7em; margin-left: 5px;">▼</span>
                     </a>
                     
@@ -62,14 +65,14 @@
         <div class="news-grid">
             <a href="clanek-veletrh-2025.html" class="news-card">
                 <div class="news-image">
-                    <img src="images/aktualita.jpg" alt="Veletrh Detektiv Diatábor 2025">
+                    <img src="images/aktualita.jpg" alt="Veletrh Detektiv Diatábor 2025" fetchpriority="high">
                     <div class="news-date">
                         <span class="day">03</span>
                         <span class="month">LIS</span>
                     </div>
                 </div>
                 <div class="news-content">
-                    <h3>Veletrh Detektiv Diatábor 2025</h3>
+                    <h2>Veletrh Detektiv Diatábor 2025</h2>
                     <p>Ohlédnutí za akcí plnou záhad a&nbsp;luštění. Přečtěte si, jak se našim malým detektivům dařilo.</p>
                     
                     <span class="read-more-link">Číst celý článek &rarr;</span>
@@ -78,13 +81,13 @@
 
             <a href="clanek-hasici-2024.html" class="news-card">
                 <div class="news-image">
-                    <img src="images/2024_spolecna.jpg" alt="Hasiči SDH Pražmo na Diatáboře 2024">
+                    <img src="images/2024_spolecna.jpg" alt="Hasiči SDH Pražmo na Diatáboře 2024" fetchpriority="high">
                     <div class="news-date">
                         <span class="day">2024</span>
                     </div>
                 </div>
                 <div class="news-content">
-                    <h3>SDH Pražmo na Diatáboře 2024</h3>
+                    <h2>SDH Pražmo na Diatáboře 2024</h2>
                     <p>Náš diatábor 2024 na Kozubové navštívili dobrovolní hasiči a&nbsp;připravili si pro nás skvělý program.</p>
                     
                     <span class="read-more-link">Číst celý článek &rarr;</span>
@@ -93,13 +96,13 @@
 
             <a href="clanek-2023.html" class="news-card">
                 <div class="news-image">
-                    <img src="images/clanek-2023.jpg" alt="Diatábor 2023 - mladí dobrodruzi na cestě kolem světa">
+                    <img src="images/clanek-2023.jpg" alt="Diatábor 2023 - mladí dobrodruzi na cestě kolem světa" fetchpriority="high">
                     <div class="news-date">
                         <span class="day">2023</span>
                     </div>
                 </div>
                 <div class="news-content">
-                    <h3>Mladí dobrodruzi na cestě kolem světa</h3>
+                    <h2>Mladí dobrodruzi na cestě kolem světa</h2>
                     <p>Mladí dobrodruzi na cestě napříč kontinenty. Přečtěte si, jak probíhala naše velká výprava z&nbsp;Londýna do New Yorku.</p>
                     
                     <span class="read-more-link">Číst celý článek &rarr;</span>
@@ -112,18 +115,18 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Klub mladých diabetiků, z. s.</h4>
+                    <h3>Klub mladých diabetiků, z. s.</h3>
                     <p>Pomáháme dětem s diabetem žít naplno a&nbsp;ukazujeme, že cukrovka nemusí být žádnou překážkou.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Rychlé odkazy</h4>
+                    <h3>Rychlé odkazy</h3>
                     <a href="o-nas.html">O nás</a>
                     <a href="diatabor-2026.html">Diatábor 2026</a>
                     <a href="kontakt.html">Kontakt</a>
                     <a href="images/vyrocni-zprava-2024.pdf" target="_blank">Výroční zpráva</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Kontaktní informace</h4>
+                    <h3>Kontaktní informace</h3>
                     <p class="email-click-wrapper" onclick="copyEmail('footer-msg')">
                         ✉️ <span class="footer-email-text">klubmladychdiabetiku@gmail.com</span>
                         <span id="footer-msg" class="copy-popup">Zkopírováno!</span>
@@ -142,7 +145,7 @@
                             </svg>
                             <span>YouTube</span>
                         </a>
-                    </div>      
+                    </div>
                 </div>
             </div>
             <div class="copyright">

@@ -12,7 +12,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <link rel="preload" href="font/Antipol_VF.otf" as="font" type="opentype" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
+    </noscript>
 
     <link rel="apple-touch-icon" sizes="180x180" href="images/logo/apple-touch-icon.png?v=2">
     <link rel="icon" type="image/png" sizes="32x32" href="images/logo/favicon-32x32.png?v=2">
@@ -29,16 +32,16 @@
                 <img src="images/logo/logo3.png" alt="Klub mladých diabetiků" class="nav-logo-img">
                 <span>Klub mladých diabetiků</span>
             </a>
-            <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</div>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
             <ul class="nav-links">
                 <li><a href="o-nas.html">O nás</a></li>
                 <li class="dropdown">
-                    <a href="javascript:void(0);" class="dropdown-toggle" onclick="toggleDropdown(event)" style=" display: flex; align-items: center; font-weight: 900;">
+                    <a href="#" class="dropdown-toggle" onclick="event.preventDefault(); toggleDropdown(event)" style="display: flex; align-items: center; font-weight: 900;">
                         Naše akce <span style="font-size: 0.7em; margin-left: 5px;">▼</span>
                     </a>
                     
                     <ul class="dropdown-menu" id="myDropdown">
-                        <li><a href="diatabor-2026.html">Diatábor 2026</a></li>
+                        <li><a href="diatabor-2026.html" class="active">Diatábor 2026</a></li>
                         <li><a href="vylety.html">Diavýlety</a></li>
                     </ul>
                 </li>
@@ -70,20 +73,20 @@
             </p>
             <p style="margin-top: 10px;">
                 Nenabízíme žádné záruky, protože nikdo z&nbsp;nás neví, co nás čeká. Nabízíme Vám však toto: 
-
+            </p>
             <p style="margin-top: 10px;">
                 <strong>Pokud uspějeme, budeme si pamatovat ty, kteří nám pomohli.</strong>
             </p>
 
             <p style="margin-top: 10px; font-size: 20px; font-weight: 500;">
-               <em>Thorin II. Pavéza</em>
+                <em>Thorin II. Pavéza</em>
             </p>
         </div> 
 
         <div class="info-grid">
             <div class="info-box main-box">
                 <div class="icon-circle">
-                    <img src="images/ikony/kdy.png" alt="Termín diatábora 2026" class="kdy-img">
+                    <img src="images/ikony/kdy.webp" alt="Termín diatábora 2026" class="kdy-img">
                 </div>
                 <h3>Kdy jedeme?</h3>
                 <p class="big-data">25. 7. – 1. 8. 2026</p>
@@ -92,7 +95,7 @@
 
            <div class="info-box">
                 <div class="icon-circle">
-                    <img src="images/ikony/poloha.png" alt="Místo konání diatábora – Beskydy" class="icon-img">
+                    <img src="images/ikony/poloha.webp" alt="Místo konání diatábora – Beskydy" class="icon-img">
                 </div>
                 <h3>Kde to bude?</h3>
                 <p class="big-data">Horská chata Bílá</p>
@@ -101,7 +104,7 @@
 
             <div class="info-box">
                 <div class="icon-circle">
-                    <img src="images/ikony/kapka.png" alt="Věková skupina účastníků diatábora" class="kdy-img">
+                    <img src="images/ikony/kapka.webp" alt="Věková skupina účastníků diatábora" class="kdy-img">
                 </div>
                 <h3>Pro koho?</h3>
                 <p class="big-data">7 – 16 let</p>
@@ -112,9 +115,6 @@
         <div class="nature-notice">
             <div class="notice-icon">📝</div>
             <div class="notice-content">
-                <!-- <h3>Přihlášky spouštíme v únoru 2026</h3>
-                <p>Dokumenty ke stažení a online přihláška budou k dispozici zde na webu.</p> -->
-
                 <h3>Kapacita tábora je již naplněna!</h3>
                 <p>Děkujeme za obrovský zájem. Přihlašování bylo ukončeno. Těšíme se <br>na všechny přihlášené táborníky v&nbsp;červenci!</p>
                 
@@ -141,18 +141,18 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Klub mladých diabetiků, z. s.</h4>
+                    <h3>Klub mladých diabetiků, z. s.</h3>
                     <p>Pomáháme dětem s diabetem žít naplno a&nbsp;ukazujeme, že cukrovka nemusí být žádnou překážkou.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Rychlé odkazy</h4>
+                    <h3>Rychlé odkazy</h3>
                     <a href="o-nas.html">O nás</a>
                     <a href="diatabor-2026.html">Diatábor 2026</a>
                     <a href="kontakt.html">Kontakt</a>
                     <a href="images/vyrocni-zprava-2024.pdf" target="_blank">Výroční zpráva</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Kontaktní informace</h4>
+                    <h3>Kontaktní informace</h3>
                     <p class="email-click-wrapper" onclick="copyEmail('footer-msg')">
                         ✉️ <span class="footer-email-text">klubmladychdiabetiku@gmail.com</span>
                         <span id="footer-msg" class="copy-popup">Zkopírováno!</span>
@@ -171,7 +171,7 @@
                             </svg>
                             <span>YouTube</span>
                         </a>
-                    </div>   
+                    </div> 
                 </div>
             </div>
             <div class="copyright">
