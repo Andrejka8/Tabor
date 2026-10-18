@@ -471,3 +471,20 @@ function closeBioModal(event) {
         window.scrollTo(0, scrollPositionBio); 
     }
 }
+
+function copyEmailCustom(emailAddress, elementId) {
+    const feedback = document.getElementById(elementId);
+    if (!feedback) return;
+
+    navigator.clipboard.writeText(emailAddress).then(() => {
+        feedback.classList.add("show");
+        feedback.style.display = "inline";
+
+        setTimeout(() => {
+            feedback.classList.remove("show");
+            feedback.style.display = "none";
+        }, 2000);
+    }).catch(err => {
+        console.error('Chyba při kopírování: ', err);
+    });
+}
